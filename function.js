@@ -7,9 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>Always kept on your feet, exciting atmosphere, and I highly recommend you give it a listen</i>", author: "Joshua Gearing, on <i>Crenark Hill</i>" },
     { text: "<i>Engaging from the outset</i>", author: "Oscar Maclean, performer of his <i>String Trio</i>" },
     { text: "<i>Excellent technique, knowledge of repertoire and is a pleasure to teach</i>", author: "Jacques Cohen" },
+    <!--
     { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes, performer of <i>Mo Li Hua</i> and <i>Fleeting Manhattan</i>" },
+    -->
     { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp" },
+    <!--
     { text: "<i>A vivid and imaginative work ... well-written for cello</i>", author: "Timothy Bowers" },
+    -->
     { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation.</i>", author: "Dexter Dédalo" },
     { text: "<i>Every sonority and musical gesture is preserved, yet reimagined for the piano</i>", author: "Leo Lupascu, on his arrangement of <i>The Planets</i>" },
     { text: "<i>Transforming emotions into melodies</i>", author: "Yulin Pan" },
