@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>Excellent technique, knowledge of repertoire and is a pleasure to teach</i>", author: "Jacques Cohen" },
     { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes, performer of <i>Mo Li Hua</i> and <i>Fleeting Manhattan</i>" },
     { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp" },
-    { text: "<i>A vivid and imaginative work ... well-written for cello</i>", author: "Timothy Bowers" },
-    { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation.</i>", author: "Dexter Dédalo" },
+    { text: "<i>A vivid and imaginative work, well-written for cello</i>", author: "Timothy Bowers" },
+    { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation</i>", author: "Dexter Dédalo" },
     { text: "<i>Every sonority and musical gesture is preserved, yet reimagined for the piano</i>", author: "Leo Lupascu, on his arrangement of <i>The Planets</i>" },
     { text: "<i>Transforming emotions into melodies</i>", author: "Yulin Pan" },
-    { text: "<i>An impressive piece ... compositionally coherent and genuine idiomatic writing</i>", author: "Robert Saxton, on his <i>Fantasy for Violin</i>" },
+    { text: "<i>An impressive piece, compositionally coherent and genuine idiomatic writing</i>", author: "Robert Saxton, on his <i>Fantasy for Violin</i>" },
     { text: "<i>A pleasure to learn and perform</i>", author: "Yazdi Madon, on performing his <i>Herbstlied</i>" },
     ];
    
