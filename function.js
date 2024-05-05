@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>A vivid and imaginative work, well-written for cello</i>", author: "Timothy Bowers" },
     { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation</i>", author: "Dexter Dédalo" },
     { text: "<i>Every sonority and musical gesture is preserved, yet reimagined for the piano</i>", author: "Leo Lupascu, on his arrangement of <i>The Planets</i>" },
-    { text: "<i>Transforming emotions into melodies</i>", author: "Yulin Pan" },
     { text: "<i>An impressive piece, compositionally coherent and genuine idiomatic writing</i>", author: "Robert Saxton, on his <i>Fantasy for Violin</i>" },
     { text: "<i>A pleasure to learn and perform</i>", author: "Yazdi Madon, on performing his <i>Herbstlied</i>" },
     ];
