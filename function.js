@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>The perfect mix of sounding fresh and contemporary while still being accessible and enjoyable to listen to</i>", author: "Tom McDonnell" },
     { text: "<i>One of our future musical entrepreneurs</i>", author: "Alison Cox OBE" },
     { text: "<i>Always kept on your feet, exciting atmosphere, and I highly recommend you give it a listen</i>", author: "Joshua Gearing" },
-    { text: "<i>Engaging from the outset</i>", author: "Oscar Maclean" },
+    { text: "<i>The very best of new music</i>", author: "York Late Music Festival" },
     { text: "<i>Excellent technique, knowledge of repertoire and is a pleasure to teach</i>", author: "Jacques Cohen" },
     { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes" },
     { text: "<i>Wonderful touches and a very satisfying shape</i>", author: "Patrick Bailey" },
