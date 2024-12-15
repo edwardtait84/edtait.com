@@ -49,39 +49,19 @@ section {
 	background-color: #dcdced;
 }
 
-#events {
-	background-image: url('PurcellPianoRhysStokes1.jpg');
+#projects {
+	background-image: url('HatfieldHouse2022WithScore.jpg');
 }
 
-#pastevents {
-	background-color: #dcdced;
+#events {
+	background-image: url('PurcellPianoRhysStokes1.jpg');
 }
 
 #services {
 	background-image: url('BusheyStationDark2.jpg');
 }
 
-#music {
-	background-color: #dcdced;
-}
-
-#projects {
-	background-image: url('HatfieldHouse2022WithScore.jpg');
-}
-
-#repertoire {
-	background-image: url('PurcellPianoRhysStokes1.jpg');
-}
-
 #contact {
-	background-image: url('TomMcDonnell.jpg');
-}
-
-#blog {
-	background-image: url('TomMcDonnell.jpg');
-}
-
-#eypwebsites {
 	background-image: url('TomMcDonnell.jpg');
 }
 
