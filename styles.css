@@ -1,5 +1,5 @@
 body {
-	font-family: "Trebuchet MS", Tahoma, sans-serif;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	margin: 0; padding: 0;
 } 
 
@@ -31,7 +31,7 @@ nav ul li a {
 	margin: 0 auto;
 	text-align: center;
 	padding: 12px 0;
-	font-size: 22px;
+	font-size: 18px;
 }
 
 section {
@@ -42,10 +42,26 @@ section {
 }
 
 #home {
-	background-image: url('BusheyStationDark2.jpg');
+	background-image: url('PurcellPianoRhysStokes1.jpg');
 }
 
 #about {
+	background-color: #dcdced;
+}
+
+#events {
+	background-image: url('PurcellPianoRhysStokes1.jpg');
+}
+
+#pastevents {
+	background-color: #dcdced;
+}
+
+#services {
+	background-image: url('PhotoByLeoLupascu.JPG');
+}
+
+#music {
 	background-color: #dcdced;
 }
 
@@ -53,15 +69,19 @@ section {
 	background-image: url('HatfieldHouse2022WithScore.jpg');
 }
 
-#events {
+#repertoire {
 	background-image: url('PurcellPianoRhysStokes1.jpg');
 }
 
-#services {
-	background-image: url('BusheyStationDark2.jpg');
+#contact {
+	background-image: url('TomMcDonnell.jpg');
 }
 
-#contact {
+#blog {
+	background-image: url('TomMcDonnell.jpg');
+}
+
+#eypwebsites {
 	background-image: url('TomMcDonnell.jpg');
 }
 
