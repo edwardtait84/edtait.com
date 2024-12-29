@@ -1,0 +1,133 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content-section {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bio-container, .events-container {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Adjust height as needed */
+}
+
+.bio-image, .events-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.moving-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    animation: move-text 15s linear infinite;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background for text */
+    border-radius: 10px;
+    max-width: 80%;
+    text-align: center;
+}
+
+.moving-text p, .moving-text ul {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@keyframes move-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer .social-links li {
+    display: inline;
+}
+
+footer .social-links li a {
+    color: white;
+    font-size: 18px;
+}
+
+footer .social-links li a:hover {
+    color: #ffcc00;
+}
+
+.music-embed {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.music-embed iframe {
+    margin: 20px 0;
+}
