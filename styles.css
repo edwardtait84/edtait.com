@@ -34,6 +34,58 @@ nav ul li a {
 	font-size: 18px;
 }
 
+.scroll1 {
+	background-image: url("AmershamDark.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 12px 0;
+}
+
+.scroll2 {
+	background-image: url("BusheyStationDark2.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 12px 0;
+}
+
+.scroll4 {
+	background-image: url("PhotoByLeoLupascu.JPG");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 12px 0;
+}
+
+.scroll3 {
+	background-image: url("AldgateDark.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 12px 0;
+}
+
 section {
 	padding: 35px 0;
 	background-size: cover;
@@ -45,47 +97,11 @@ section {
 	background-image: url('BusheyStationDark2.jpg');
 }
 
-#about {
-	background-color: #dcdced;
-}
-
-#events {
-	background-image: url('PurcellPianoRhysStokes1.jpg');
-}
-
 #pastevents {
 	background-color: #dcdced;
 }
 
-#services {
-	background-image: url('PhotoByLeoLupascu.JPG');
-}
-
 #music {
-	background-color: #dcdced;
-}
-
-#projects {
-	background-image: url('HatfieldHouse2022WithScore.jpg');
-}
-
-#repertoire {
-	background-image: url('PurcellPianoRhysStokes1.jpg');
-}
-
-#contact {
-	background-image: url('TomMcDonnell.jpg');
-}
-
-#blog {
-	background-image: url('TomMcDonnell.jpg');
-}
-
-#eypwebsites {
-	background-image: url('TomMcDonnell.jpg');
-}
-
-#reviews {
 	background-color: #dcdced;
 }
 
@@ -146,4 +162,9 @@ label {
 
 .tab-content.show {
 	display: block;
+}
+
+p {
+	margin-right: 35px;
+	margin-left: 35px;
 }
