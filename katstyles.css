@@ -1,24 +1,29 @@
 /* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
 h1, h2, h3 {
     color: #333;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
 a {
     text-decoration: none;
     color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 header {
@@ -44,6 +49,16 @@ nav ul li a {
     text-transform: uppercase;
 }
 
+header h1 {
+    margin: 10px 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Biography Section */
 .content-section {
     margin: 40px auto;
     width: 80%;
@@ -56,21 +71,26 @@ nav ul li a {
 .bio-container {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-}
-
-.bio-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
 }
 
 .bio-text {
     flex: 1;
     font-size: 1.1rem;
+    padding: 20px;
 }
 
+.bio-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    max-width: 100%;
+}
+
+/* Upcoming Events Section */
 .events-list {
     padding: 0;
     margin: 0;
@@ -81,6 +101,11 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+.events-list li strong {
+    font-size: 1.2rem;
+}
+
+/* Music Section */
 .music-embed {
     margin: 30px 0;
     text-align: center;
@@ -88,8 +113,17 @@ nav ul li a {
 
 .music-embed iframe {
     margin: 20px 0;
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
 }
 
+.music-embed h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Footer Section */
 footer {
     background-color: #333;
     color: white;
@@ -114,4 +148,38 @@ footer .social-links li a {
 
 footer .social-links li a:hover {
     color: #ffcc00;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .bio-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bio-text {
+        padding: 10px;
+    }
+
+    .bio-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .events-list {
+        font-size: 1rem;
+    }
+
+    .music-embed iframe {
+        width: 100%;
+        max-width: 100%;
+    }
 }
