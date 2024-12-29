@@ -25,7 +25,7 @@ ul {
 /* Header Section */
 header {
     position: relative;
-    background-image: url('TomMcdonnell.jpg'); /* Replace with your large static image */
+    background-image: ('TomMcdonnell.jpg'); /* Replace with your large static image */
     background-size: cover;
     background-position: center;
     height: 400px;
