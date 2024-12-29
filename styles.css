@@ -1,3 +1,27 @@
+@media only screen and (max-device-width: 1366px) {
+  .scroll1 {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .scroll2s {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .scroll3 {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .scroll4 {
+    background-attachment: scroll;
+  }
+}
+
 body {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	margin: 0; padding: 0;
