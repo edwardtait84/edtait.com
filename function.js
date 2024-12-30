@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     var quotes = [
     { text: "<i>Wonderful and ambitious, capturing the listener's attention brilliantly</i>", author: "Graham Bennett, North London Festival" },
