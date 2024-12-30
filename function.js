@@ -1,9 +1,3 @@
-function adjustBackground() {
-    var scrollPosition = window.scrollY;
-    document.scroll1.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
-}
-
-/window.addEventListener('scroll', adjustBackground);
 
 document.addEventListener("DOMContentLoaded", function () {
     var quotes = [
