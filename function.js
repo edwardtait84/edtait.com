@@ -1,3 +1,10 @@
+function adjustBackground() {
+    var scrollPosition = window.scrollY;
+    document.scroll1.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+}
+
+/window.addEventListener('scroll', adjustBackground);
+
 document.addEventListener("DOMContentLoaded", function () {
     var quotes = [
     { text: "<i>Wonderful and ambitious, capturing the listener's attention brilliantly</i>", author: "Graham Bennett, North London Festival" },
