@@ -37,7 +37,6 @@ nav ul li a {
 .scroll1 {
 	background-image: url("AmershamDark.jpg");
 	min-height: 500px;
-	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -50,7 +49,6 @@ nav ul li a {
 .scroll2 {
 	background-image: url("AmershamDark.jpg");
 	min-height: 500px;
-	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -63,7 +61,6 @@ nav ul li a {
 .scroll4 {
 	background-image: url("AmershamDark.jpg");
 	min-height: 500px;
-	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -76,7 +73,6 @@ nav ul li a {
 .scroll3 {
 	background-image: url("AmershamDark.jpg");
 	min-height: 500px;
-	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -84,12 +80,6 @@ nav ul li a {
 	font-size: 18px;
 	text-align: center;
 	padding: 12px 0;
-}
-
-@media (max-width: 768px) {
-  .scroll1 {
-    background-attachment: scroll; /* Mobile fallback: background scrolls with content */
-  }
 }
 
 section {
