@@ -86,6 +86,12 @@ nav ul li a {
 	padding: 12px 0;
 }
 
+@media (max-width: 768px) {
+  .scroll1 {
+    background-attachment: scroll; /* Mobile fallback: background scrolls with content */
+  }
+}
+
 section {
 	padding: 35px 0;
 	background-size: cover;
