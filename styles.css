@@ -1,6 +1,15 @@
 @media only screen and (max-device-width: 1366px) {
   .scroll1 {
-    background-attachment: scroll;
+  	background-image: url("AmershamDark.jpg");
+    	min-height: 500px;
+    	background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    	color: white;
+    	font-size: 18px;
+    	text-align: center;
+    	padding: 12px 0;
   }
 }
 
