@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>Always kept on your feet, exciting atmosphere, and I highly recommend you give it a listen</i>", author: "Joshua Gearing" },
     { text: "<i>The very best of new music</i>", author: "York Late Music Festival" },
     { text: "<i>Excellent technique, knowledge of repertoire and is a pleasure to teach</i>", author: "Jacques Cohen" },
-    { text: "<i>Unabashedly expressive ideas with a sure sense of narrative, pace and structure.
+    { text: "<i>Unabashedly expressive ideas with a sure sense of narrative, pace and structure</i>", author: "The Musical Opinion" },
     { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes" },
     { text: "<i>Wonderful touches and a very satisfying shape</i>", author: "London Sinfonietta" },
     { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp, Cambridge University" },
