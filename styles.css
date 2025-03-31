@@ -105,6 +105,13 @@ section {
 	background-color: #dcdced;
 }
 
+contact {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px 0;
+}
+
 footer {
 	background-color: #333;
 	color: #fff;
