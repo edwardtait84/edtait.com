@@ -35,7 +35,7 @@ nav ul li a {
 }
 
 .scroll1 {
-	background-image: url("AldgateLight.jpg");
+	background-image: url("AldgateDark.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
@@ -48,7 +48,7 @@ nav ul li a {
 }
 
 .scroll2 {
-	background-image: url("AldgateLight.jpg");
+	background-image: url("AldgateDark.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
@@ -61,7 +61,7 @@ nav ul li a {
 }
 
 .scroll4 {
-	background-image: url("AldgateLight.jpg");
+	background-image: url("AldgateDark.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
@@ -74,7 +74,7 @@ nav ul li a {
 }
 
 .scroll3 {
-	background-image: url("AldgateLight.jpg");
+	background-image: url("AldgateDark.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
