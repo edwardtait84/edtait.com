@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var quotes = [
-    { text: "<i>Wonderful and ambitious, capturing the listener's attention brilliantly</i>", author: "Graham Bennett, North London Festival" },
+    { text: "<i>Wonderful and ambitious, capturing the listener's attention brilliantly</i>", author: "Graham Bennett" },
     { text: "<i>An absolutely brilliant composition</i>", author: "Nicholas Daniel" },
     { text: "<i>The perfect mix of sounding fresh and contemporary while still being accessible and enjoyable to listen to</i>", author: "Tom McDonnell" },
     { text: "<i>One of our future musical entrepreneurs</i>", author: "Alison Cox OBE" },
@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>Unabashedly expressive ideas with a sure sense of narrative, pace and structure</i>", author: "The Musical Opinion" },
     { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes" },
     { text: "<i>Wonderful touches and a very satisfying shape</i>", author: "London Sinfonietta" },
-    { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp, Cambridge University" },
+    { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp" },
     { text: "<i>A vivid and imaginative work, well-written for cello</i>", author: "Timothy Bowers" },
-    { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation</i>", author: "Dexter Dédalo, King's College London" },
+    { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation</i>", author: "Dexter Dédalo" },
     { text: "<i>Every sonority and musical gesture is preserved, yet reimagined for the piano</i>", author: "Leo Lupascu" },
-    { text: "<i>An impressive piece, compositionally coherent and genuine idiomatic writing</i>", author: "Robert Saxton" },
+    { text: "<i>An impressive piece, compositionally coherent and genuine idiomatic writing</i>", author: "Dr Robert Saxton" },
     { text: "<i>A pleasure to learn and perform</i>", author: "Yazdi Madon" },
     ];
    
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var currentQuote = quotes[quoteIndex];
    
     // Customize font, color, and style here
-    quoteContainer.innerHTML = `<p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">"${currentQuote.text}"</p><p style="font-size: 14px; color: white;">- ${currentQuote.author}</p>`;
+    quoteContainer.innerHTML = `<p style="font-family: Book Antiqua; font-size: 20px; color: white;">"${currentQuote.text}"</p><p style="font-size: 14px; color: white;">- ${currentQuote.author}</p>`;
     quoteContainer.style.opacity = 1;
    
     updateQuoteDots();
