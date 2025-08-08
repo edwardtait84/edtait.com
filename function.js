@@ -7,14 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "<i>The very best of new music</i>", author: "York Late Music Festival" },
     { text: "<i>Excellent technique, knowledge of repertoire and is a pleasure to teach</i>", author: "Jacques Cohen" },
     { text: "<i>Unabashedly expressive ideas with a sure sense of narrative, pace and structure</i>", author: "The Musical Opinion" },
-    { text: "<i>His works show a nostalgic feel, yet also a unique and individual stamp</i>", author: "Rhys Stokes" },
     { text: "<i>Wonderful touches and a very satisfying shape</i>", author: "London Sinfonietta" },
     { text: "<i>Undoubtedly a very exciting upcoming compositional voice</i>", author: "Samuel Kemp" },
     { text: "<i>A vivid and imaginative work, well-written for cello</i>", author: "Timothy Bowers" },
     { text: "<i>Marrying movement and zeitgeist, Fleeting Manhattan masterly paints a panoramic fresco of a thriving nation</i>", author: "Dexter Dédalo" },
     { text: "<i>Every sonority and musical gesture is preserved, yet reimagined for the piano</i>", author: "Leo Lupascu" },
     { text: "<i>An impressive piece, compositionally coherent and genuine idiomatic writing</i>", author: "Dr Robert Saxton" },
-    { text: "<i>A pleasure to learn and perform</i>", author: "Yazdi Madon" },
+    { text: "<i>Excellent craftsmanship shown in Crenark Hill, both playful and majestic</i>", author: "Daniel Hogan" },
     ];
    
     var quoteIndex = 0;
@@ -72,3 +71,4 @@ document.addEventListener("DOMContent-Loaded", function() {
     tabContent.classList.toggle("show");
     });
 });
+
