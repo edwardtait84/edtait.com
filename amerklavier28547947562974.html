@@ -15,13 +15,19 @@
 
     header {
       background-color: #c2dbf0;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
       font-size: 2.5em;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.1em;
     }
 
     section {
@@ -41,6 +47,37 @@
       max-width: 150px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      border-bottom: 2px solid #b0cbe8;
+      padding-bottom: 10px;
+    }
+
+    .concert {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f4f9ff;
+      border-radius: 8px;
+    }
+
+    .concert h3 {
+      margin-top: 0;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #1a4e80;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .buy-button:hover {
+      background-color: #104069;
     }
 
     .social-links {
@@ -67,17 +104,15 @@
       padding: 20px;
       font-size: 0.9em;
     }
-
-    h2 {
-      border-bottom: 2px solid #b0cbe8;
-      padding-bottom: 10px;
-    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Classical Music Festival 2025</h1>
+    <div class="intro">
+      <p>The Classical Music Festival is an annual celebration of timeless compositions and world-class performances, bringing together music lovers from around the globe for an unforgettable season of sound.</p>
+    </div>
   </header>
 
   <section id="founder">
@@ -92,12 +127,24 @@
 
   <section id="season">
     <h2>This Year's Season</h2>
-    <p>Join us for the 2025 season featuring performances from world-renowned orchestras, chamber ensembles, and soloists. Highlights include:</p>
-    <ul>
-      <li>Opening Gala: Beethoven's 9th Symphony</li>
-      <li>Chamber Night: Works by Mozart, Debussy, and Clara Schumann</li>
-      <li>Rising Stars Showcase featuring young international talent</li>
-    </ul>
+
+    <div class="concert">
+      <h3>Opening Gala: Beethoven's 9th Symphony</h3>
+      <p>Experience the grandeur of Beethoven’s final symphony performed by our full orchestra and choir.</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+    <div class="concert">
+      <h3>Chamber Night: Mozart, Debussy, Clara Schumann</h3>
+      <p>An intimate evening of delicate and powerful chamber works by three of classical music’s greats.</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+    <div class="concert">
+      <h3>Rising Stars Showcase</h3>
+      <p>Be amazed by the next generation of classical virtuosos, performing solo and ensemble works.</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
   </section>
 
   <section id="highlights">
