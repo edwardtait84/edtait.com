@@ -5,12 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Classical Music Festival</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #e6f0fa;
       margin: 0;
       padding: 0;
       color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #1a4e80;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #104069;
     }
 
     header {
@@ -124,15 +154,24 @@
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav>
+    <a href="#about-festival">About the Festival</a>
+    <a href="#season">This Year's Season</a>
+    <a href="#founder">About the Founder</a>
+    <a href="#highlights">Past Highlights</a>
+    <a href="#social">Follow Us</a>
+  </nav>
+
+  <!-- Header with Logo -->
   <header>
     <div class="header-inner">
-      <!--
       <img src="logo.png" alt="Festival Logo" class="logo" />
-      -->
       <h1>Classical Music Festival 2025</h1>
     </div>
   </header>
 
+  <!-- Sections -->
   <section id="about-festival">
     <h2>About the Festival</h2>
     <p>
@@ -188,7 +227,7 @@
     </ul>
   </section>
 
-  <section class="social-links">
+  <section class="social-links" id="social">
     <h2>Follow Us</h2>
     <a href="https://youtube.com" target="_blank">YouTube</a>
     <a href="https://instagram.com" target="_blank">Instagram</a>
