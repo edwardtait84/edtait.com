@@ -19,9 +19,30 @@
       text-align: center;
     }
 
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    @media (min-width: 600px) {
+      .header-inner {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+    }
+
     header h1 {
       margin: 0;
       font-size: 2.5em;
+      color: #1a4e80;
     }
 
     section {
@@ -104,7 +125,10 @@
 <body>
 
   <header>
-    <h1>Classical Music Festival 2025</h1>
+    <div class="header-inner">
+      <img src="logo.png" alt="Festival Logo" class="logo" />
+      <h1>Classical Music Festival 2025</h1>
+    </div>
   </header>
 
   <section id="about-festival">
