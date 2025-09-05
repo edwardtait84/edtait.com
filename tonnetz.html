@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tonnetz Visualization</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+  svg {
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+  }
+  .node circle {
+    fill: lightblue;
+    stroke: steelblue;
+    stroke-width: 2px;
+  }
+  .node text {
+    font-weight: bold;
+    font-size: 14px;
+    pointer-events: none;
+    user-select: none;
+  }
+  .edge-P5 {
+    stroke: red;
+    stroke-width: 2;
+  }
+  .edge-M3 {
+    stroke: green;
+    stroke-width: 2;
+  }
+  .edge-m3 {
+    stroke: blue;
+    stroke-width: 2;
+  }
+</style>
+</head>
+<body>
+
+<h1>Tonnetz Visualization</h1>
+<svg id="tonnetz" viewBox="0 0 600 400"></svg>
+
+<script>
+  // Pitch classes and names
+  const pitchNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+  // Intervals (semitones)
+  const perfectFifth = 7;
+  const majorThird = 4;
+  const minorThird = 3;
+
+  // SVG and dimensions
+  const svg = document.getElementById('tonnetz');
+  const width = 600;
+  const height = 400;
+  const margin = 60;
+  const radius = 20;
+
+  // Calculate positions: Tonnetz lattice coordinates
+  // We'll use a 2D coordinate system where:
+  // x-axis steps by perfect fifth (7 semitones)
+  // y-axis steps by major third (4 semitones)
+  // Scale the grid to fit nicely in SVG
+
+  // Helper function to compute lattice position
+  function getPosition(pitch) {
+    // Decompose pitch into coordinates
+    // This is a common Tonnetz approach:
+    // x = number of perfect fifth moves mod 7 (to keep layout)
+    // y = number of major third moves mod 3 (approx)
+    // But for simplicity, let's just assign fixed positions
+
+    // Instead, we can map pitch to lattice coordinates:
+    // We'll solve for integers a,b: pitch = (7a + 4b) mod 12
+    // Iterate over small ranges to find a,b pair
+
+    for (let a = -2; a <= 2; a++) {
+      for (let b = -2; b <= 2; b++) {
+        if ((7*a + 4*b) % 12 === pitch) {
+          return {x: a, y: -b};  // y inverted so up is positive
+        }
+      }
+    }
+    return {x: 0, y: 0}; // fallback
+  }
+
+  // Create node data with positions in SVG coordinates
+  const nodes = pitchNames.map((name, i) => {
+    const pos = getPosition(i);
+    // Scale and translate lattice coordinates to SVG pixels
+    return {
+      id: i,
+      name,
+      x: margin + (pos.x + 2) * ((width - 2*margin) / 4),
+      y: margin + (pos.y + 2) * ((height - 2*margin) / 4),
+    };
+  });
+
+  // Define edges based on intervals
+  const edges = [];
+  nodes.forEach(n => {
+    const from = n.id;
+    // Perfect fifth edge
+    edges.push({
+      from,
+      to: (from + perfectFifth) % 12,
+      interval: 'P5'
+    });
+    // Major third edge
+    edges.push({
+      from,
+      to: (from + majorThird) % 12,
+      interval: 'M3'
+    });
+    // Minor third edge
+    edges.push({
+      from,
+      to: (from + minorThird) % 12,
+      interval: 'm3'
+    });
+  });
+
+  // Remove duplicate edges (since graph is undirected)
+  const uniqueEdges = [];
+  const seen = new Set();
+  edges.forEach(e => {
+    const key = [Math.min(e.from,e.to), Math.max(e.from,e.to)].join('-');
+    if (!seen.has(key)) {
+      uniqueEdges.push(e);
+      seen.add(key);
+    }
+  });
+
+  // Draw edges
+  uniqueEdges.forEach(e => {
+    const fromNode = nodes[e.from];
+    const toNode = nodes[e.to];
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', fromNode.x);
+    line.setAttribute('y1', fromNode.y);
+    line.setAttribute('x2', toNode.x);
+    line.setAttribute('y2', toNode.y);
+    line.classList.add('edge-' + e.interval);
+    svg.appendChild(line);
+  });
+
+  // Draw nodes
+  nodes.forEach(n => {
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.classList.add('node');
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', n.x);
+    circle.setAttribute('cy', n.y);
+    circle.setAttribute('r', radius);
+    g.appendChild(circle);
+
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', n.x);
+    text.setAttribute('y', n.y + 5);  // slightly lower vertically for centering
+    text.setAttribute('text-anchor', 'middle');
+    text.textContent = n.name;
+    g.appendChild(text);
+
+    svg.appendChild(g);
+  });
+</script>
+
+</body>
+</html>
