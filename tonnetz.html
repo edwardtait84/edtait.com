@@ -149,10 +149,13 @@
   function pitchAt(x, y) {
     return mod12(7 * x + 4 * y);
   }
-  
+
   function pos(x, y) {
-    const px = 350 + a[0] * x + b[0] * y;
-    const py = 320 - a[1] * x - b[1] * y;
+    const tonnetzRect = tonnetz.getBoundingClientRect();
+    const centerX = tonnetz.offsetWidth / 2;
+    const centerY = tonnetz.offsetHeight / 2;
+    const px = centerX + a[0] * x + b[0] * y;
+    const py = centerY - a[1] * x - b[1] * y;
     return [px, py];
   }
   
@@ -162,8 +165,8 @@
   }
   
   // Build grid
-  for (let y = -3; y <= 3; y++) {
-    for (let x = -3; x <= 3; x++) {
+  for (let y = -2; y <= 2; y++) {
+    for (let x = -2; x <= 2; x++) {
       const pitch = pitchAt(x, y);
       const [px, py] = pos(x, y);
   
@@ -292,6 +295,25 @@
   });
   
   const scale = 56; // previously 60 or higher
+  
+  function generateGrid() {
+    // Clear previous
+    nodes.length = 0;
+    tonnetz.innerHTML = '<svg class="lines" id="svgLines"></svg>';
+    const svg = document.getElementById('svgLines');
+  
+    for (let y = -2; y <= 2; y++) {
+      for (let x = -2; x <= 2; x++) {
+        ...
+        // same code to add node
+      }
+    }
+  }
+  
+  window.addEventListener('load', generateGrid);
+  window.addEventListener('resize', () => {
+    generateGrid();
+  });
 </script>
 
 </body>
