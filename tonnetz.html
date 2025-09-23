@@ -27,20 +27,28 @@
       font-weight: 400;
       color: #aaa;
     }
+
     .container {
       position: relative;
-      width: 750px;
-      height: 650px;
+      width: 100%;
+      height: 520px;
       background: #181818;
       border-radius: 10px;
       box-shadow: 0 0 15px #000;
       overflow: hidden;
+      display: flex;
+      justify-content: center; /* keeps grid centered */
+      align-items: center;
+      padding: 20px 0;
     }
+    
     .tonnetz {
       position: relative;
       width: 100%;
+      max-width: 600px;
       height: 100%;
     }
+    
     svg.lines {
       position: absolute;
       top: 0;
