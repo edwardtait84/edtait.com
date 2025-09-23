@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tonnetz Visualization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 5px 0 15px 0;
+      font-weight: 400;
+      color: #aaa;
+      font-size: 1em;
+    }
+
+    .container {
+      position: relative;
+      width: 600px;
+      height: 520px;
+      background: #181818;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+      overflow: hidden;
+    }
+
+    .tonnetz {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    svg.lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .node {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: #222;
+      border-radius: 50%;
+      border: 2px solid #555;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      font-weight: 600;
+      font-size: 1em;
+      color: #eee;
+      z-index: 1;
+    }
+
+    .node:hover:not(.selected) {
+      border-color: #f39c12;
+      background: #f39c12;
+      color: #121212;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .node.selected {
+      border-color: #e74c3c;
+      background: #e74c3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    button {
+      padding: 8px 20px;
+      font-size: 0.95em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    button.active {
+      background: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Tonnetz Visualization</h1>
+<h2>Select notes to hear their pitch</h2>
+
+<div class="container">
+  <div class="tonnetz" id="tonnetz">
+    <svg class="lines" id="svgLines"></svg>
+  </div>
+</div>
+
+<div class="controls">
+  <button id="selectBtn">Select</button>
+  <button id="resetBtn">Reset</button>
+</div>
+
+<script>
+const pitchNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+const tonnetz = document.getElementById('tonnetz');
+const svg = document.getElementById('svgLines');
+const nodes = [];
+const size = 48; // smaller circle size
+
+const scale = 60; // slightly reduced spacing
+const a = [scale, 0];
+const angle60 = Math.PI / 3;
+const b = [scale * Math.cos(angle60), scale * Math.sin(angle60)];
+
+function mod12(n) {
+  return ((n % 12) + 12) % 12;
+}
+
+function pitchAt(x, y) {
+  return mod12(7 * x + 4 * y);
+}
+
+function pos(x, y) {
+  const px = 300 + a[0] * x + b[0] * y;
+  const py = 260 - a[1] * x - b[1] * y;
+  return [px, py];
+}
+
+function pitchToFreq(pitchClass, octave = 4) {
+  const midiNote = 12 * (octave + 1) + pitchClass;
+  return 440 * Math.pow(2, (midiNote - 69) / 12);
+}
+
+// Create nodes
+for (let y = -3; y <= 3; y++) {
+  for (let x = -3; x <= 3; x++) {
+    const pitch = pitchAt(x, y);
+    const [px, py] = pos(x, y);
+
+    const node = document.createElement('div');
+    node.classList.add('node');
+    node.style.left = `${px - size / 2}px`;
+    node.style.top = `${py - size / 2}px`;
+    node.textContent = pitchNames[pitch];
+    node.dataset.x = x;
+    node.dataset.y = y;
+    node.dataset.pitch = pitch;
+    node.dataset.centerX = px;
+    node.dataset.centerY = py;
+    tonnetz.appendChild(node);
+    nodes.push(node);
+  }
+}
+
+let selectionMode = false;
+const activeOscillators = new Map();
+let audioCtx = null;
+
+const selectBtn = document.getElementById('selectBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+function stopOscillator(osc) {
+  if (osc) {
+    osc.stop();
+    osc.disconnect();
+  }
+}
+
+function stopAllSounds() {
+  activeOscillators.forEach(osc => stopOscillator(osc));
+  activeOscillators.clear();
+}
+
+function clearSelection() {
+  nodes.forEach(n => n.classList.remove('selected'));
+  stopAllSounds();
+  drawLines(); // Clear lines
+}
+
+function drawLines() {
+  svg.innerHTML = ''; // Clear existing lines
+  const selectedNodes = nodes.filter(n => n.classList.contains('selected'));
+
+  for (let i = 0; i < selectedNodes.length; i++) {
+    for (let j = i + 1; j < selectedNodes.length; j++) {
+      const n1 = selectedNodes[i];
+      const n2 = selectedNodes[j];
+      const x1 = +n1.dataset.centerX;
+      const y1 = +n1.dataset.centerY;
+      const x2 = +n2.dataset.centerX;
+      const y2 = +n2.dataset.centerY;
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      line.setAttribute("stroke", "#e74c3c");
+      line.setAttribute("stroke-width", "2");
+      svg.appendChild(line);
+    }
+  }
+}
+
+async function playTone(freq, node) {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    await audioCtx.resume();
+  }
+  const osc = audioCtx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  osc.connect(audioCtx.destination);
+  osc.start();
+  activeOscillators.set(node, osc);
+}
+
+nodes.forEach(node => {
+  node.addEventListener('click', async () => {
+    if (!selectionMode) return;
+
+    if (activeOscillators.has(node)) {
+      node.classList.remove('selected');
+      const osc = activeOscillators.get(node);
+      stopOscillator(osc);
+      activeOscillators.delete(node);
+    } else {
+      node.classList.add('selected');
+      const pitchClass = +node.dataset.pitch;
+      const freq = pitchToFreq(pitchClass, 4);
+      await playTone(freq, node);
+    }
+
+    drawLines(); // Update lines
+  });
+});
+
+selectBtn.addEventListener('click', async () => {
+  selectionMode = !selectionMode;
+  selectBtn.classList.toggle('active', selectionMode);
+
+  if (selectionMode) {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      await audioCtx.resume();
+    }
+  } else {
+    clearSelection();
+  }
+});
+
+resetBtn.addEventListener('click', () => {
+  clearSelection();
+  if (selectionMode) {
+    selectionMode = false;
+    selectBtn.classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
