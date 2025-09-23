@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tonnetz with Sound-Playing Selectable Notes</title>
+<title>Tonnetz with Polyphonic Sound-Playing Selectable Notes</title>
 <style>
-  /* (same styles as before) */
   body {
     font-family: Arial, sans-serif;
     background: #121212;
@@ -52,12 +51,6 @@
     color: #121212;
     font-weight: bold;
     z-index: 10;
-  }
-  .node.highlight {
-    border-color: #3498db;
-    background: #3498db;
-    color: white;
-    font-weight: bold;
   }
   .node.selected {
     border-color: #e74c3c;
@@ -128,7 +121,6 @@ function pos(x, y) {
 
 // Convert pitch class to frequency (assuming middle C = C4 = 261.63Hz)
 function pitchToFreq(pitchClass, octave = 4) {
-  // Calculate MIDI note number (C4 = 60)
   const midiNote = 12 * (octave + 1) + pitchClass;
   return 440 * Math.pow(2, (midiNote - 69) / 12);
 }
@@ -153,71 +145,67 @@ for (let y = -3; y <= 3; y++) {
 }
 
 let selectionMode = false;
-let currentSelectedNode = null;
+// Map nodes to oscillators for polyphony
+const activeOscillators = new Map();
+
 let audioCtx = null;
-let oscillator = null;
 
 const selectBtn = document.getElementById('selectBtn');
 const resetBtn = document.getElementById('resetBtn');
 
+function stopOscillator(osc) {
+  if (osc) {
+    osc.stop();
+    osc.disconnect();
+  }
+}
+
+function stopAllSounds() {
+  activeOscillators.forEach(osc => stopOscillator(osc));
+  activeOscillators.clear();
+}
+
 function clearSelection() {
   nodes.forEach(n => n.classList.remove('selected'));
-  stopSound();
-  currentSelectedNode = null;
+  stopAllSounds();
 }
 
-function stopSound() {
-  if (oscillator) {
-    oscillator.stop();
-    oscillator.disconnect();
-    oscillator = null;
-  }
-  // Do not close audioCtx to allow reuse
-}
-
-// Play tone for a given frequency
-async function playTone(freq) {
+async function playTone(freq, node) {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
-  // Resume context if suspended (required on mobile and some browsers)
   if (audioCtx.state === 'suspended') {
     await audioCtx.resume();
   }
-  stopSound();
-  oscillator = audioCtx.createOscillator();
-  oscillator.type = 'sine';
-  oscillator.frequency.value = freq;
-  oscillator.connect(audioCtx.destination);
-  oscillator.start();
+  const osc = audioCtx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  osc.connect(audioCtx.destination);
+  osc.start();
+
+  activeOscillators.set(node, osc);
 }
 
-// Node click handler
 nodes.forEach(node => {
   node.addEventListener('click', async () => {
     if (!selectionMode) return;
 
-    if (currentSelectedNode === node) {
-      // Clicking same node toggles off selection & sound
+    if (activeOscillators.has(node)) {
+      // Deselect and stop sound
       node.classList.remove('selected');
-      currentSelectedNode = null;
-      stopSound();
+      const osc = activeOscillators.get(node);
+      stopOscillator(osc);
+      activeOscillators.delete(node);
     } else {
-      // Select new node
-      if (currentSelectedNode) currentSelectedNode.classList.remove('selected');
+      // Select and play
       node.classList.add('selected');
-      currentSelectedNode = node;
-
-      // Calculate freq and play sound
       const pitchClass = +node.dataset.pitch;
-      // Let's assume octave 4 for all notes (middle C octave)
       const freq = pitchToFreq(pitchClass, 4);
-      await playTone(freq);
+      await playTone(freq, node);
     }
   });
 });
 
-// Select button toggles selection mode and creates/resumes AudioContext on user interaction
 selectBtn.addEventListener('click', async () => {
   selectionMode = !selectionMode;
   selectBtn.classList.toggle('active', selectionMode);
@@ -234,7 +222,6 @@ selectBtn.addEventListener('click', async () => {
   }
 });
 
-// Reset button clears selection and disables selection mode
 resetBtn.addEventListener('click', () => {
   clearSelection();
   if (selectionMode) {
@@ -243,5 +230,6 @@ resetBtn.addEventListener('click', () => {
   }
 });
 </script>
+
 </body>
 </html>
