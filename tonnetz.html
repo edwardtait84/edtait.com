@@ -6,16 +6,17 @@
   <title>Tonnetz with Lines</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       background: #121212;
       color: #eee;
-      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px 0;
     }
-
     h1 {
       margin: 0;
       font-size: 2em;
@@ -28,22 +29,24 @@
     }
 
     .container {
-      width: 100vw;
+      position: relative;
+      width: 100%;
+      height: 520px;
       background: #181818;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 0;
+      border-radius: 10px;
       box-shadow: 0 0 15px #000;
       overflow: hidden;
+      display: flex;
+      justify-content: center; /* keeps grid centered */
+      align-items: center;
+      padding: 20px 0;
     }
-
+    
     .tonnetz {
       position: relative;
-      width: calc(100% - 60px);  /* give horizontal padding inside container */
-      max-width: 540px;          /* ensure notes don’t reach the edge */
-      height: 440px;
-      padding: 0;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
     }
     
     svg.lines {
@@ -114,6 +117,7 @@
 
 <h1>Tonnetz Visualization</h1>
 <h2>Select chords to visualize their musical and geometrical intersection:</h2>
+<p>© 2025 Edward Tait</p>
 
 <div class="container">
   <div class="tonnetz" id="tonnetz">
@@ -126,194 +130,168 @@
   <button id="resetBtn">Reset</button>
 </div>
 
-<p>© 2025 Edward Tait</p>
-
 <script>
-  const pitchNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-  
-  const tonnetz = document.getElementById('tonnetz');
-  const svg = document.getElementById('svgLines');
-  const nodes = [];
-  const size = 60;
-  
-  // Spacing for triangular grid remains the same
-  const scale = 70 * 1.2;
-  const a = [scale, 0];
-  const angle60 = Math.PI / 3;
-  const b = [scale * Math.cos(angle60), scale * Math.sin(angle60)];
-  
-  function mod12(n) {
-    return ((n % 12) + 12) % 12;
-  }
-  
-  function pitchAt(x, y) {
-    return mod12(7 * x + 4 * y);
-  }
+const pitchNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-  function pos(x, y) {
-    const tonnetzRect = tonnetz.getBoundingClientRect();
-    const centerX = tonnetz.offsetWidth / 2;
-    const centerY = tonnetz.offsetHeight / 2;
-    const px = centerX + a[0] * x + b[0] * y;
-    const py = centerY - a[1] * x - b[1] * y;
-    return [px, py];
+const tonnetz = document.getElementById('tonnetz');
+const svg = document.getElementById('svgLines');
+const nodes = [];
+const size = 60;
+
+// Spacing for triangular grid remains the same
+const scale = 70 * 1.2;
+const a = [scale, 0];
+const angle60 = Math.PI / 3;
+const b = [scale * Math.cos(angle60), scale * Math.sin(angle60)];
+
+function mod12(n) {
+  return ((n % 12) + 12) % 12;
+}
+
+function pitchAt(x, y) {
+  return mod12(7 * x + 4 * y);
+}
+
+function pos(x, y) {
+  const px = 350 + a[0] * x + b[0] * y;
+  const py = 320 - a[1] * x - b[1] * y;
+  return [px, py];
+}
+
+function pitchToFreq(pitchClass, octave = 4) {
+  const midiNote = 12 * (octave + 1) + pitchClass;
+  return 440 * Math.pow(2, (midiNote - 69) / 12);
+}
+
+// Build grid
+for (let y = -3; y <= 3; y++) {
+  for (let x = -3; x <= 3; x++) {
+    const pitch = pitchAt(x, y);
+    const [px, py] = pos(x, y);
+
+    const node = document.createElement('div');
+    node.classList.add('node');
+    node.style.left = `${px - size / 2}px`;
+    node.style.top = `${py - size / 2}px`;
+    node.textContent = pitchNames[pitch];
+    node.dataset.x = x;
+    node.dataset.y = y;
+    node.dataset.pitch = pitch;
+    node.dataset.centerX = px;
+    node.dataset.centerY = py;
+    tonnetz.appendChild(node);
+    nodes.push(node);
   }
-  
-  function pitchToFreq(pitchClass, octave = 4) {
-    const midiNote = 12 * (octave + 1) + pitchClass;
-    return 440 * Math.pow(2, (midiNote - 69) / 12);
+}
+
+let selectionMode = false;
+const activeOscillators = new Map();
+let audioCtx = null;
+
+const selectBtn = document.getElementById('selectBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+function stopOscillator(osc) {
+  if (osc) {
+    osc.stop();
+    osc.disconnect();
   }
-  
-  // Build grid
-  for (let y = -2; y <= 2; y++) {
-    for (let x = -2; x <= 2; x++) {
-      const pitch = pitchAt(x, y);
-      const [px, py] = pos(x, y);
-  
-      const node = document.createElement('div');
-      node.classList.add('node');
-      node.style.left = `${px - size / 2}px`;
-      node.style.top = `${py - size / 2}px`;
-      node.textContent = pitchNames[pitch];
-      node.dataset.x = x;
-      node.dataset.y = y;
-      node.dataset.pitch = pitch;
-      node.dataset.centerX = px;
-      node.dataset.centerY = py;
-      tonnetz.appendChild(node);
-      nodes.push(node);
+}
+
+function stopAllSounds() {
+  activeOscillators.forEach(osc => stopOscillator(osc));
+  activeOscillators.clear();
+}
+
+function clearSelection() {
+  nodes.forEach(n => n.classList.remove('selected'));
+  stopAllSounds();
+  drawLines(); // Clear lines
+}
+
+function drawLines() {
+  svg.innerHTML = ''; // clear existing lines
+  const selectedNodes = nodes.filter(n => n.classList.contains('selected'));
+
+  for (let i = 0; i < selectedNodes.length; i++) {
+    for (let j = i + 1; j < selectedNodes.length; j++) {
+      const n1 = selectedNodes[i];
+      const n2 = selectedNodes[j];
+      const x1 = +n1.dataset.centerX;
+      const y1 = +n1.dataset.centerY;
+      const x2 = +n2.dataset.centerX;
+      const y2 = +n2.dataset.centerY;
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      line.setAttribute("stroke", "#e74c3c");
+      line.setAttribute("stroke-width", "2");
+      svg.appendChild(line);
     }
   }
-  
-  let selectionMode = false;
-  const activeOscillators = new Map();
-  let audioCtx = null;
-  
-  const selectBtn = document.getElementById('selectBtn');
-  const resetBtn = document.getElementById('resetBtn');
-  
-  function stopOscillator(osc) {
-    if (osc) {
-      osc.stop();
-      osc.disconnect();
+}
+
+async function playTone(freq, node) {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    await audioCtx.resume();
+  }
+  const osc = audioCtx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  osc.connect(audioCtx.destination);
+  osc.start();
+  activeOscillators.set(node, osc);
+}
+
+nodes.forEach(node => {
+  node.addEventListener('click', async () => {
+    if (!selectionMode) return;
+
+    if (activeOscillators.has(node)) {
+      node.classList.remove('selected');
+      const osc = activeOscillators.get(node);
+      stopOscillator(osc);
+      activeOscillators.delete(node);
+    } else {
+      node.classList.add('selected');
+      const pitchClass = +node.dataset.pitch;
+      const freq = pitchToFreq(pitchClass, 4);
+      await playTone(freq, node);
     }
-  }
-  
-  function stopAllSounds() {
-    activeOscillators.forEach(osc => stopOscillator(osc));
-    activeOscillators.clear();
-  }
-  
-  function clearSelection() {
-    nodes.forEach(n => n.classList.remove('selected'));
-    stopAllSounds();
-    drawLines(); // Clear lines
-  }
-  
-  function drawLines() {
-    svg.innerHTML = ''; // clear existing lines
-    const selectedNodes = nodes.filter(n => n.classList.contains('selected'));
-  
-    for (let i = 0; i < selectedNodes.length; i++) {
-      for (let j = i + 1; j < selectedNodes.length; j++) {
-        const n1 = selectedNodes[i];
-        const n2 = selectedNodes[j];
-        const x1 = +n1.dataset.centerX;
-        const y1 = +n1.dataset.centerY;
-        const x2 = +n2.dataset.centerX;
-        const y2 = +n2.dataset.centerY;
-  
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", x1);
-        line.setAttribute("y1", y1);
-        line.setAttribute("x2", x2);
-        line.setAttribute("y2", y2);
-        line.setAttribute("stroke", "#e74c3c");
-        line.setAttribute("stroke-width", "2");
-        svg.appendChild(line);
-      }
-    }
-  }
-  
-  async function playTone(freq, node) {
+
+    drawLines(); // update connections
+  });
+});
+
+selectBtn.addEventListener('click', async () => {
+  selectionMode = !selectionMode;
+  selectBtn.classList.toggle('active', selectionMode);
+
+  if (selectionMode) {
     if (!audioCtx) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
     if (audioCtx.state === 'suspended') {
       await audioCtx.resume();
     }
-    const osc = audioCtx.createOscillator();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    osc.connect(audioCtx.destination);
-    osc.start();
-    activeOscillators.set(node, osc);
-  }
-  
-  nodes.forEach(node => {
-    node.addEventListener('click', async () => {
-      if (!selectionMode) return;
-  
-      if (activeOscillators.has(node)) {
-        node.classList.remove('selected');
-        const osc = activeOscillators.get(node);
-        stopOscillator(osc);
-        activeOscillators.delete(node);
-      } else {
-        node.classList.add('selected');
-        const pitchClass = +node.dataset.pitch;
-        const freq = pitchToFreq(pitchClass, 4);
-        await playTone(freq, node);
-      }
-  
-      drawLines(); // update connections
-    });
-  });
-  
-  selectBtn.addEventListener('click', async () => {
-    selectionMode = !selectionMode;
-    selectBtn.classList.toggle('active', selectionMode);
-  
-    if (selectionMode) {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        await audioCtx.resume();
-      }
-    } else {
-      clearSelection();
-    }
-  });
-  
-  resetBtn.addEventListener('click', () => {
+  } else {
     clearSelection();
-    if (selectionMode) {
-      selectionMode = false;
-      selectBtn.classList.remove('active');
-    }
-  });
-  
-  const scale = 56; // previously 60 or higher
-  
-  function generateGrid() {
-    // Clear previous
-    nodes.length = 0;
-    tonnetz.innerHTML = '<svg class="lines" id="svgLines"></svg>';
-    const svg = document.getElementById('svgLines');
-  
-    for (let y = -2; y <= 2; y++) {
-      for (let x = -2; x <= 2; x++) {
-        ...
-        // same code to add node
-      }
-    }
   }
-  
-  window.addEventListener('load', generateGrid);
-  window.addEventListener('resize', () => {
-    generateGrid();
-  });
+});
+
+resetBtn.addEventListener('click', () => {
+  clearSelection();
+  if (selectionMode) {
+    selectionMode = false;
+    selectBtn.classList.remove('active');
+  }
+});
 </script>
 
 </body>
