@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MetroLand Music Festival</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e6f0fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #1a4e80;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #104069;
+    }
+
+    header {
+      background-color: #c2dbf0;
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    @media (min-width: 600px) {
+      .header-inner {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #1a4e80;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #b0cbe8;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .concert {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f4f9ff;
+      border-radius: 8px;
+    }
+
+    .concert h3 {
+      margin-top: 0;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #1a4e80;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .buy-button:hover {
+      background-color: #104069;
+    }
+
+    .founder {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .founder img {
+      max-width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #1a4e80;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #104069;
+    }
+
+    footer {
+      background-color: #c2dbf0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about-festival">About</a>
+    <a href="#special27">2027 Christmas Concert</a>
+    <a href="#season27">2027 Season</a>
+    <a href="#special26">2026 Summer Concert</a>
+    <a href="#season26">2026 Season</a>
+    <a href="#composer27">Young Composer 2027</a>
+    <a href="#founder">Our Founder</a>
+    <!--
+    <a href="#highlights">Past Highlights</a>
+    -->
+    <a href="#social">Follow Us</a>
+  </nav>
+
+  <!-- Header with Logo -->
+  <header>
+    <div class="header-inner">
+      <!--
+      <img src="logo.png" alt="Festival Logo" class="logo" />
+      -->
+      <p style="font-size: 2.5em; margin: 0; color: #1a4e80;">Metro<b>Land</b> Music Festival</p>
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <section id="about-festival">
+    <h2>About the Festival</h2>
+    <p>The <strong>MetroLand Music Festival</strong> is a new local chamber music festival, with concerts Amersham, Chalfont St Giles and Harrow Weald. We showcase up-and-coming young musicians, many of whom are students or graduates of the greatest London conservatoires. We like our concerts to appeal to diverse audience, and our concerts are often themed around timeless topics which are at the heart of our world.</p>
+  </section>
+
+  <!--
+
+  <section id="special27">
+    <h2>2027 Christmas Concert</h2>
+
+    <div class="concert">
+      <h3>Jacob Jordan</h3>
+      <p>Sunday 28th November (2pm) ▪ St Michael and All Angels, Amersham (HP6 6AJ)</p>
+      <p>Studing at the Royal Academy of Music.</p>
+      <p>*Winning entry in the 2027 Young Composer Competition*</p>
+      <p>Andrew Melvin *NEW WORK*</p>
+      <p>Jacob Jordan *NEW WORK*</p>
+      <p>Edward Tait Sonata for Solo Clarinet</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+  </section>
+
+  -->
+
+  <!--
+  
+  <section id="season27">
+    <h2>2027 Season</h2>
+
+    <div class="concert">
+      <h3>A Celebration of Beethoven</h3>
+      <p>Saturday 27th March (3pm) ▪ Amersham Free Church (HP6 6AJ)</p> 
+      <p>A handful of Beethoven's greatest chamber works, to celebrate the bicentenary of his death.</p>
+      <p>Beethoven Cello Sonata No. 3</p>
+      <p>Beethoven Piano Trio No. 4 ‘Gassenhauer’</p>
+      <p>Beethoven Piano Sonata No. 29 ‘Hammerklavier’</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+    <div class="concert">
+      <h3>Arquia Duo</h3>
+      <p>Sunday 11th April (6:30pm) ▪ All Saints Church Harrow Weald (HA3 6DQ)</p> 
+      <p>The award-winning Arquia Duo.</p>
+      <p>*Programme TBA*</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+    
+  </section>
+
+  -->
+  
+  <section id="season26">
+    <h2>2026 Season</h2>
+
+    <div class="concert">
+      <h3>Composers Parallels</h3>
+      <p>Saturday 4th April (6pm) ▪ All Saints Church Harrow Weald (HA3 6DQ)</p> 
+      <p>A suite of variations on a famous theme by J. S. Bach, following a collaboration between 4 composers.</p>
+      <p>Bach Prelude and Fugue in C major</p>
+      <p><i>Composers Parallels Suite</i></p>
+      <p>Bach Violin Partita No. 2 (I. Allemande)</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+    <div class="concert">
+      <h3>Anton Brown & James Mayhew</h3>
+      <p>Sunday 12th April (1pm) ▪ Chalfont St Giles Parish Church (HP8 4QF)</p>
+      <p>An intimate lunchtime concert of delicate and pastoral works for oboe and piano.</p>
+      <p>*Programme TBA*</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+
+    <div class="concert">
+      <h3>A Journey from Romanticism</h3>
+      <p>Saturday 18th April (6:30pm) ▪ Amersham Free Church (HP6 6AJ)</p> 
+      <p>Luca Weed and Edward Tait, former Beacon School students, present romantic and late-romantic classics by Brahms, Elgar, Debussy, as wel as a world premiere.</p>
+      <p>Brahms Scherzo in C minor</p>
+      <p>Edward Tait <i>Ballade</i> (WP)</p>
+      <p>Debussy Violin Sonata (I. Allegro vivo)</p>
+      <p>Elgar Violin Sonata</p>
+      <a class="buy-button" href="#tickets">Buy Tickets</a>
+    </div>
+    
+  </section>
+
+  <!--
+  
+  <section id="composer">
+    <h2>MetroLand Young Composer 2027</h2>
+    <p>We are excited to present our annual composing competition, open to anybody between the ages of 16 and 25. This year, we are looking for a new work for <strong>clarinet</strong>, with or without piano accompaniment, no more than 5 minutes in length. Submissions are judged blind, and the winner is decided by local composer <strong>Andrew Melvin</strong>. Please send your submission to the email at the bottom of the website. Entry is free, and the winner will receive a performance in our Christmas concert in December 2027.</p>
+  </section>
+
+  -->
+
+  <section id="founder">
+    <h2>Our Team</h2>
+    <div class="founder">
+      <img src="founder.jpg" alt="Founder Photo" />
+      <br>
+      <h3>Artistic Director</h3>
+      <div>
+        <p>
+          <strong>Edward Tait</strong> is a composer and pianist, who founded the festival in 2025. He is currently studying at the Royal Academy of Music, under the tutelage of Gareth Moorcraft and Louise Drewett. His music has received performances at the Royal Festival Hall, St John’s Smith Square, and Westminster Abbey, as well as by award-winning ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra, and Lloyd’s Choir. He is currently working on a symphonic suite, which was commissioned by the Chorleywood Orchestra.
+        </p>
+      </div>
+    </div>
+    <div class="founder">
+      <img src="founder.jpg" alt="Founder Photo" />
+      <br>
+      <h3>Associate Director</h3>
+      <div>
+        <p>
+          <strong>James Mayhew</strong> is a pianist in the first year of his undergraduate degree at the Royal Academy of Music, where he studies with Ian Fountain. He studied under Hilary Coates and Joseph Tong for four years at Wells Cathedral School, reaching the finals of its concerto competition with the 1st movement of Tchaikovsky’s Piano Concerto No. 1, and more recently won 2nd place at the Oxford Piano Competition for Aspiring Professionals. As a composer he has performed his own works numerous times, most notably his Fugue-Fantasy. James enjoys exploring lesser-known works including those by Alkan and Feinberg, known for their extraordinary difficulty, and loves collaborating with other musicians whenever possible.
+        </p>
+      </div>
+    </div>
+    <div class="founder">
+      <img src="founder.jpg" alt="Founder Photo" />
+      <br>
+      <h3>Composer-in-Residence</h3>
+      <div>
+        <p>
+          <strong>Andrew Melvin</strong> studied piano at the Royal Academy of Music with Rosemarie Wright and composition at Cambridge and Brunel Universities, gaining a PhD in composition. He has worked for Amersham Music Service (now part of Buckinghamshire Music Trust) since 2001 and is also a freelance composer, arranger, accompanist and piano teacher. Performance venues for his compositions include the Purcell Room and ICA (London), Vienna Musikverein and Tokyo Bunka Kaikan. Andrew regularly works on creative teams for educational singing projects such as ‘Echoes’ at the Royal Albert Hall, ‘Energize’ at Wycombe Swan and the Little Missenden Festival.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  <section id="highlights">
+    <h2>Past Highlights</h2>
+    <p>Over the years, the festival has hosted unforgettable performances, including:</p>
+    <ul>
+      <li>Yo-Yo Ma’s solo cello recital (2018)</li>
+      <li>Vienna Philharmonic’s guest appearance (2021)</li>
+      <li>A multimedia performance of Vivaldi’s Four Seasons with immersive visuals (2023)</li>
+    </ul>
+  </section>
+  -->
+
+  <section class="social-links" id="social">
+    <h2>Follow Us</h2>
+    <a href="https://www.youtube.com/@metrolandmusicfestival" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/metrolandfestival/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/metroland.music.festival/" target="_blank">Facebook</a>
+  </section>
+
+  <footer>
+    &copy; 2025 MetroLand Music Festival. All rights reserved.<br>A Website by <a href="https://eptwebsites.com">EPT Websites</a>
+  </footer>
+
+</body>
+</html>
