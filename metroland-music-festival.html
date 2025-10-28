@@ -150,6 +150,59 @@
       padding: 20px;
       font-size: 0.9em;
     }
+
+    /* --- Our Team Section Improvements --- */
+    #team {
+      text-align: center;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .team-member {
+      background: linear-gradient(180deg, #f4f9ff 0%, #e6f0fa 100%);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    }
+    
+    .team-member img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .team-member h3 {
+      color: #1a4e80;
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    
+    .team-member p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #333;
+    }
+ 
   </style>
 </head>
 <body>
@@ -298,6 +351,8 @@
 
   -->
 
+  <!--
+
   <section id="team">
     <h2>Our Team</h2>
     <div class="founder">
@@ -328,6 +383,31 @@
         <p>
           <strong>Andrew Melvin</strong> studied piano at the Royal Academy of Music with Rosemarie Wright and composition at Cambridge and Brunel Universities, gaining a PhD in composition. He has worked for Amersham Music Service (now part of Buckinghamshire Music Trust) since 2001 and is also a freelance composer, arranger, accompanist and piano teacher. Performance venues for his compositions include the Purcell Room and ICA (London), Vienna Musikverein and Tokyo Bunka Kaikan. Andrew regularly works on creative teams for educational singing projects such as ‘Echoes’ at the Royal Albert Hall, ‘Energize’ at Wycombe Swan and the Little Missenden Festival.
         </p>
+      </div>
+    </div>
+  </section>
+
+  -->
+
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="PurcellPianoRhysStokes3.jpg" alt="Edward Tait">
+        <h3>Artistic Director</h3>
+        <p><strong>Edward Tait</strong> is a composer and pianist, who founded the festival in 2025. He is currently studying at the Royal Academy of Music, under the tutelage of Gareth Moorcraft and Louise Drewett. His music has received performances at the Royal Festival Hall, St John’s Smith Square, and Westminster Abbey, as well as by award-winning ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra, and Lloyd’s Choir. He is currently working on a symphonic suite, which was commissioned by the Chorleywood Orchestra.</p>
+      </div>
+  
+      <div class="team-member">
+        <img src="image0.jpeg" alt="James Mayhew">
+        <h3>Associate Director</h3>
+        <p><strong>James Mayhew</strong> is a pianist in the first year of his undergraduate degree at the Royal Academy of Music, where he studies with Ian Fountain. He studied under Hilary Coates and Joseph Tong for four years at Wells Cathedral School, reaching the finals of its concerto competition with the 1st movement of Tchaikovsky’s Piano Concerto No. 1, and more recently won 2nd place at the Oxford Piano Competition for Aspiring Professionals. As a composer he has performed his own works numerous times, most notably his Fugue-Fantasy. James enjoys exploring lesser-known works including those by Alkan and Feinberg, and loves collaborating with other musicians whenever possible.</p>
+      </div>
+  
+      <div class="team-member">
+        <img src="founder.jpg" alt="Andrew Melvin">
+        <h3>Composer-in-Residence</h3>
+        <p><strong>Andrew Melvin</strong> studied piano at the Royal Academy of Music with Rosemarie Wright and composition at Cambridge and Brunel Universities, gaining a PhD in composition. He has worked for Amersham Music Service (now part of Buckinghamshire Music Trust) since 2001 and is also a freelance composer, arranger, accompanist and piano teacher. Performance venues for his compositions include the Purcell Room and ICA (London), Vienna Musikverein and Tokyo Bunka Kaikan. Andrew regularly works on creative teams for educational singing projects such as ‘Echoes’ at the Royal Albert Hall, ‘Energize’ at Wycombe Swan and the Little Missenden Festival.</p>
       </div>
     </div>
   </section>
