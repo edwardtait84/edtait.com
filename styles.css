@@ -1,8 +1,9 @@
 body {
-	font-family: Georgia, 'Times New Roman', Times, serif;
 	<!--
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-family: "Book Antiqua"
 	-->
+	font-family: Times;
 	margin: 0; padding: 0;
 } 
 
@@ -241,4 +242,5 @@ p {
 	background-color: grey;
 	color: white;
 }
+
 
