@@ -26,7 +26,7 @@
 
   /* --- Section Titles --- */
   h2 { margin-bottom: 1rem; color: #222; font-weight: 700; }
-  h3 { margin-bottom: 0.5rem; font-weight: 500; }
+  h3 { margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 500; }
 
   /* --- Web Development / Portfolio --- */
   .bio { margin-bottom: 2rem; }
@@ -37,7 +37,6 @@
 
   /* --- Music Section --- */
   .music-section { background: #eee; padding: 2rem; border-radius: 8px; margin-top: 2rem; }
-  .music-section h3 { color: #444; }
   .music-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
   .music-grid img { width: 100%; border-radius: 8px; }
 
@@ -54,8 +53,6 @@
     nav a { padding: 1rem; border-top: 1px solid #444; }
     .hamburger { display: flex; }
   }
-
-  /* --- Spacing for fixed header --- */
   body { padding-top: 70px; }
 </style>
 </head>
@@ -64,9 +61,7 @@
 <header>
   <h1>Edward Tait</h1>
   <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div>
   </div>
   <nav id="nav">
     <a href="#webdev">Web Development</a>
@@ -76,85 +71,82 @@
   </nav>
 </header>
 
-<!-- --- Web Development Section --- -->
+<!-- Web Development -->
 <section id="webdev">
   <h2>Web Development</h2>
   <div class="bio">
-    <p>Edward Tait is a professional web developer creating sophisticated websites for creatives—artists, composers, filmmakers, and writers. His sites combine aesthetics and usability to bring artistic visions to life.</p>
+    <p>Edward Tait builds sophisticated, elegant websites for creatives—artists, composers, filmmakers, and writers—balancing aesthetics and usability to bring every vision to life.</p>
   </div>
 
   <h3>Portfolio</h3>
   <div class="grid">
     <div class="card">
-      <img src="https://via.placeholder.com/300x200.png?text=Artist+Website" alt="Artist Website">
+      <img src="https://placehold.net/400x300?text=Artist+Website" alt="Artist Website">
       <h3>Artist Portfolio</h3>
-      <p>Visually rich site for a contemporary painter, highlighting galleries and exhibitions.</p>
+      <p>A refined site for a contemporary painter, highlighting galleries and exhibitions.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300x200.png?text=Composer+Website" alt="Composer Website">
-      <h3>Composer Site</h3>
-      <p>Showcasing compositions, audio samples, and upcoming concerts elegantly.</p>
+      <img src="https://loremflickr.com/400/300/website,design" alt="Web design example">
+      <h3>Web Design Example</h3>
+      <p>A sample responsive layout with engaging visuals and intuitive navigation.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300x200.png?text=Filmmaker+Website" alt="Filmmaker Website">
+      <img src="https://placehold.net/400x300?text=Filmmaker+Site" alt="Filmmaker Website">
       <h3>Filmmaker Portfolio</h3>
-      <p>Dynamic site featuring films, trailers, and behind-the-scenes content.</p>
+      <p>Dynamic presentation of films, trailers, and behind‑the‑scenes photos.</p>
     </div>
   </div>
 
   <div class="music-section">
     <h3>Music (Side Project)</h3>
-    <p>Edward is also a pianist and electronic composer. He occasionally performs solo or collaborates with other musicians, blending classical and modern electronic music.</p>
+    <p>Edward is also a pianist and electronic composer. This side journey blends classical influences with modern electronic textures.</p>
     <ul>
-      <li>March 2025 - Solo Piano Recital, London</li>
-      <li>July 2025 - Electronic Ensemble Performance, Berlin</li>
-      <li>October 2025 - Collaborative Album Launch, Online</li>
+      <li>March 2025 — Solo Piano Recital, London</li>
+      <li>July 2025 — Electronic Ensemble, Berlin</li>
+      <li>October 2025 — Album Launch (online)</li>
     </ul>
   </div>
 </section>
 
-<!-- --- Current Projects Section --- -->
+<!-- Current Projects -->
 <section id="projects">
   <h2>Current Projects</h2>
   <div class="grid">
     <div class="card">
       <h3>Interactive Art Gallery</h3>
-      <p>A virtual gallery with interactive exhibitions and AR previews.</p>
+      <p>A virtual space with interactive exhibits and AR previews.</p>
     </div>
     <div class="card">
       <h3>Music Collaboration Platform</h3>
-      <p>Connecting independent composers and musicians for collaborative projects.</p>
+      <p>A hub for independent composers to connect and create together.</p>
     </div>
   </div>
 </section>
 
-<!-- --- Music Section --- -->
+<!-- Music Section -->
 <section id="music">
   <h2>Music</h2>
-  <div class="music-bio">
-    <p>Edward Tait has a flourishing career as a musician. Specialising in piano and electronic composition, he has performed internationally and collaborated with independent artists. His music blends classical technique with modern electronic textures, creating immersive experiences.</p>
-  </div>
+  <p>Edward has performed internationally and collaborated with independent artists. His music blends classical technique with modern soundscapes.</p>
 
   <h3>Projects & Events</h3>
   <ul>
-    <li>"Echoes of Tomorrow" - Electronic & orchestral fusion album</li>
-    <li>"Piano Dreams" - Solo piano compositions</li>
-    <li>March 2025 - Solo Piano Recital, London</li>
-    <li>July 2025 - Electronic Ensemble Performance, Berlin</li>
+    <li>"Echoes of Tomorrow" — Electronic & orchestral fusion album</li>
+    <li>"Piano Dreams" — Solo piano compositions</li>
+    <li>March 2025 — London Recital</li>
   </ul>
 
   <h3>Publicity Photos</h3>
   <div class="music-grid">
-    <img src="https://via.placeholder.com/300x200.png?text=Edward+Performing+1" alt="Edward Performing">
-    <img src="https://via.placeholder.com/300x200.png?text=Edward+Performing+2" alt="Edward Performing">
-    <img src="https://via.placeholder.com/300x200.png?text=Album+Cover" alt="Album Cover">
+    <img src="https://loremflickr.com/300/200/music,concert" alt="Live music">
+    <img src="https://placehold.net/300x200?text=Album+Cover" alt="Album Cover">
+    <img src="https://loremflickr.com/300/200/portrait,performance" alt="Performance Portrait">
   </div>
 </section>
 
-<!-- --- Contact Section --- -->
+<!-- Contact -->
 <section id="contact">
   <h2>Contact Edward</h2>
-  <p>Get in touch for web development projects, collaborations, or performances.</p>
+  <p>Reach out for web projects, collaborations, or music inquiries.</p>
   <form>
     <input type="text" placeholder="Your Name" required>
     <input type="email" placeholder="Email Address" required>
@@ -164,17 +156,11 @@
 </section>
 
 <script>
-  // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
-  hamburger.addEventListener('click', () => { nav.classList.toggle('show'); });
-
-  // Close menu on link click
-  const links = nav.querySelectorAll('a');
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      if(nav.classList.contains('show')) nav.classList.remove('show');
-    });
+  hamburger.addEventListener('click', () => nav.classList.toggle('show'));
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('show'));
   });
 </script>
 
