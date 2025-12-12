@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward Tait | Web Developer & Musician</title>
+<style>
+    /* --- Reset & Base --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f8f8f8; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; border-radius: 8px; }
+
+    /* --- Header --- */
+    header { background: #222; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.8rem; }
+    nav a { margin-left: 1rem; color: #fff; font-weight: bold; }
+    nav a.active { text-decoration: underline; }
+
+    /* --- Sections --- */
+    section { display: none; padding: 3rem 2rem; max-width: 1000px; margin: auto; }
+    section.active { display: block; }
+    h2 { margin-bottom: 1rem; color: #222; }
+    .bio, .music-bio { margin-bottom: 2rem; }
+
+    /* --- Projects & Work --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: #555; }
+
+    /* --- Contact Form --- */
+    form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; }
+    input, textarea { padding: 0.8rem; border-radius: 5px; border: 1px solid #ccc; }
+    button { padding: 0.8rem; border: none; border-radius: 5px; background: #222; color: #fff; cursor: pointer; }
+    button:hover { background: #555; }
+
+    /* --- Music Section --- */
+    .events, .music-projects, .photos { margin-top: 1rem; }
+    .events li, .music-projects li { margin-bottom: 0.5rem; }
+    .photos img { width: 100%; height: auto; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Edward Tait</h1>
+    <nav>
+        <a href="#" class="tab-link active" data-tab="webdev">Web Development</a>
+        <a href="#" class="tab-link" data-tab="music">Music</a>
+        <a href="#" class="tab-link" data-tab="contact">Contact</a>
+    </nav>
+</header>
+
+<!-- --- Web Developer Section --- -->
+<section id="webdev" class="active">
+    <h2>Web Development</h2>
+    <div class="bio">
+        <p>Edward Tait is a professional web developer specialising in creating sophisticated and engaging websites for creatives: artists, composers, filmmakers, and writers. With an eye for aesthetics and usability, Edward builds sites that bring creative visions to life.</p>
+    </div>
+
+    <h3>Portfolio</h3>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200.png?text=Artist+Website" alt="Artist Website">
+            <h3>Artist Portfolio</h3>
+            <p>A visually rich website for a contemporary painter, highlighting galleries and exhibitions.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200.png?text=Composer+Website" alt="Composer Website">
+            <h3>Composer Site</h3>
+            <p>Showcasing compositions, audio samples, and upcoming concerts in a clean, elegant layout.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200.png?text=Filmmaker+Website" alt="Filmmaker Website">
+            <h3>Filmmaker Portfolio</h3>
+            <p>A dynamic site featuring films, trailers, and behind-the-scenes content for indie filmmakers.</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200.png?text=Writer+Website" alt="Writer Website">
+            <h3>Writer Portfolio</h3>
+            <p>Presentation of novels, essays, and blog posts in an elegant, reader-friendly design.</p>
+        </div>
+    </div>
+
+    <h3>Current Projects</h3>
+    <div class="grid">
+        <div class="card">
+            <h3>Interactive Art Gallery</h3>
+            <p>Creating a virtual gallery with interactive exhibitions and augmented reality previews.</p>
+        </div>
+        <div class="card">
+            <h3>Music Collaboration Platform</h3>
+            <p>A site to connect independent composers and musicians for collaborative projects.</p>
+        </div>
+    </div>
+</section>
+
+<!-- --- Music Section --- -->
+<section id="music">
+    <h2>Music</h2>
+    <div class="music-bio">
+        <p>Aside from web development, Edward Tait has a flourishing career as a musician. Specialising in piano and electronic composition, he has performed across numerous venues and collaborated with independent artists. His music blends classical technique with modern electronic textures, creating immersive experiences for audiences.</p>
+    </div>
+
+    <h3>Musical Events</h3>
+    <ul class="events">
+        <li>March 2025 - Solo Piano Recital, London</li>
+        <li>July 2025 - Electronic Ensemble Performance, Berlin</li>
+        <li>October 2025 - Collaborative Album Launch, Online Streaming Event</li>
+    </ul>
+
+    <h3>Musical Projects</h3>
+    <ul class="music-projects">
+        <li>"Echoes of Tomorrow" - Electronic & orchestral fusion album</li>
+        <li>"Piano Dreams" - Solo piano compositions inspired by urban landscapes</li>
+        <li>"Soundscapes for Film" - Custom compositions for independent films</li>
+    </ul>
+
+    <h3>Publicity Photos</h3>
+    <div class="photos">
+        <img src="https://via.placeholder.com/300x200.png?text=Edward+Performing+1" alt="Edward Performing">
+        <img src="https://via.placeholder.com/300x200.png?text=Edward+Performing+2" alt="Edward Performing">
+        <img src="https://via.placeholder.com/300x200.png?text=Album+Cover" alt="Album Cover">
+    </div>
+</section>
+
+<!-- --- Contact Section --- -->
+<section id="contact">
+    <h2>Contact Edward</h2>
+    <p>If you'd like to discuss a project, collaboration, or performance, please get in touch.</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<script>
+    // Tab Navigation
+    const tabs = document.querySelectorAll('.tab-link');
+    const sections = document.querySelectorAll('section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', e => {
+            e.preventDefault();
+            const target = tab.dataset.tab;
+
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            sections.forEach(sec => {
+                if(sec.id === target) {
+                    sec.classList.add('active');
+                } else {
+                    sec.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
