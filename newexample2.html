@@ -59,7 +59,7 @@ nav ul li a:hover {
     color: #007BFF;
 }
 
-/* HERO SECTION WITH <img> */
+/* HERO WITH <img> */
 .hero {
     position: relative;
     height: 100vh;
@@ -83,7 +83,6 @@ nav ul li a:hover {
     z-index: -2;
 }
 
-/* Overlay for text readability */
 .hero::after {
     content: "";
     position: absolute;
@@ -181,33 +180,22 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* CONTACT FORM */
-form {
-    max-width: 500px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+/* SOCIAL ICONS */
+.social-links {
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
-form input,
-form textarea {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 0.8rem;
-    background: #007BFF;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
     transition: 0.3s;
 }
 
-form button:hover { background: #0056b3; }
+.social-links img:hover {
+    transform: scale(1.15);
+}
 
 /* FOOTER */
 footer {
@@ -234,8 +222,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-    <!-- ⭐ REPLACE THIS IMAGE WITH YOUR OWN -->
-    <img id="hero-img" src="AmershamLight.jpg" alt="Hero Background">
+    <img id="hero-img" src="AmershamLight.jpg" alt="Hero Image">
     
     <div class="hero-content">
         <h1>Hi, I’m [Writer’s Name]</h1>
@@ -262,36 +249,43 @@ footer {
             <img src="AmershamLight.jpg">
             <h3>Book Title 1</h3>
             <p>Short description of the work.</p>
-            <a href="https://example.com/book1" target="_blank">View More</a>
+            <a href="#" target="_blank">View More</a>
         </div>
 
         <div class="work-card">
             <img src="AmershamLight.jpg">
             <h3>Book Title 2</h3>
             <p>Short description of the work.</p>
-            <a href="https://example.com/book2" target="_blank">View More</a>
+            <a href="#" target="_blank">View More</a>
         </div>
 
         <div class="work-card">
             <img src="AmershamLight.jpg">
             <h3>Book Title 3</h3>
             <p>Short description of the work.</p>
-            <a href="https://example.com/book3" target="_blank">View More</a>
+            <a href="#" target="_blank">View More</a>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (UPDATED) -->
 <section id="contact">
     <div class="section-bg"></div>
     <h2>Contact Me</h2>
 
-    <form action="mailto:edwardtait06@outlook.com" method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <input type="email" name="Email" placeholder="Your Email" required>
-        <textarea name="Message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-    </form>
+    <p style="text-align:center; font-size:1.2rem;">
+        Email: <a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a>
+    </p>
+
+    <div class="social-links">
+        <!-- Replace # with your real links -->
+        <a href="https://instagram.com/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://facebook.com/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+    </div>
 </section>
 
 <footer>
@@ -303,11 +297,9 @@ footer {
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
-    // Move hero image slightly
     document.getElementById("hero-img").style.transform =
         `translateY(${scrollY * 0.3}px)`;
 
-    // Move section backgrounds slightly
     document.querySelectorAll(".section-bg").forEach(bg => {
         bg.style.transform = `translateY(${scrollY * 0.1}px)`;
     });
