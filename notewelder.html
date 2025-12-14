@@ -86,6 +86,32 @@
             font-weight: bold;
             margin-top: 5px;
         }
+
+		/* Artist Profile Layout */
+		.artist-profile {
+		    display: flex;
+		    flex-direction: column;
+		    gap: 20px;
+		}
+		
+		.artist-photo {
+		    max-width: 250px;
+		    width: 100%;
+		    border-radius: 8px;
+		    align-self: center;
+		}
+		
+		/* Desktop layout */
+		@media (min-width: 768px) {
+		    .artist-profile {
+		        flex-direction: row;
+		        align-items: flex-start;
+		    }
+		
+		    .artist-photo {
+		        flex-shrink: 0;
+		    }
+		}
     </style>
 </head>
 <body>
@@ -98,13 +124,18 @@
     </header>
 
     <div class="content">
-        <section>
-            <h2 class="section-title">Artist Profile: Edward Tait</h2>
-            <p class="bio-paragraph">Edward Tait is an emerging British composer, currently studying at the Royal Academy of Music, under the tutelage of Gareth Moorcraft and Louise Drewett. His music has received performances at the Royal Festival Hall, St John’s Smith Square, and Westminster Abbey, as well as by award-winning ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra, and Lloyd’s Choir.</p>
-	    <p class="bio-paragraph">Edward previously studied with Jacques Cohen at the Purcell School of Music, and upon graduation, received the school’s Tim Stevenson Prize for Outstanding Composition. He also recently won 1st Prize in the Composition category of the Tiziano Rossetti Competition, and he is currently working on a symphonic suite, which was commissioned by the Chorleywood Orchestra.</p>
-	    <p class="bio-paragraph"><center>Last updated: 15th August 2025</center></p>
-		<p class="bio-paragraph"><center>Visit website: <a href="index.html">www.edtait.com</a></center>
-        </section>
+	<section>
+	    <h2 class="section-title">Artist Profile: Edward Tait</h2>
+	    <div class="artist-profile">
+	        <img src="edward-tait.jpg" alt="Edward Tait portrait" class="artist-photo">
+	        <div>
+	            <p class="bio-paragraph">Edward Tait is an emerging British composer, currently studying at the Royal Academy of Music, under the tutelage of Gareth Moorcraft and Louise Drewett. His music has received performances at the Royal Festival Hall, St John’s Smith Square, and Westminster Abbey, as well as by award-winning ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra, and Lloyd’s Choir.</p>
+	            <p class="bio-paragraph">Edward previously studied with Jacques Cohen at the Purcell School of Music, and upon graduation, received the school’s Tim Stevenson Prize for Outstanding Composition. He also recently won 1st Prize in the Composition category of the Tiziano Rossetti Competition, and he is currently working on a symphonic suite, which was commissioned by the Chorleywood Orchestra.</p>
+	            <p class="bio-paragraph"><center>Last updated: 15th August 2025</center></p>
+	            <p class="bio-paragraph"><center>Visit website: <a href="index.html">www.edtait.com</a></center></p>
+	        </div>
+	    </div>
+	</section>
         <section>
             <h2 class="section-title">Music Catalogue</h2>
             <ul class="upcoming-events">
@@ -220,6 +251,7 @@
 
 </body>
 </html>
+
 
 
 
