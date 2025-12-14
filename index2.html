@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edward Tait — Composer</title>
+  <meta name="description" content="Edward Tait, composer. Official website featuring biography, projects, events, and media." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .bg-fixed-soft { background-attachment: fixed; }
+  </style>
+</head>
+<body class="font-sans text-neutral-900">
+
+  <!-- HERO -->
+  <section class="relative h-screen w-full overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center bg-fixed-soft" style="background-image: url('hero-placeholder.jpg');"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 flex h-full items-center justify-center">
+      <h1 class="text-4xl md:text-6xl tracking-wide text-white text-center">
+        Edward Tait<br /><span class="text-xl tracking-widest">Composer</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- QUOTES -->
+  <section class="py-16 bg-white text-center">
+    <p id="quote" class="text-xl italic max-w-3xl mx-auto"></p>
+  </section>
+
+  <!-- SHORT BIO -->
+  <section class="relative py-20 bg-cover bg-center bg-fixed-soft" style="background-image: url('bio-bg.jpg');">
+    <div class="bg-white/90 max-w-3xl mx-auto p-8 rounded-2xl shadow">
+      <p class="mb-4">[Short biography text placeholder — concise overview of artistic focus and background.]</p>
+      <a href="#full-bio" class="underline text-sm">Read full biography</a>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="py-20 max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl mb-8">Upcoming Events</h2>
+    <div class="space-y-6">
+      <div class="flex items-center justify-between border-b pb-4">
+        <div>
+          <p class="font-medium">[Event title]</p>
+          <p class="text-sm text-neutral-600">[Date / Location]</p>
+        </div>
+        <a href="#" class="border px-4 py-2 text-sm hover:bg-black hover:text-white transition">Find out more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="relative py-20 bg-cover bg-center bg-fixed-soft" style="background-image: url('video-bg.jpg');">
+    <div class="max-w-6xl mx-auto grid gap-6 px-6 md:grid-cols-3">
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 max-w-4xl mx-auto px-6">
+    <h2 class="text-2xl mb-6">Services</h2>
+    <ul class="space-y-2 mb-8">
+      <li>[Service description]</li>
+      <li>[Service description]</li>
+      <li>[Service description]</li>
+    </ul>
+    <a href="cv.pdf" class="inline-block border px-6 py-3 hover:bg-black hover:text-white transition">Download CV</a>
+  </section>
+
+  <!-- FULL BIO -->
+  <section id="full-bio" class="relative py-20 bg-cover bg-center bg-fixed-soft" style="background-image: url('full-bio-bg.jpg');">
+    <div class="bg-white/95 max-w-4xl mx-auto p-10 rounded-2xl">
+      <h2 class="text-2xl mb-4">Biography</h2>
+      <p>[Full biography text placeholder]</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-20 max-w-4xl mx-auto px-6">
+    <h2 class="text-2xl mb-4">Projects</h2>
+    <p>[Projects description placeholder]</p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="relative py-20 bg-cover bg-center bg-fixed-soft" style="background-image: url('gallery-bg.jpg');">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div>
+        <img src="photo-placeholder.jpg" class="rounded-xl mb-2" />
+        <p class="text-xs text-neutral-600">Photo: [Photographer]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="py-16 text-center">
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="#" data-lucide="instagram"></a>
+      <a href="#" data-lucide="facebook"></a>
+      <a href="#" data-lucide="youtube"></a>
+      <a href="mailto:email@example.com" data-lucide="mail"></a>
+      <a href="#" data-lucide="globe"></a>
+      <a href="tel:+123456789" data-lucide="phone"></a>
+    </div>
+    <p class="text-sm">email@example.com | +12 345 6789</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-xs text-neutral-500">
+    © <span id="year"></span> Edward Tait. All rights reserved.
+  </footer>
+
+  <script>
+    const quotes = [
+      '"A composer of striking clarity and depth." — Publication Name',
+      '"Music of rare poise and imagination." — Critic Name',
+      '"Edward Tait’s work balances lyricism and rigor." — Journal Name'
+    ];
+    let i = 0;
+    const quoteEl = document.getElementById('quote');
+    function rotateQuote() {
+      quoteEl.style.opacity = 0;
+      setTimeout(() => {
+        quoteEl.textContent = quotes[i];
+        quoteEl.style.opacity = 1;
+        i = (i + 1) % quotes.length;
+      }, 500);
+    }
+    rotateQuote();
+    setInterval(rotateQuote, 4000);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
