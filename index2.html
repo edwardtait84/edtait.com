@@ -19,6 +19,37 @@
 </head>
 <body class="font-sans text-neutral-900">
 
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <span class="tracking-wide text-sm">Edward Tait — Composer</span>
+      <button id="menuBtn" class="md:hidden" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#" class="hover:underline">Home</a>
+        <a href="#full-bio" class="hover:underline">Biography</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <nav class="flex flex-col px-6 py-4 space-y-4 text-sm">
+        <a href="#" class="menuLink">Home</a>
+        <a href="#full-bio" class="menuLink">Biography</a>
+        <a href="#projects" class="menuLink">Projects</a>
+        <a href="#contact" class="menuLink">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- OFFSET FOR FIXED HEADER -->
+  <div class="h-20"></div>
+
   <!-- HERO -->
   <section class="relative h-screen w-full overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-fixed-soft" style="background-image: url('hero-placeholder.jpg');"></div>
@@ -86,7 +117,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="py-20 max-w-4xl mx-auto px-6">
+  <section id="projects" class="py-20 max-w-4xl mx-auto px-6">
     <h2 class="text-2xl mb-4">Projects</h2>
     <p>[Projects description placeholder]</p>
   </section>
@@ -102,7 +133,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="py-16 text-center">
+  <section id="contact" class="py-16 text-center">
     <div class="flex justify-center gap-6 mb-6">
       <a href="#" data-lucide="instagram"></a>
       <a href="#" data-lucide="facebook"></a>
@@ -140,6 +171,20 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
     lucide.createIcons();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLinks = document.querySelectorAll('.menuLink');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
   </script>
 
 </body>
