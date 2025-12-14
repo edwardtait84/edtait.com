@@ -14,7 +14,19 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    .bg-fixed-soft { background-attachment: fixed; }
+
+    /* Desktop parallax */
+    @media (min-width: 768px) {
+      .bg-fixed-soft { background-attachment: fixed; }
+    }
+
+    /* Mobile fallback (iOS/Android safe) */
+    @media (max-width: 767px) {
+      .bg-fixed-soft {
+        background-attachment: scroll;
+        background-position: center;
+      }
+    }
   </style>
 </head>
 <body class="font-sans text-neutral-900">
@@ -91,9 +103,9 @@
   <!-- VIDEOS -->
   <section class="relative py-20 bg-cover bg-center bg-fixed-soft" style="background-image: url('PhotoByLeoLupascu.JPG');">
     <div class="max-w-6xl mx-auto grid gap-6 px-6 md:grid-cols-3">
-      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/watch?v=ieyH7FE39jI" allowfullscreen></iframe>
-      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/watch?v=PWdJo-6nQTY" allowfullscreen></iframe>
-      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/watch?v=6TDNoqR-Yug" allowfullscreen></iframe>
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
     </div>
   </section>
 
