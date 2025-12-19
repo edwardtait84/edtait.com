@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EPT Websites</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Garamond;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 22px;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+
+        .bio {
+            margin-bottom: 20px;
+        }
+
+        .portfolio {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            width: 30%;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .reviews {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ccc;
+        }
+
+        .review {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .review h4 {
+            margin-top: 0;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 1200px) {
+            .portfolio-item {
+                width: 45%; /* Two items per row for screens smaller than 1200px */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-item {
+                width: 100%; /* One item per row for screens smaller than 768px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a style="color: white; text-decoration: none;" href="index.html"><h1>EPT Websites</h1>
+        <p>Building websites for creative people, since August 2023.</p></a>
+        <a style="color: white; text-decoration: none;" href="tel:07523996306"><p>07523 996306</p></a>
+    </header>
+
+    <section class="container">
+        <h2>About Us</h2>
+        <p class="bio">We are a web development company, specialising in websites for professionals in the arts and entertainment industries. Among our clients are some of the most promising young musicians, who study at places like the Royal Academy of Music and the Purcell School of Music.</p>
+
+        <h2>Our Work</h2>
+        <p>Here are some of our clients who we have built websites for:</p>
+        <div class="portfolio">
+            <div class="portfolio-item">
+                <a href="https://hermancerisha.com" target="_blank">
+                    <img src="HermanCerishaScreenshot.png" alt="Website 1">
+                    <h3>Herman Cerisha</h3>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://lucanewmanpiano.xyz" target="_blank">
+                    <img src="LucaNewmanScreenshot.png" alt="Website 2">
+                    <h3>Luca Newman</h3>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://edtait.com" target="_blank">
+                    <img src="EdwardTaitScreenshot.png" alt="Website 3">
+                    <h3>Edward Tait</h3>
+                </a>
+            </div>
+	    <!--
+	    <div class="portfolio-item">
+                <a href="https://hermancerisha.com" target="_blank">
+                    <img src="HermanCerishaScreenshot.png" alt="Website 1">
+                    <h3>Tom McKinlay</h3>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://lucanewmanpiano.xyz" target="_blank">
+                    <img src="LucaNewmanScreenshot.png" alt="Website 2">
+                    <h3>Edward Harris-Brown</h3>
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <a href="https://edtait.com" target="_blank">
+                    <img src="EdwardTaitScreenshot.png" alt="Website 3">
+                    <h3>Katrina Keyek</h3>
+                </a>
+            </div>
+	    -->
+        </div>
+
+        <div class="reviews">
+            <h2>Recommendations & Reviews</h2>
+            
+            <div class="review">
+                <h4>Benji Lock, former client</h4>
+                <p>"A brilliant job on my site! They handled everything from design to setup, and the final result was exactly what I needed. The process was extremely smooth, and I’m really happy with how it turned out."</p>
+            </div>
+
+            <!--
+
+            <div class="review">
+                <h4>Luca Newman (pianist)</h4>
+                <p>"John's expertise in web development helped us launch our e-commerce platform smoothly. He’s highly responsive and always willing to go the extra mile to get the job done. We will definitely hire him again!"</p>
+            </div>
+
+            <div class="review">
+                <h4>Tom Mac (personal trainer)</h4>
+                <p>"I had the opportunity to collaborate with John on a few projects. His technical skills and ability to meet deadlines made him an invaluable asset to our team. I look forward to working with him again in the future."</p>
+            </div>
+            
+            	-->
+
+        </div>
+
+	<br><hr>
+	    
+	<div><center><p>&copy; 2025 EPT Websites. All rights reserved.<br>Founded by <a style="color: black" href="https://www.edtait.com">Edward Tait</a></p></center></div>
+
+    </section>
+</body>
+</html>
