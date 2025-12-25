@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Violinist Name | Official Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #f6f6f6;
+  color: #222;
+}
+
+a { color: inherit; }
+
+/* ===== HEADER & QUOTES ===== */
+header {
+  background: #111;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { font-size: 1.4rem; letter-spacing: 1px; }
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+#quotes {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  opacity: 0.85;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: none;
+  flex-direction: column;
+  background: #222;
+}
+
+nav a {
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+nav a:hover { background: #444; }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.section:nth-child(even) { background: white; }
+
+.content {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.content img {
+  width: 40%;
+  border-radius: 6px;
+}
+
+.text { width: 60%; }
+
+h2 {
+  margin-top: 0;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+/* ===== CV BOX ===== */
+.cv-box {
+  display: inline-block;
+  border: 1px solid #222;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.cv-box:hover {
+  background: #222;
+  color: white;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.socials svg {
+  width: 26px;
+  height: 26px;
+  fill: #aaa;
+}
+
+.socials svg:hover { fill: white; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .content { flex-direction: column; }
+  .content img, .text { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">Violinist Name</div>
+    <div class="hamburger" id="hamburger">☰</div>
+  </div>
+  <div id="quotes"></div>
+</header>
+
+<nav id="navMenu">
+  <a href="#bio">Biography</a>
+  <a href="#services">Services</a>
+  <a href="#projects">Projects</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- BIOGRAPHY -->
+<section id="bio" class="section">
+  <div class="content">
+    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc">
+    <div class="text">
+      <h2>Short Biography</h2>
+      <p>
+        Violinist Name is an internationally active classical violinist,
+        performing as a soloist, chamber musician, and orchestral leader
+        across Europe.
+      </p>
+
+      <h2>Full Biography</h2>
+      <p>
+        Trained at leading conservatoires, Violinist Name has appeared at
+        major concert halls and festivals, collaborating with distinguished
+        artists and ensembles. Their repertoire spans Baroque to contemporary
+        music, with a particular interest in historically informed performance
+        and new commissions.
+      </p>
+
+      <a href="cv.pdf" class="cv-box">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="content">
+    <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76">
+    <div class="text">
+      <h2>Services</h2>
+      <p>• Solo violin performances</p>
+      <p>• Chamber music collaborations</p>
+      <p>• Orchestral leadership & guest principal work</p>
+      <p>• Recording sessions</p>
+      <p>• Masterclasses and educational workshops</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="content">
+    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93">
+    <div class="text">
+      <h2>Current Projects</h2>
+      <p>• Recording of Bach Solo Sonatas</p>
+      <p>• Contemporary music collaboration with living composers</p>
+      <p>• Chamber music residency series</p>
+      <p>• Educational outreach programme</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2 style="text-align:center;">Photo Gallery</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0">
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4">
+    <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="content">
+    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+    <div class="text">
+      <h2>Contact</h2>
+      <p>Email: info@violinistname.com</p>
+      <p>Management: Classical Artists Ltd.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Violinist Name
+
+  <div class="socials">
+    <!-- Facebook -->
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12"/></svg></a>
+
+    <!-- Instagram -->
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></a>
+
+    <!-- YouTube -->
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M23 12s0-4-1-5-5-1-5-1H7s-4 0-5 1-1 5-1 5 0 4 1 5 5 1 5 1h10s4 0 5-1 1-5 1-5zm-13 3V9l5 3-5 3z"/></svg></a>
+  </div>
+</footer>
+
+<script>
+/* Hamburger menu */
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.onclick = () => {
+  navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
+};
+
+/* Rotating quotes */
+const quotes = [
+  "“A violinist of exceptional refinement and depth.”",
+  "“Elegant, compelling and deeply musical performances.”",
+  "“A distinctive voice in today’s classical scene.”"
+];
+
+let q = 0;
+const quoteBox = document.getElementById("quotes");
+
+function rotateQuotes() {
+  quoteBox.textContent = quotes[q];
+  q = (q + 1) % quotes.length;
+}
+
+rotateQuotes();
+setInterval(rotateQuotes, 4000);
+</script>
+
+</body>
+</html>
