@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composer | Official Website</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --text: #e6e6eb;
+      --muted: #a0a4b8;
+      --accent: #7aa2ff;
+      --accent-soft: rgba(122,162,255,0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #0f1115, #0c0e13 60%);
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: 0.2px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    header {
+      margin-bottom: 96px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -48px;
+      left: 0;
+      width: 160px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 600;
+      margin: 0 0 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 520px;
+    }
+
+    section {
+      margin-bottom: 96px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .bio {
+      background: var(--panel);
+      padding: 40px 48px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .bio p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #d6d7df;
+      max-width: 820px;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, var(--panel), #141720);
+      padding: 28px 32px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .highlight span {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .highlight strong {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .contact {
+      background: radial-gradient(circle at top right, var(--accent-soft), transparent 60%), var(--panel);
+      padding: 48px;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact p {
+      color: #d6d7df;
+      max-width: 420px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-details a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.25s ease;
+    }
+
+    .contact-details a:hover {
+      background: rgba(122,162,255,0.12);
+      border-color: rgba(122,162,255,0.4);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 120px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 820px) {
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      header::after { left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Edward Tait</h1>
+      <p class="subtitle">Composer of concert, chamber and vocal music, creating refined contemporary works rooted in clarity, lyricism and expressive depth.</p>
+    </header>
+
+    <section>
+      <h2>Biography</h2>
+      <div class="bio">
+        <p>
+          Edward Tait is a British composer whose music explores clarity of texture, emotional directness and an evolving relationship between tradition and modernity. His work spans solo, chamber and ensemble repertoire, often drawing inspiration from literature, architecture and the natural world.
+        </p>
+        <p>
+          Equally at home writing intimate vocal works and structurally rigorous instrumental music, his compositions have been performed by professional and emerging musicians across the UK and Europe. A recurring feature of his writing is a focus on line and resonance, allowing space for performers to shape and inhabit the music.
+        </p>
+        <p>
+          Alongside composition, Edward collaborates closely with performers and ensembles, valuing dialogue as a core part of the creative process. He is available for commissions, collaborations and educational projects.
+        </p>
+
+        <div class="highlights">
+          <div class="highlight">
+            <span>Focus</span>
+            <strong>Concert · Chamber · Vocal Music</strong>
+          </div>
+          <div class="highlight">
+            <span>Approach</span>
+            <strong>Performer-centred, texturally clear writing</strong>
+          </div>
+          <div class="highlight">
+            <span>Availability</span>
+            <strong>Commissions & Collaborations</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>
+          For commissions, performance enquiries, collaborations or general correspondence, please get in touch using the details below. Edward welcomes new projects and discussions at all stages.
+        </p>
+        <div class="contact-details">
+          <a href="mailto:info@edwardtait.com">Email: info@edwardtait.com</a>
+          <a href="#">Representation: Available on request</a>
+          <a href="#">Based in the United Kingdom</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Edward Tait · All rights reserved
+    </footer>
+
+  </div>
+
+</body>
+</html>
