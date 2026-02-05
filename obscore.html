@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ObScore – On-Demand Music Arranging</title>
+  <title>ObScore – On‑Demand Music Arranging</title>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -71,7 +71,7 @@
 
 <header>
   <h1>ObScore</h1>
-  <p>On-demand arranging and orchestration for any ensemble</p>
+  <p>On‑demand arranging and orchestration for any ensemble</p>
 </header>
 
 <section id="auth" class="card">
@@ -86,7 +86,8 @@
 
 <section id="performer" class="card hidden">
   <h2>Request an Arrangement</h2>
-  <textarea id="requestText" placeholder="Describe the piece, instruments, deadline, etc. Attach files in the email step."></textarea>
+  <textarea id="requestText" placeholder="Describe the piece, instruments, deadline, etc."></textarea>
+  <p style="font-size:0.9rem;color:#555;margin-top:8px;">You will be asked to attach files (PDF, images, Sibelius, etc.) in your email client after clicking send.</p>
   <button onclick="sendRequest()">Send Request</button>
 </section>
 
@@ -142,6 +143,12 @@
     if (!text) return alert("Please describe the request");
 
     requests.push({ text, from: user.email });
+    localStorage.setItem("obs_requests", JSON.stringify(requests));
+
+    const body = `${text}\n\n---\nPlease attach your score files (PDF, images, notation files) to this email before sending.`;
+
+    window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(body)}`;
+  });
     localStorage.setItem("obs_requests", JSON.stringify(requests));
 
     window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
