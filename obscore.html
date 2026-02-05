@@ -145,19 +145,6 @@
     localStorage.setItem("obs_requests", JSON.stringify(requests));
 
     window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
-  });
-    localStorage.setItem("obs_requests", JSON.stringify(requests));
-
-    const body = `${text}
-
----
-Please attach your score files (PDF, images, notation files) to this email before sending.`;
-
-    window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(body)}`;
-  });
-    localStorage.setItem("obs_requests", JSON.stringify(requests));
-
-    window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
   }
 
   function loadArranger() {
