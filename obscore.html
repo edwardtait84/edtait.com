@@ -141,7 +141,11 @@
     const text = document.getElementById("requestText").value;
     if (!text) return alert("Please describe the request");
 
-    requests.push({ text, from: user.email });
+    requests.push({
+      text,
+      from: user.email,
+      assignedTo: null
+    });
     localStorage.setItem("obs_requests", JSON.stringify(requests));
 
     window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
@@ -180,9 +184,27 @@
   function renderRequests() {
     const ul = document.getElementById("requests");
     ul.innerHTML = "";
-    requests.forEach(r => {
+  
+    requests.forEach((r, index) => {
+      if (r.assignedTo && r.assignedTo !== user.email) return;
+  
       const li = document.createElement("li");
-      li.innerHTML = `<p>${r.text}</p><a href="mailto:${EMAIL}?subject=ObScore Response&body=${encodeURIComponent(r.text)}">Respond by email</a>`;
+      li.innerHTML = `
+        <p>${r.text}</p>
+        <p style="font-size:0.85rem;color:#555;">
+          Performer: ${r.from}
+        </p>
+        ${
+          r.assignedTo
+            ? `<strong>Assigned to you</strong><br/>
+               <a href="mailto:${EMAIL}?subject=ObScore Response&body=${encodeURIComponent(r.text)}">
+                 Respond by email
+               </a>`
+            : `<button onclick="claimRequest(${index})">
+                 Claim this request
+               </button>`
+        }
+      `;
       ul.appendChild(li);
     });
   }
@@ -190,6 +212,13 @@
   function saveUser() {
     users = users.map(u => u.email === user.email ? user : u);
     localStorage.setItem("obs_users", JSON.stringify(users));
+  }
+
+  function claimRequest(index) {
+    if (requests[index].assignedTo) return;
+    requests[index].assignedTo = user.email;
+    localStorage.setItem("obs_requests", JSON.stringify(requests));
+    renderRequests();
   }
 </script>
 
