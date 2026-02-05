@@ -1,200 +1,197 @@
-// ObScore MVP – single‑file React app (frontend‑only)
-// Features: performer requests via email, arranger profiles, ratings, accounts (localStorage)
-// NOTE: This is a prototype. No real auth, payments, or backend yet.
-
-import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
-const EMAIL_GATEWAY = "mailto:edwardtait06@outlook.com";
-
-function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-function load(key, fallback) {
-  const v = localStorage.getItem(key);
-  return v ? JSON.parse(v) : fallback;
-}
-
-export default function ObScoreApp() {
-  const [user, setUser] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [requests, setRequests] = useState([]);
-
-  useEffect(() => {
-    setUsers(load("obs_users", []));
-    setRequests(load("obs_requests", []));
-  }, []);
-
-  useEffect(() => {
-    save("obs_users", users);
-  }, [users]);
-
-  useEffect(() => {
-    save("obs_requests", requests);
-  }, [requests]);
-
-  return (
-    <div className="min-h-screen bg-neutral-50 p-6 max-w-6xl mx-auto">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold">ObScore</h1>
-        <p className="text-neutral-600">On‑demand arranging for real musicians</p>
-      </header>
-
-      {!user ? (
-        <Auth users={users} setUsers={setUsers} setUser={setUser} />
-      ) : (
-        <Dashboard
-          user={user}
-          users={users}
-          setUsers={setUsers}
-          requests={requests}
-          setRequests={setRequests}
-          setUser={setUser}
-        />
-      )}
-    </div>
-  );
-}
-
-function Auth({ users, setUsers, setUser }) {
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("performer");
-
-  function submit() {
-    let u = users.find((x) => x.email === email);
-    if (!u) {
-      u = {
-        id: crypto.randomUUID(),
-        email,
-        role,
-        bio: "",
-        instruments: [],
-        ratings: [],
-      };
-      setUsers([...users, u]);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ObScore – On-Demand Music Arranging</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background: #fafafa;
+      color: #111;
     }
-    setUser(u);
+    header, section {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2em;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      margin-top: 15px;
+    }
+    button.secondary {
+      background: #eee;
+      color: #111;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ObScore</h1>
+  <p>On-demand arranging and orchestration for any ensemble</p>
+</header>
+
+<section id="auth" class="card">
+  <h2>Sign up / Log in</h2>
+  <input id="email" placeholder="Email address" />
+  <select id="role">
+    <option value="performer">Performer</option>
+    <option value="arranger">Arranger</option>
+  </select>
+  <button onclick="login()">Continue</button>
+</section>
+
+<section id="performer" class="card hidden">
+  <h2>Request an Arrangement</h2>
+  <textarea id="requestText" placeholder="Describe the piece, instruments, deadline, etc. Attach files in the email step."></textarea>
+  <button onclick="sendRequest()">Send Request</button>
+</section>
+
+<section id="arranger" class="card hidden">
+  <h2>Arranger Profile</h2>
+  <textarea id="bio" placeholder="Your bio"></textarea>
+  <button onclick="saveBio()">Save Bio</button>
+
+  <h3>Instruments you write for</h3>
+  <input id="instrumentInput" placeholder="e.g. Oboe, Strings, Brass" />
+  <button class="secondary" onclick="addInstrument()">Add Instrument</button>
+  <ul id="instrumentList"></ul>
+
+  <h3>Open Requests</h3>
+  <ul id="requests"></ul>
+</section>
+
+<footer>
+  © <span id="year"></span> ObScore
+</footer>
+
+<script>
+  const EMAIL = "edwardtait06@outlook.com";
+  let user = null;
+  let users = JSON.parse(localStorage.getItem("obs_users") || "[]");
+  let requests = JSON.parse(localStorage.getItem("obs_requests") || "[]");
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function login() {
+    const email = document.getElementById("email").value.trim();
+    const role = document.getElementById("role").value;
+    if (!email) return alert("Please enter an email");
+
+    user = users.find(u => u.email === email);
+    if (!user) {
+      user = { email, role, bio: "", instruments: [] };
+      users.push(user);
+      localStorage.setItem("obs_users", JSON.stringify(users));
+    }
+
+    document.getElementById("auth").classList.add("hidden");
+    if (user.role === "performer") {
+      document.getElementById("performer").classList.remove("hidden");
+    } else {
+      document.getElementById("arranger").classList.remove("hidden");
+      loadArranger();
+    }
   }
 
-  return (
-    <Card className="max-w-md">
-      <CardContent className="p-6 space-y-4">
-        <h2 className="text-xl font-semibold">Sign up / Log in</h2>
-        <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <select className="border p-2 rounded" value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="performer">Performer</option>
-          <option value="arranger">Arranger</option>
-        </select>
-        <Button onClick={submit}>Continue</Button>
-      </CardContent>
-    </Card>
-  );
-}
+  function sendRequest() {
+    const text = document.getElementById("requestText").value;
+    if (!text) return alert("Please describe the request");
 
-function Dashboard({ user, users, setUsers, requests, setRequests, setUser }) {
-  return (
-    <div className="space-y-10">
-      <div className="flex justify-between items-center">
-        <p className="text-sm text-neutral-600">Logged in as {user.email}</p>
-        <Button variant="outline" onClick={() => setUser(null)}>Log out</Button>
-      </div>
+    requests.push({ text, from: user.email });
+    localStorage.setItem("obs_requests", JSON.stringify(requests));
 
-      {user.role === "performer" && (
-        <PerformerDashboard user={user} requests={requests} setRequests={setRequests} />
-      )}
-
-      {user.role === "arranger" && (
-        <ArrangerDashboard user={user} users={users} setUsers={setUsers} requests={requests} />
-      )}
-    </div>
-  );
-}
-
-function PerformerDashboard({ user, requests, setRequests }) {
-  const [description, setDescription] = useState("");
-
-  function submitRequest() {
-    const r = {
-      id: crypto.randomUUID(),
-      performer: user.email,
-      description,
-      created: new Date().toISOString(),
-    };
-    setRequests([...requests, r]);
-    window.location.href = `${EMAIL_GATEWAY}?subject=New ObScore Request&body=${encodeURIComponent(description)}`;
+    window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
   }
 
-  return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-bold">Request an Arrangement</h2>
-      <Textarea
-        placeholder="Describe the piece, instruments, deadline, and attach files in the email step…"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <Button onClick={submitRequest}>Send Request</Button>
-    </section>
-  );
-}
+  function loadArranger() {
+    document.getElementById("bio").value = user.bio;
+    renderInstruments();
+    renderRequests();
+  }
 
-function ArrangerDashboard({ user, users, setUsers, requests }) {
-  const [bio, setBio] = useState(user.bio || "");
-  const [instrument, setInstrument] = useState("");
-
-  function saveProfile() {
-    const updated = users.map((u) =>
-      u.email === user.email ? { ...u, bio, instruments: u.instruments } : u
-    );
-    setUsers(updated);
+  function saveBio() {
+    user.bio = document.getElementById("bio").value;
+    saveUser();
   }
 
   function addInstrument() {
-    const updated = users.map((u) =>
-      u.email === user.email
-        ? { ...u, instruments: [...u.instruments, instrument] }
-        : u
-    );
-    setUsers(updated);
-    setInstrument("");
+    const val = document.getElementById("instrumentInput").value.trim();
+    if (!val) return;
+    user.instruments.push(val);
+    document.getElementById("instrumentInput").value = "";
+    saveUser();
+    renderInstruments();
   }
 
-  return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-bold">Arranger Profile</h2>
-      <Textarea placeholder="Your bio" value={bio} onChange={(e) => setBio(e.target.value)} />
-      <Button onClick={saveProfile}>Save Bio</Button>
+  function renderInstruments() {
+    const ul = document.getElementById("instrumentList");
+    ul.innerHTML = "";
+    user.instruments.forEach(i => {
+      const li = document.createElement("li");
+      li.textContent = i;
+      ul.appendChild(li);
+    });
+  }
 
-      <div className="space-y-2">
-        <h3 className="font-semibold">Instruments you write for</h3>
-        <div className="flex gap-2">
-          <Input value={instrument} onChange={(e) => setInstrument(e.target.value)} />
-          <Button onClick={addInstrument}>Add</Button>
-        </div>
-        <ul className="list-disc pl-6">
-          {user.instruments?.map((i, idx) => <li key={idx}>{i}</li>)}
-        </ul>
-      </div>
+  function renderRequests() {
+    const ul = document.getElementById("requests");
+    ul.innerHTML = "";
+    requests.forEach(r => {
+      const li = document.createElement("li");
+      li.innerHTML = `<p>${r.text}</p><a href="mailto:${EMAIL}?subject=ObScore Response&body=${encodeURIComponent(r.text)}">Respond by email</a>`;
+      ul.appendChild(li);
+    });
+  }
 
-      <div>
-        <h3 className="font-semibold">Open Requests</h3>
-        <ul className="space-y-2">
-          {requests.map((r) => (
-            <li key={r.id} className="border p-3 rounded">
-              <p className="text-sm text-neutral-600">{r.performer}</p>
-              <p>{r.description}</p>
-              <a
-                className="text-blue-600 underline"
-                href={`${EMAIL_GATEWAY}?subject=Responding to ObScore Request&body=${encodeURIComponent(r.description)}`}
-              >
-                Respond via Email
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
+  function saveUser() {
+    users = users.map(u => u.email === user.email ? user : u);
+    localStorage.setItem("obs_users", JSON.stringify(users));
+  }
+</script>
+
+</body>
+</html>
