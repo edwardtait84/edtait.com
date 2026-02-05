@@ -86,8 +86,7 @@
 
 <section id="performer" class="card hidden">
   <h2>Request an Arrangement</h2>
-  <textarea id="requestText" placeholder="Describe the piece, instruments, deadline, etc."></textarea>
-  <p style="font-size:0.9rem;color:#555;margin-top:8px;">You will be asked to attach files (PDF, images, Sibelius, etc.) in your email client after clicking send.</p>
+  <textarea id="requestText" placeholder="Describe the piece, instruments, deadline, etc. Attach files in the email step."></textarea>
   <button onclick="sendRequest()">Send Request</button>
 </section>
 
@@ -145,7 +144,14 @@
     requests.push({ text, from: user.email });
     localStorage.setItem("obs_requests", JSON.stringify(requests));
 
-    const body = `${text}\n\n---\nPlease attach your score files (PDF, images, notation files) to this email before sending.`;
+    window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(text)}`;
+  });
+    localStorage.setItem("obs_requests", JSON.stringify(requests));
+
+    const body = `${text}
+
+---
+Please attach your score files (PDF, images, notation files) to this email before sending.`;
 
     window.location.href = `mailto:${EMAIL}?subject=New ObScore Request&body=${encodeURIComponent(body)}`;
   });
