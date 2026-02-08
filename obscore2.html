@@ -2,68 +2,131 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ObScore — On-Demand Music Arranging</title>
+<title>ObScore — On-Demand Arranging</title>
 <style>
+:root {
+  --bg: #fafafa;
+  --fg: #111;
+  --muted: #666;
+  --accent: #000;
+  --card: #ffffff;
+  --border: #e5e5e5;
+}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f6f6f6;
-  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
 }
+
 header {
-  background: #111;
-  color: white;
-  padding: 1.2rem;
+  padding: 2rem 3rem 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
+
 header h1 {
   margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
+
+header p {
+  margin: 0.4rem 0 1.2rem;
+  color: var(--muted);
+}
+
 nav button {
-  margin-right: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--muted);
 }
+
+nav button:hover {
+  color: var(--fg);
+}
+
 section {
-  padding: 1.5rem;
   display: none;
+  padding: 3rem;
+  max-width: 900px;
 }
+
 section.active {
   display: block;
 }
+
 .card {
-  background: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
-input, textarea, select, button {
+
+h2 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+input, textarea, select {
   width: 100%;
-  padding: 8px;
-  margin-top: 6px;
+  padding: 10px 12px;
+  margin-top: 0.6rem;
+  margin-bottom: 1.2rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
 }
-button {
-  background: #111;
+
+textarea {
+  resize: vertical;
+}
+
+button.primary {
+  background: var(--accent);
   color: white;
   border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
-button:hover {
+
+button.primary:hover {
   opacity: 0.85;
 }
-.star {
-  cursor: pointer;
-  font-size: 1.2rem;
+
+.arranger {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.arranger:last-child {
+  border-bottom: none;
+}
+
+.rating {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 </style>
 </head>
-
 <body>
 
 <header>
   <h1>ObScore</h1>
-  <p>Fast, custom music arrangements for any instrumentation</p>
+  <p>Fast, bespoke music arrangements — any instrumentation</p>
   <nav>
     <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('request')">Request Arrangement</button>
-    <button onclick="showSection('signup')">Sign Up / Login</button>
+    <button onclick="showSection('request')">Request</button>
+    <button onclick="showSection('signup')">Account</button>
     <button onclick="showSection('arrangers')">Arrangers</button>
   </nav>
 </header>
@@ -72,30 +135,30 @@ button:hover {
   <div class="card">
     <h2>What is ObScore?</h2>
     <p>
-      ObScore connects performers with composers and arrangers for
-      fast, bespoke re-orchestrations and arrangements—especially for
-      unusual instrumentation.
+      ObScore is an on-demand arranging platform connecting performers
+      with composers for fast, human-written arrangements and re-orchestrations —
+      especially when time or instrumentation is unusual.
     </p>
   </div>
 </section>
 
 <section id="signup">
   <div class="card">
-    <h2>Create Account</h2>
+    <h2>Create an account</h2>
     <input id="username" placeholder="Your name">
     <select id="role">
       <option value="performer">Performer</option>
       <option value="arranger">Arranger</option>
     </select>
-    <button onclick="createAccount()">Create Account</button>
+    <button class="primary" onclick="createAccount()">Continue</button>
   </div>
 </section>
 
 <section id="arrangerProfile">
   <div class="card">
-    <h2>Arranger Profile</h2>
-    <textarea id="bio" placeholder="Your bio"></textarea>
-    <label>Instruments you can write for:</label>
+    <h2>Arranger profile</h2>
+    <textarea id="bio" placeholder="Short bio"></textarea>
+    <label>Instruments you write for</label>
     <select id="instruments" multiple>
       <option>Flute</option>
       <option>Oboe</option>
@@ -108,24 +171,26 @@ button:hover {
       <option>Strings</option>
       <option>Electronics</option>
     </select>
-    <button onclick="saveProfile()">Save Profile</button>
+    <button class="primary" onclick="saveProfile()">Save profile</button>
   </div>
 </section>
 
 <section id="request">
   <div class="card">
-    <h2>Request an Arrangement</h2>
+    <h2>Request an arrangement</h2>
     <input id="reqInstrumentation" placeholder="Instrumentation required">
     <input id="deadline" placeholder="Deadline">
     <textarea id="description" placeholder="Describe what you need"></textarea>
-    <button onclick="sendEmail()">Send Request</button>
-    <p><small>Note: you will be prompted to attach your score in your email client.</small></p>
+    <button class="primary" onclick="sendEmail()">Send request</button>
+    <p style="color:var(--muted);font-size:0.85rem">
+      Your email client will open so you can attach your score.
+    </p>
   </div>
 </section>
 
 <section id="arrangers">
   <div class="card">
-    <h2>Available Arrangers</h2>
+    <h2>Arrangers</h2>
     <div id="arrangerList"></div>
   </div>
 </section>
@@ -140,23 +205,28 @@ function showSection(id) {
 }
 
 function createAccount() {
-  const name = document.getElementById("username").value;
+  const name = document.getElementById("username").value.trim();
   const role = document.getElementById("role").value;
-  if (!name) return alert("Enter a name");
+  if (!name) return alert("Please enter your name");
 
   currentUser = { name, role, bio: "", instruments: [], ratings: [] };
   users.push(currentUser);
   localStorage.setItem("users", JSON.stringify(users));
 
-  alert("Account created!");
   if (role === "arranger") showSection("arrangerProfile");
+  else showSection("home");
 }
 
 function saveProfile() {
   currentUser.bio = document.getElementById("bio").value;
-  currentUser.instruments = Array.from(document.getElementById("instruments").selectedOptions).map(o => o.value);
+  currentUser.instruments = Array.from(
+    document.getElementById("instruments").selectedOptions
+  ).map(o => o.value);
+
   localStorage.setItem("users", JSON.stringify(users));
-  alert("Profile saved!");
+  alert("Profile saved");
+  renderArrangers();
+  showSection("arrangers");
 }
 
 function sendEmail() {
@@ -164,31 +234,27 @@ function sendEmail() {
   const deadline = document.getElementById("deadline").value;
   const desc = document.getElementById("description").value;
 
-  const body =
-`Arrangement Request via ObScore
-
-Instrumentation: ${inst}
-Deadline: ${deadline}
-
-Description:
-${desc}
-`;
+  const body = `Arrangement request via ObScore\n\nInstrumentation: ${inst}\nDeadline: ${deadline}\n\n${desc}`;
 
   window.location.href =
-`mailto:edwardtait06@outlook.com?subject=New ObScore Arrangement Request&body=${encodeURIComponent(body)}`;
+    `mailto:edwardtait06@outlook.com?subject=New ObScore Request&body=${encodeURIComponent(body)}`;
 }
 
 function renderArrangers() {
   const list = document.getElementById("arrangerList");
   list.innerHTML = "";
+
   users.filter(u => u.role === "arranger").forEach(a => {
-    const avg = a.ratings.length ? (a.ratings.reduce((x,y)=>x+y,0)/a.ratings.length).toFixed(1) : "No ratings";
+    const avg = a.ratings.length
+      ? (a.ratings.reduce((x,y)=>x+y,0)/a.ratings.length).toFixed(1)
+      : "No ratings yet";
+
     list.innerHTML += `
-      <div class="card">
+      <div class="arranger">
         <strong>${a.name}</strong><br>
-        <em>${a.bio}</em><br>
-        Instruments: ${a.instruments.join(", ")}<br>
-        Rating: ${avg}
+        <span style="color:var(--muted)">${a.bio}</span><br>
+        <span style="font-size:0.9rem">${a.instruments.join(", ")}</span><br>
+        <span class="rating">Rating: ${avg}</span>
       </div>`;
   });
 }
