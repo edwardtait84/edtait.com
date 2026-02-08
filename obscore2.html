@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ObScore — On-Demand Music Arranging</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f6f6f6;
+  color: #222;
+}
+header {
+  background: #111;
+  color: white;
+  padding: 1.2rem;
+}
+header h1 {
+  margin: 0;
+}
+nav button {
+  margin-right: 10px;
+}
+section {
+  padding: 1.5rem;
+  display: none;
+}
+section.active {
+  display: block;
+}
+.card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+input, textarea, select, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+}
+button {
+  background: #111;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.85;
+}
+.star {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ObScore</h1>
+  <p>Fast, custom music arrangements for any instrumentation</p>
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('request')">Request Arrangement</button>
+    <button onclick="showSection('signup')">Sign Up / Login</button>
+    <button onclick="showSection('arrangers')">Arrangers</button>
+  </nav>
+</header>
+
+<section id="home" class="active">
+  <div class="card">
+    <h2>What is ObScore?</h2>
+    <p>
+      ObScore connects performers with composers and arrangers for
+      fast, bespoke re-orchestrations and arrangements—especially for
+      unusual instrumentation.
+    </p>
+  </div>
+</section>
+
+<section id="signup">
+  <div class="card">
+    <h2>Create Account</h2>
+    <input id="username" placeholder="Your name">
+    <select id="role">
+      <option value="performer">Performer</option>
+      <option value="arranger">Arranger</option>
+    </select>
+    <button onclick="createAccount()">Create Account</button>
+  </div>
+</section>
+
+<section id="arrangerProfile">
+  <div class="card">
+    <h2>Arranger Profile</h2>
+    <textarea id="bio" placeholder="Your bio"></textarea>
+    <label>Instruments you can write for:</label>
+    <select id="instruments" multiple>
+      <option>Flute</option>
+      <option>Oboe</option>
+      <option>Clarinet</option>
+      <option>Bassoon</option>
+      <option>Horn</option>
+      <option>Trumpet</option>
+      <option>Trombone</option>
+      <option>Piano</option>
+      <option>Strings</option>
+      <option>Electronics</option>
+    </select>
+    <button onclick="saveProfile()">Save Profile</button>
+  </div>
+</section>
+
+<section id="request">
+  <div class="card">
+    <h2>Request an Arrangement</h2>
+    <input id="reqInstrumentation" placeholder="Instrumentation required">
+    <input id="deadline" placeholder="Deadline">
+    <textarea id="description" placeholder="Describe what you need"></textarea>
+    <button onclick="sendEmail()">Send Request</button>
+    <p><small>Note: you will be prompted to attach your score in your email client.</small></p>
+  </div>
+</section>
+
+<section id="arrangers">
+  <div class="card">
+    <h2>Available Arrangers</h2>
+    <div id="arrangerList"></div>
+  </div>
+</section>
+
+<script>
+let currentUser = null;
+let users = JSON.parse(localStorage.getItem("users") || "[]");
+
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function createAccount() {
+  const name = document.getElementById("username").value;
+  const role = document.getElementById("role").value;
+  if (!name) return alert("Enter a name");
+
+  currentUser = { name, role, bio: "", instruments: [], ratings: [] };
+  users.push(currentUser);
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("Account created!");
+  if (role === "arranger") showSection("arrangerProfile");
+}
+
+function saveProfile() {
+  currentUser.bio = document.getElementById("bio").value;
+  currentUser.instruments = Array.from(document.getElementById("instruments").selectedOptions).map(o => o.value);
+  localStorage.setItem("users", JSON.stringify(users));
+  alert("Profile saved!");
+}
+
+function sendEmail() {
+  const inst = document.getElementById("reqInstrumentation").value;
+  const deadline = document.getElementById("deadline").value;
+  const desc = document.getElementById("description").value;
+
+  const body =
+`Arrangement Request via ObScore
+
+Instrumentation: ${inst}
+Deadline: ${deadline}
+
+Description:
+${desc}
+`;
+
+  window.location.href =
+`mailto:edwardtait06@outlook.com?subject=New ObScore Arrangement Request&body=${encodeURIComponent(body)}`;
+}
+
+function renderArrangers() {
+  const list = document.getElementById("arrangerList");
+  list.innerHTML = "";
+  users.filter(u => u.role === "arranger").forEach(a => {
+    const avg = a.ratings.length ? (a.ratings.reduce((x,y)=>x+y,0)/a.ratings.length).toFixed(1) : "No ratings";
+    list.innerHTML += `
+      <div class="card">
+        <strong>${a.name}</strong><br>
+        <em>${a.bio}</em><br>
+        Instruments: ${a.instruments.join(", ")}<br>
+        Rating: ${avg}
+      </div>`;
+  });
+}
+
+renderArrangers();
+</script>
+
+</body>
+</html>
