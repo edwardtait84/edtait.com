@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About WordPress 6.9</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: #f6f7f7;
+    color: #1e1e1e;
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+.about__header-title h1 {
+    font-size: 32px;
+}
+
+.nav-tab-wrapper {
+    margin: 30px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-tab {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #1e1e1e;
+    border: 1px solid transparent;
+    border-bottom: none;
+}
+
+.nav-tab-active {
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #f6f7f7;
+    background: #fff;
+}
+
+.about__section {
+    margin: 60px 0;
+}
+
+.has-2-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.has-3-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.column img {
+    max-width: 100%;
+    height: auto;
+}
+
+.button-primary {
+    background: #2271b1;
+    color: #fff;
+    padding: 14px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.return-to-dashboard {
+    margin: 60px 0;
+}
+
+hr {
+    margin: 60px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .has-2-columns,
+    .has-3-columns {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap about__container">
+
+<div class="about__header">
+    <div class="about__header-title">
+        <h1>WordPress 6.9</h1>
+    </div>
+</div>
+
+<nav class="nav-tab-wrapper">
+    <a href="#" class="nav-tab nav-tab-active">What's New</a>
+    <a href="#" class="nav-tab">Credits</a>
+    <a href="#" class="nav-tab">Freedoms</a>
+    <a href="#" class="nav-tab">Privacy</a>
+    <a href="#" class="nav-tab">Get Involved</a>
+</nav>
+
+<div class="about__section">
+    <h2>Welcome to WordPress 6.9</h2>
+    <p>
+        WordPress 6.9 introduces a more intuitive way to create content, together.
+        Every detail is designed to fit your creative flow, from Notes that let you
+        collaborate directly in the editor to a powerful Command Palette.
+    </p>
+</div>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <h3>Notes</h3>
+        <p><strong>Leave feedback right where you’re working.</strong><br>
+        Collaboration happens seamlessly on the canvas itself.</p>
+    </div>
+    <div class="column">
+        <img src="https://s.w.org/images/core/6.9/01-notes.webp" alt="">
+    </div>
+</div>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <img src="https://s.w.org/images/core/6.9/02-visual-drag-drop.webp" alt="">
+    </div>
+    <div class="column">
+        <h3>Visual drag and drop</h3>
+        <p><strong>Design flows naturally.</strong><br>
+        Building layouts is now more intuitive and flexible.</p>
+    </div>
+</div>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <h3>Command Palette, everywhere</h3>
+        <p><strong>Your tools are always at hand.</strong><br>
+        Everything you need, just a few keystrokes away.</p>
+    </div>
+    <div class="column">
+        <img src="https://s.w.org/images/core/6.9/03-command-palette-everywhere.webp" alt="">
+    </div>
+</div>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <img src="https://s.w.org/images/core/6.9/04-fit-text.webp" alt="">
+    </div>
+    <div class="column">
+        <h3>Fit text to container</h3>
+        <p><strong>Content that adapts.</strong><br>
+        Automatically adjusts font size to fill its container perfectly.</p>
+    </div>
+</div>
+
+<hr>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <h3>Performance updates</h3>
+        <p>
+        Improved loading, better Largest Contentful Paint metric,
+        script loading enhancements, and editor performance fixes.
+        </p>
+    </div>
+    <div class="column">
+        <h3>Accessibility improvements</h3>
+        <p>
+        70+ accessibility fixes and enhancements improving usability,
+        screen reader announcements, and typing focus.
+        </p>
+    </div>
+</div>
+
+<hr>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <h3>And much more</h3>
+        <p>
+        For a comprehensive overview of all new features in WordPress 6.9,
+        visit the feature showcase.
+        </p>
+    </div>
+    <div class="column">
+        <a href="https://wordpress.org/download/releases/6.9/" class="button-primary">
+            See everything new
+        </a>
+    </div>
+</div>
+
+<hr>
+
+<div class="about__section has-2-columns">
+    <div class="column">
+        <h4>
+            <a href="https://wordpress.org/documentation/wordpress-version/version-6.9/">
+                WordPress 6.9 Release Notes
+            </a>
+        </h4>
+        <p>Installation info, enhancements, fixes, and file changes.</p>
+    </div>
+    <div class="column">
+        <h4>
+            <a href="https://make.wordpress.org/core/wordpress-6.9-field-guide/">
+                WordPress 6.9 Field Guide
+            </a>
+        </h4>
+        <p>Detailed developer notes about changes in this release.</p>
+    </div>
+</div>
+
+<hr>
+
+<div class="return-to-dashboard">
+    <a href="#">Go to Dashboard</a>
+</div>
+
+</div>
+
+</body>
+</html>
