@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urgent Music Arrangements</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;color:#222}
+header{background:#111;color:white;padding:20px;text-align:center}
+nav{display:flex;justify-content:center;gap:20px;background:#222;padding:10px}
+nav a{color:white;text-decoration:none;font-weight:bold}
+section{padding:40px;max-width:900px;margin:auto}
+.card{background:white;padding:20px;border-radius:10px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+input,textarea,select{width:100%;padding:10px;margin-top:8px;margin-bottom:15px;border-radius:6px;border:1px solid #ccc}
+button{background:#111;color:white;border:none;padding:12px 20px;border-radius:6px;cursor:pointer}
+button:hover{background:#333}
+.arrangers{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+footer{text-align:center;padding:30px;background:#111;color:white;margin-top:40px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Urgent Music Arrangements</h1>
+<p>Upload music and get an arrangement for any instrumentation</p>
+</header>
+
+<nav>
+<a href="#request">Request Arrangement</a>
+<a href="#arrangers">Arrangers</a>
+<a href="#signup">Become an Arranger</a>
+</nav>
+
+<section id="request">
+<div class="card">
+<h2>Request an Arrangement</h2>
+<form action="mailto:edwardtait06@outlook.com" method="post" enctype="text/plain">
+<label>Your Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Original Instrumentation</label>
+<input type="text" name="original_instrumentation">
+
+<label>Desired Instrumentation</label>
+<input type="text" name="desired_instrumentation" required>
+
+<label>Deadline</label>
+<input type="date" name="deadline">
+
+<label>Notes</label>
+<textarea name="notes"></textarea>
+
+<label>Upload Music File (PDF / MIDI etc)</label>
+<input type="file" name="music_file">
+
+<button type="submit">Send Request</button>
+</form>
+</div>
+</section>
+
+<section id="arrangers">
+<h2>Available Arrangers</h2>
+<div class="arrangers">
+
+<div class="card">
+<h3>Example Arranger</h3>
+<p><strong>Best Instruments:</strong> Strings, Piano</p>
+<p><strong>Plays:</strong> Violin, Piano</p>
+<p><strong>Specialty:</strong> Chamber music arrangements</p>
+<form action="mailto:edwardtait06@outlook.com" method="post" enctype="text/plain">
+<input type="hidden" name="requested_arranger" value="Example Arranger">
+<label>Your Name</label>
+<input type="text" name="client_name" required>
+<label>Your Email</label>
+<input type="email" name="client_email" required>
+<label>Message</label>
+<textarea name="message"></textarea>
+<button type="submit">Request This Arranger</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<section id="signup">
+<div class="card">
+<h2>Become an Arranger</h2>
+<p>Fill in your details to join the arranger network.</p>
+<form action="mailto:edwardtait06@outlook.com" method="post" enctype="text/plain">
+<label>Name</label>
+<input type="text" name="arranger_name" required>
+
+<label>Email</label>
+<input type="email" name="arranger_email" required>
+
+<label>Instruments You Write Best For</label>
+<input type="text" name="writing_instruments">
+
+<label>Instruments You Play</label>
+<input type="text" name="play_instruments">
+
+<label>Short Bio</label>
+<textarea name="bio"></textarea>
+
+<label>Portfolio Link (optional)</label>
+<input type="url" name="portfolio">
+
+<button type="submit">Sign Up</button>
+</form>
+</div>
+</section>
+
+<footer>
+<p>© Urgent Music Arrangements</p>
+</footer>
+
+</body>
+</html>
