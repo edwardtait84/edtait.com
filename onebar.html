@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Music Score</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    #controls {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #scoreContainer {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #score {
+      position: absolute;
+      width: 100%;
+    }
+
+    .staff {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      margin-bottom: 40px;
+    }
+
+    .line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: white;
+    }
+
+    .line:nth-child(1) { top: 20px; }
+    .line:nth-child(2) { top: 40px; }
+    .line:nth-child(3) { top: 60px; }
+    .line:nth-child(4) { top: 80px; }
+    .line:nth-child(5) { top: 100px; }
+
+    .note {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: white;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <button onclick="startScroll()">Start</button>
+  <button onclick="stopScroll()">Stop</button>
+</div>
+
+<div id="scoreContainer">
+  <div id="score"></div>
+</div>
+
+<script>
+  const score = document.getElementById('score');
+  let scrollSpeed = 0.5;
+  let scrolling = false;
+
+  function createStaff(yOffset) {
+    const staff = document.createElement('div');
+    staff.className = 'staff';
+
+    for (let i = 0; i < 5; i++) {
+      const line = document.createElement('div');
+      line.className = 'line';
+      staff.appendChild(line);
+    }
+
+    // Add random notes
+    for (let i = 0; i < 20; i++) {
+      const note = document.createElement('div');
+      note.className = 'note';
+      note.style.left = Math.random() * window.innerWidth + 'px';
+      note.style.top = (20 + Math.floor(Math.random() * 5) * 20) + 'px';
+      staff.appendChild(note);
+    }
+
+    staff.style.top = yOffset + 'px';
+    return staff;
+  }
+
+  // Generate multiple staves
+  for (let i = 0; i < 20; i++) {
+    score.appendChild(createStaff(i * 160));
+  }
+
+  let offset = 0;
+
+  function animate() {
+    if (scrolling) {
+      offset -= scrollSpeed;
+      score.style.transform = `translateY(${offset}px)`;
+    }
+    requestAnimationFrame(animate);
+  }
+
+  function startScroll() {
+    scrolling = true;
+  }
+
+  function stopScroll() {
+    scrolling = false;
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
