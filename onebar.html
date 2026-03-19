@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrolling Music Score</title>
+  <title>Horizontal Scrolling Score (Image Bars)</title>
   <style>
     body {
       margin: 0;
@@ -19,55 +19,60 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
 
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
+    button, input {
+      padding: 8px 12px;
       border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
+      border: none;
+      font-size: 14px;
     }
 
     #scoreContainer {
       position: absolute;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       overflow: hidden;
+      display: flex;
+      align-items: center;
     }
 
     #score {
-      position: absolute;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      transform: translateX(0px);
     }
 
-    .staff {
-      position: relative;
-      width: 100%;
-      height: 120px;
-      margin-bottom: 40px;
-    }
-
-    .line {
-      position: absolute;
-      width: 100%;
-      height: 2px;
+    .bar {
+      height: 70%;
+      margin: 0 10px;
       background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      overflow: hidden;
     }
 
-    .line:nth-child(1) { top: 20px; }
-    .line:nth-child(2) { top: 40px; }
-    .line:nth-child(3) { top: 60px; }
-    .line:nth-child(4) { top: 80px; }
-    .line:nth-child(5) { top: 100px; }
+    .bar img {
+      height: 100%;
+      display: block;
+    }
 
-    .note {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: white;
-      border-radius: 50%;
+    .placeholder {
+      width: 120px;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        #000,
+        #000 2px,
+        #fff 2px,
+        #fff 14px
+      );
     }
   </style>
 </head>
@@ -76,6 +81,7 @@
 <div id="controls">
   <button onclick="startScroll()">Start</button>
   <button onclick="stopScroll()">Stop</button>
+  <input type="file" id="upload" accept="image/*" multiple>
 </div>
 
 <div id="scoreContainer">
@@ -84,43 +90,54 @@
 
 <script>
   const score = document.getElementById('score');
+  const upload = document.getElementById('upload');
+
   let scrollSpeed = 0.5;
   let scrolling = false;
-
-  function createStaff(yOffset) {
-    const staff = document.createElement('div');
-    staff.className = 'staff';
-
-    for (let i = 0; i < 5; i++) {
-      const line = document.createElement('div');
-      line.className = 'line';
-      staff.appendChild(line);
-    }
-
-    // Add random notes
-    for (let i = 0; i < 20; i++) {
-      const note = document.createElement('div');
-      note.className = 'note';
-      note.style.left = Math.random() * window.innerWidth + 'px';
-      note.style.top = (20 + Math.floor(Math.random() * 5) * 20) + 'px';
-      staff.appendChild(note);
-    }
-
-    staff.style.top = yOffset + 'px';
-    return staff;
-  }
-
-  // Generate multiple staves
-  for (let i = 0; i < 20; i++) {
-    score.appendChild(createStaff(i * 160));
-  }
-
   let offset = 0;
+
+  // Add placeholder bars initially
+  function addPlaceholderBars(count = 10) {
+    for (let i = 0; i < count; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder';
+
+      bar.appendChild(placeholder);
+      score.appendChild(bar);
+    }
+  }
+
+  addPlaceholderBars();
+
+  // Handle image upload (each image = one bar)
+  upload.addEventListener('change', (e) => {
+    const files = Array.from(e.target.files);
+
+    files.forEach(file => {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+
+        const img = document.createElement('img');
+        img.src = event.target.result;
+
+        bar.appendChild(img);
+        score.appendChild(bar);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  });
 
   function animate() {
     if (scrolling) {
       offset -= scrollSpeed;
-      score.style.transform = `translateY(${offset}px)`;
+      score.style.transform = `translateX(${offset}px)`;
     }
     requestAnimationFrame(animate);
   }
