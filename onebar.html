@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded Scrolling Score</title>
+  <title>Synced Scrolling Score</title>
   <style>
     body {
       margin: 0;
@@ -66,11 +66,14 @@
   <div id="score"></div>
 </div>
 
+<!-- === ADD YOUR AUDIO FILE HERE === -->
+<audio id="audio" src="audio/recording.mp3"></audio>
+
 <script>
   const score = document.getElementById('score');
+  const audio = document.getElementById('audio');
 
   // === EMBED YOUR BAR IMAGES HERE ===
-  // Replace these with your own image paths (or base64 data)
   const bars = [
     "bars/bar1.png",
     "bars/bar2.png",
@@ -78,7 +81,7 @@
     "bars/bar4.png"
   ];
 
-  // Build score from embedded images
+  // Build score
   bars.forEach(src => {
     const bar = document.createElement('div');
     bar.className = 'bar';
@@ -92,18 +95,47 @@
 
   let scrolling = false;
   let offset = 0;
-  let speed = 0.5;
 
-  function animate() {
+  // === SPEED SETTINGS ===
+  // 2 bars every 7 seconds
+  let pixelsPerSecond = 0;
+
+  function calculateSpeed() {
+    const firstBar = document.querySelector('.bar');
+    if (!firstBar) return;
+
+    const barWidth = firstBar.offsetWidth;
+
+    // 2 bars per 7 seconds
+    pixelsPerSecond = (2 * barWidth) / 7;
+  }
+
+  let lastTime = null;
+
+  function animate(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const delta = (timestamp - lastTime) / 1000; // seconds
+    lastTime = timestamp;
+
     if (scrolling) {
-      offset -= speed;
+      offset -= pixelsPerSecond * delta;
       score.style.transform = `translateX(${offset}px)`;
     }
+
     requestAnimationFrame(animate);
   }
 
-  function start() { scrolling = true; }
-  function stop() { scrolling = false; }
+  function start() {
+    calculateSpeed();
+    scrolling = true;
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  function stop() {
+    scrolling = false;
+    audio.pause();
+  }
 
   animate();
 </script>
