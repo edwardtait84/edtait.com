@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizontal Scrolling Score (Image Bars)</title>
+  <title>Embedded Scrolling Score</title>
   <style>
     body {
       margin: 0;
       overflow: hidden;
       background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
     }
 
     #controls {
@@ -19,20 +17,17 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
-      display: flex;
-      gap: 10px;
-      align-items: center;
     }
 
-    button, input {
-      padding: 8px 12px;
-      border-radius: 8px;
+    button {
+      padding: 10px 20px;
+      margin: 5px;
       border: none;
-      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-    #scoreContainer {
-      position: absolute;
+    #container {
       width: 100vw;
       height: 100vh;
       overflow: hidden;
@@ -43,112 +38,72 @@
     #score {
       display: flex;
       align-items: center;
-      height: 100%;
-      transform: translateX(0px);
+      height: 80%;
     }
 
     .bar {
-      height: 70%;
-      margin: 0 10px;
+      height: 100%;
+      margin-right: 2px;
       background: white;
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      overflow: hidden;
     }
 
     .bar img {
       height: 100%;
       display: block;
     }
-
-    .placeholder {
-      width: 120px;
-      height: 100%;
-      background: repeating-linear-gradient(
-        to bottom,
-        #000,
-        #000 2px,
-        #fff 2px,
-        #fff 14px
-      );
-    }
   </style>
 </head>
 <body>
 
 <div id="controls">
-  <button onclick="startScroll()">Start</button>
-  <button onclick="stopScroll()">Stop</button>
-  <input type="file" id="upload" accept="image/*" multiple>
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
 </div>
 
-<div id="scoreContainer">
+<div id="container">
   <div id="score"></div>
 </div>
 
 <script>
   const score = document.getElementById('score');
-  const upload = document.getElementById('upload');
 
-  let scrollSpeed = 0.5;
+  // === EMBED YOUR BAR IMAGES HERE ===
+  // Replace these with your own image paths (or base64 data)
+  const bars = [
+    "bars/bar1.png",
+    "bars/bar2.png",
+    "bars/bar3.png",
+    "bars/bar4.png"
+  ];
+
+  // Build score from embedded images
+  bars.forEach(src => {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+
+    const img = document.createElement('img');
+    img.src = src;
+
+    bar.appendChild(img);
+    score.appendChild(bar);
+  });
+
   let scrolling = false;
   let offset = 0;
-
-  // Add placeholder bars initially
-  function addPlaceholderBars(count = 10) {
-    for (let i = 0; i < count; i++) {
-      const bar = document.createElement('div');
-      bar.className = 'bar';
-
-      const placeholder = document.createElement('div');
-      placeholder.className = 'placeholder';
-
-      bar.appendChild(placeholder);
-      score.appendChild(bar);
-    }
-  }
-
-  addPlaceholderBars();
-
-  // Handle image upload (each image = one bar)
-  upload.addEventListener('change', (e) => {
-    const files = Array.from(e.target.files);
-
-    files.forEach(file => {
-      const reader = new FileReader();
-
-      reader.onload = function(event) {
-        const bar = document.createElement('div');
-        bar.className = 'bar';
-
-        const img = document.createElement('img');
-        img.src = event.target.result;
-
-        bar.appendChild(img);
-        score.appendChild(bar);
-      };
-
-      reader.readAsDataURL(file);
-    });
-  });
+  let speed = 0.5;
 
   function animate() {
     if (scrolling) {
-      offset -= scrollSpeed;
+      offset -= speed;
       score.style.transform = `translateX(${offset}px)`;
     }
     requestAnimationFrame(animate);
   }
 
-  function startScroll() {
-    scrolling = true;
-  }
-
-  function stopScroll() {
-    scrolling = false;
-  }
+  function start() { scrolling = true; }
+  function stop() { scrolling = false; }
 
   animate();
 </script>
