@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Journal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .new-post {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .new-post input,
+    .new-post textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .new-post button {
+      padding: 10px 15px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .post {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .post img {
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: gray;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Research Journal</h1>
+  <p>Ongoing blog-style research log</p>
+</header>
+
+<div class="container">
+
+  <div class="new-post">
+    <h2>Create New Entry</h2>
+    <input type="text" id="title" placeholder="Entry title">
+    <textarea id="content" rows="6" placeholder="Write your research notes here..."></textarea>
+    <input type="file" id="image">
+    <button onclick="addPost()">Add Entry</button>
+  </div>
+
+  <div id="posts"></div>
+
+</div>
+
+<script>
+  function addPost() {
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+    const imageInput = document.getElementById('image');
+
+    if (!title || !content) return;
+
+    const post = document.createElement('div');
+    post.className = 'post';
+
+    const date = new Date().toLocaleString();
+
+    let imageHTML = '';
+    if (imageInput.files[0]) {
+      const imageURL = URL.createObjectURL(imageInput.files[0]);
+      imageHTML = `<img src="${imageURL}">`;
+    }
+
+    post.innerHTML = `
+      <h2>${title}</h2>
+      <div class="date">${date}</div>
+      <p>${content.replace(/\n/g, '<br>')}</p>
+      ${imageHTML}
+    `;
+
+    const postsContainer = document.getElementById('posts');
+    postsContainer.prepend(post);
+
+    document.getElementById('title').value = '';
+    document.getElementById('content').value = '';
+    imageInput.value = '';
+  }
+</script>
+
+</body>
+</html>
