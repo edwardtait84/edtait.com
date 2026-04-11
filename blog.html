@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f4f4f4;
+      line-height: 1.6;
     }
 
     header {
@@ -24,51 +25,48 @@
       padding: 20px;
     }
 
-    .new-post {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-
-    .new-post input,
-    .new-post textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    .new-post button {
-      padding: 10px 15px;
-      border: none;
-      background: #333;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .post {
+    .entry {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .post img {
-      max-width: 100%;
-      margin-top: 10px;
-      border-radius: 8px;
+    .entry h2 {
+      margin-top: 0;
     }
 
     .date {
       font-size: 12px;
       color: gray;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .entry img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .section {
+      margin-bottom: 15px;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -79,54 +77,50 @@
   <p>Ongoing blog-style research log</p>
 </header>
 
+<nav>
+  <a href="#entry1">Entry 1</a>
+  <a href="#entry2">Entry 2</a>
+</nav>
+
 <div class="container">
 
-  <div class="new-post">
-    <h2>Create New Entry</h2>
-    <input type="text" id="title" placeholder="Entry title">
-    <textarea id="content" rows="6" placeholder="Write your research notes here..."></textarea>
-    <input type="file" id="image">
-    <button onclick="addPost()">Add Entry</button>
+  <!-- EXAMPLE ENTRY 1 -->
+  <div class="entry" id="entry1">
+    <h2>Experiment on Light Refraction</h2>
+    <div class="date">April 10, 2026</div>
+
+    <div class="section">
+      <p>This experiment explores how light bends when passing through different materials. Initial tests were conducted using glass and water.</p>
+
+      <p>The results showed a measurable change in angle depending on the density of the medium. Further measurements are required for accuracy.</p>
+    </div>
+
+    <img src="https://via.placeholder.com/800x400" alt="Experiment image">
+
+    <div class="section">
+      <p>Future work will include testing additional materials and comparing results with theoretical predictions.</p>
+    </div>
   </div>
 
-  <div id="posts"></div>
+  <!-- EXAMPLE ENTRY 2 -->
+  <div class="entry" id="entry2">
+    <h2>Field Notes: Botanical Survey</h2>
+    <div class="date">April 8, 2026</div>
+
+    <div class="section">
+      <p>A survey of local plant species was conducted in a woodland area. Several previously unrecorded specimens were identified.</p>
+
+      <p>Environmental conditions were mild, with moderate humidity and temperature.</p>
+    </div>
+
+    <img src="https://via.placeholder.com/800x400" alt="Botanical image">
+
+    <div class="section">
+      <p>Next steps include cataloguing specimens and cross-referencing with existing databases.</p>
+    </div>
+  </div>
 
 </div>
-
-<script>
-  function addPost() {
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
-    const imageInput = document.getElementById('image');
-
-    if (!title || !content) return;
-
-    const post = document.createElement('div');
-    post.className = 'post';
-
-    const date = new Date().toLocaleString();
-
-    let imageHTML = '';
-    if (imageInput.files[0]) {
-      const imageURL = URL.createObjectURL(imageInput.files[0]);
-      imageHTML = `<img src="${imageURL}">`;
-    }
-
-    post.innerHTML = `
-      <h2>${title}</h2>
-      <div class="date">${date}</div>
-      <p>${content.replace(/\n/g, '<br>')}</p>
-      ${imageHTML}
-    `;
-
-    const postsContainer = document.getElementById('posts');
-    postsContainer.prepend(post);
-
-    document.getElementById('title').value = '';
-    document.getElementById('content').value = '';
-    imageInput.value = '';
-  }
-</script>
 
 </body>
 </html>
