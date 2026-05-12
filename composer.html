@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edward Tait | Composer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f7f4;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ---------------- NAVIGATION ---------------- */
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(248,247,244,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .hamburger {
+      width: 32px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hamburger span {
+      height: 2px;
+      background: #222;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    nav {
+      position: absolute;
+      top: 78px;
+      left: 0;
+      width: 100%;
+      background: #f8f7f4;
+      display: none;
+      flex-direction: column;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #e5e5e5;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #eceae5;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .hero img {
+      width: 280px;
+      height: 360px;
+      object-fit: cover;
+      margin: 2rem auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* ---------------- QUOTES ---------------- */
+
+    .quote-container {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .quotes {
+      display: inline-block;
+      animation: scrollQuotes 26s linear infinite;
+      font-style: italic;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    @keyframes scrollQuotes {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      max-width: 950px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+    }
+
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .bio p {
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-link {
+      display: inline-block;
+      margin-top: 1rem;
+      border: 1px solid #222;
+      padding: 0.8rem 1.5rem;
+      transition: 0.3s;
+    }
+
+    .cv-link:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    /* ---------------- AUDIO ---------------- */
+
+    .soundcloud iframe {
+      width: 100%;
+      height: 166px;
+      border: none;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------------- EVENTS ---------------- */
+
+    .event {
+      border-left: 2px solid #222;
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .event h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .event p {
+      color: #555;
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid #ddd;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero img {
+        width: 220px;
+        height: 300px;
+      }
+
+      section h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">Edward Tait</div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <nav id="navMenu">
+      <a href="#biography">Biography</a>
+      <a href="#recordings">Recordings</a>
+      <a href="#events">Upcoming Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="quote-container">
+      <div class="quotes">
+        “A compelling and richly expressive musical voice.” —
+        “Elegant textures and striking emotional clarity.” —
+        “Music of remarkable imagination and refinement.”
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Edward Tait</h1>
+
+      <p class="subtitle">
+        Composer • Contemporary Classical Music
+      </p>
+
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Composer portrait">
+
+    </div>
+  </section>
+
+  <!-- BIOGRAPHY -->
+
+  <section class="bio" id="biography">
+    <h2>Biography</h2>
+
+    <p>
+      Edward Tait is a British composer whose work explores lyricism,
+      colour, and dramatic narrative through contemporary classical music.
+      His compositions have been performed by chamber ensembles, soloists,
+      and orchestras across the United Kingdom and Europe.
+    </p>
+
+    <p>
+      Recent projects have focused on interdisciplinary collaboration,
+      combining music with theatre, poetry, and visual media. His work is
+      influenced by landscape, literature, and modern harmonic language,
+      while remaining rooted in expressive melodic writing.
+    </p>
+
+    <a class="cv-link" href="cv.pdf" target="_blank">
+      Download CV
+    </a>
+  </section>
+
+  <!-- RECORDINGS -->
+
+  <section class="soundcloud" id="recordings">
+    <h2>Recordings</h2>
+
+    <!-- Replace with your SoundCloud embed links -->
+
+    <iframe
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/308018713">
+    </iframe>
+
+    <iframe
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293">
+    </iframe>
+
+  </section>
+
+  <!-- EVENTS -->
+
+  <section id="events">
+    <h2>Upcoming Events</h2>
+
+    <div class="event">
+      <h3>String Quartet No. 2 — Premiere</h3>
+      <p>
+        15 September 2026 • St Martin-in-the-Fields, London
+      </p>
+    </div>
+
+    <div class="event">
+      <h3>Portrait Concert</h3>
+      <p>
+        4 November 2026 • Royal Conservatoire Recital Hall
+      </p>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+
+    <p>
+      For commissions, collaborations, or performance enquiries:
+    </p>
+
+    <p>
+      <a href="mailto:contact@edwardtaitcomposer.com">
+        contact@edwardtaitcomposer.com
+      </a>
+    </p>
+
+    <p>
+      SoundCloud:
+      <a href="https://soundcloud.com/" target="_blank">
+        Visit Profile
+      </a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Edward Tait. All rights reserved.
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
