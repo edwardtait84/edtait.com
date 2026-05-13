@@ -194,6 +194,35 @@
       margin-bottom: 1.5rem;
     }
 
+	/* ---------------- BIO LAYOUT ---------------- */
+
+    .bio-layout {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .bio-image {
+      flex: 0 0 320px;
+    }
+
+    .bio-image img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .photo-credit {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .bio-text {
+      flex: 1;
+      min-width: 0;
+    }
+
     .cv-link {
       display: inline-block;
       margin-top: 1rem;
@@ -269,6 +298,17 @@
       section h2 {
         font-size: 2.2rem;
       }
+
+      .bio-layout {
+        flex-direction: column;
+      }
+
+      .bio-image {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 2rem auto;
+      }
+		
     }
   </style>
 </head>
@@ -308,8 +348,10 @@
         Composer/Pianist/Conductor
       </p>
 
+	  <!--
       <img src="6d8acf_06dff1cf7c3a4cd59b178ec7693e2b8c~mv2.jpg" alt="Composer portrait">
       &copy; <a style="color: black" href="https://www.kirkpatrick-photography.co.uk">Charlie Kirkpatrick</a>
+	  -->
 
     </div>
 
@@ -329,7 +371,7 @@
 
   </section>
 
-  <!-- BIOGRAPHY -->
+  <!--
 
   <section class="bio" id="biography">
     <h2>Biography</h2>
@@ -345,6 +387,46 @@
     <a class="cv-link" href="https://edtait.com/Edward_Tait_CV_May_2026.pdf" target="_blank">
       Download CV
     </a>
+  </section>
+
+  -->
+
+  <!-- BIOGRAPHY -->
+
+  <section class="bio" id="biography">
+
+    <div class="bio-layout">
+
+      <div class="bio-image">
+        <img src="6d8acf_06dff1cf7c3a4cd59b178ec7693e2b8c~mv2.jpg" alt="Composer portrait">
+
+        <p class="photo-credit">
+          © <a style="color:black;" href="https://www.kirkpatrick-photography.co.uk">
+            Charlie Kirkpatrick
+          </a>
+        </p>
+      </div>
+
+      <div class="bio-text">
+
+        <h2>Biography</h2>
+
+        <p>
+          <b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>St John’s Smith Square</b> and <b>Westminster Abbey</b>. He has also received performances by renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>, and won the <b>NCEM Young Composer Award</b> in 2026.
+        </p>
+
+        <p>
+          Edward is the artistic director of the <b>MetroLand Music Festival</b>, and he is currently composing a song cycle, based on original texts by <b>Mollie Mardel</b>.
+        </p>
+
+        <a class="cv-link" href="https://edtait.com/Edward_Tait_CV_May_2026.pdf" target="_blank">
+          Download CV
+        </a>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- RECORDINGS -->
