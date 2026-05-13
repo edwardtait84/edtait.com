@@ -141,32 +141,37 @@
 
     /* ---------------- QUOTES ---------------- */
 
-    .quote-container {
-      overflow: hidden;
-      white-space: nowrap;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      padding: 1rem 0;
-      margin-bottom: 3rem;
-      width: 100%;
-    }
-
-    .quotes {
-      display: inline-block;
-      animation: scrollQuotes 74s linear infinite;
-      font-style: italic;
-      color: #444;
-      font-size: 1rem;
-    }
-
-    @keyframes scrollQuotes {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
+	.quote-container {
+	  overflow: hidden;
+	  border-top: 1px solid #ddd;
+	  border-bottom: 1px solid #ddd;
+	  padding: 1rem 0;
+	  margin-bottom: 3rem;
+	  width: 100%;
+	}
+	
+	.quotes {
+	  display: flex;
+	  width: max-content;
+	  animation: scrollQuotes 45s linear infinite;
+	}
+	
+	.quotes span {
+	  white-space: nowrap;
+	  font-style: italic;
+	  color: #444;
+	  font-size: 1rem;
+	  padding-right: 5rem;
+	}
+	
+	@keyframes scrollQuotes {
+	  from {
+	    transform: translateX(0);
+	  }
+	  to {
+	    transform: translateX(-50%);
+	  }
+	}
 
     /* ---------------- SECTIONS ---------------- */
 
