@@ -31,6 +31,7 @@
     nav {
         background: #000;
         width: 100%;
+        position: relative;
     }
 
     nav ul {
@@ -40,7 +41,7 @@
     }
 
     nav li {
-        margin: 0;
+        position: relative;
     }
 
     nav a {
@@ -54,6 +55,34 @@
     nav a:hover {
         background: #fff;
         color: #000;
+    }
+
+    /* Dropdown Menus */
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: #000;
+        z-index: 1000;
+    }
+
+    .submenu li {
+        width: 100%;
+    }
+
+    .submenu a {
+        width: 100%;
+        padding: 12px 16px;
+        white-space: nowrap;
+    }
+
+    /* Desktop Hover Dropdowns */
+    @media (min-width: 769px) {
+        .dropdown:hover > .submenu {
+            display: block;
+        }
     }
 
     /* Hamburger Button */
@@ -113,7 +142,7 @@
         text-decoration: underline;
     }
 
-    /* Mobile Navigation */
+    /* Mobile Layout */
     @media (max-width: 768px) {
 
         .menu-toggle {
@@ -137,6 +166,16 @@
             border-top: 1px solid #222;
         }
 
+        .submenu {
+            position: static;
+            min-width: 100%;
+            background: #111;
+        }
+
+        .submenu a {
+            padding-left: 40px;
+        }
+
         .hero-image {
             height: 250px;
         }
@@ -154,68 +193,190 @@
 
 <body>
 
-    <!-- Site Title -->
-    <header>
-        <div class="site-title">
-            Paul Crossley
-        </div>
+<header>
 
-        <!-- Navigation -->
-        <nav>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                ☰
-            </button>
+    <div class="site-title">
+        Paul Crossley
+    </div>
 
-            <ul id="nav-menu">
-                <li><a href="https://www.google.com">Home</a></li>
-                <li><a href="https://www.google.com">Bio</a></li>
-                <li><a href="https://www.google.com">Recordings</a></li>
-                <li><a href="https://www.google.com">Live Performances</a></li>
-                <li><a href="https://www.google.com">Photographs</a></li>
-                <li><a href="https://www.google.com">Videos</a></li>
-                <li><a href="https://www.google.com">60th Birthday Recital</a></li>
-                <li><a href="https://www.google.com">Writings</a></li>
-                <li><a href="https://www.google.com">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
 
-    <!-- Hero Image -->
-    <section class="hero-image"></section>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
+        <ul id="nav-menu">
 
-            <div class="footer-left">
-                <div>
-                    © 2015 Paul Crossley - Concert Pianist |
-                    Paul Crossley - Concert Pianist
-                </div>
+            <li>
+                <a href="https://www.google.com">Home</a>
+            </li>
 
-                <div>
-                    02087694471 | London
-                </div>
-            </div>
+            <li>
+                <a href="https://www.google.com">Bio</a>
+            </li>
 
-            <div class="footer-right">
-                Website designed by
-                <a href="https://www.bonline.com" target="_blank">
-                    bOnline
+            <li>
+                <a href="https://www.google.com">Recordings</a>
+            </li>
+
+            <li>
+                <a href="https://www.google.com">Live Performances</a>
+            </li>
+
+            <!-- Photographs Dropdown -->
+            <li class="dropdown">
+                <a href="https://www.google.com">Photographs ▼</a>
+
+                <ul class="submenu">
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Concert Portraits
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Live Recitals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Behind the Scenes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Press Images
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="https://www.google.com">Videos</a>
+            </li>
+
+            <li>
+                <a href="https://www.google.com">
+                    60th Birthday Recital
                 </a>
+            </li>
+
+            <!-- Writings Dropdown -->
+            <li class="dropdown">
+                <a href="https://www.google.com">Writings ▼</a>
+
+                <ul class="submenu">
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Articles
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Programme Notes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Essays
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.google.com">
+                            Interviews
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="https://www.google.com">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<!-- Hero Image -->
+<section class="hero-image"></section>
+
+<!-- Footer -->
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-left">
+
+            <div>
+                © 2015 Paul Crossley - Concert Pianist |
+                Paul Crossley - Concert Pianist
+            </div>
+
+            <div>
+                02087694471 | London
             </div>
 
         </div>
-    </footer>
+
+        <div class="footer-right">
+
+            Website designed by
+
+            <a href="https://www.bonline.com" target="_blank">
+                bOnline
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
+    // Main hamburger menu
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('nav-menu');
 
-    toggle.addEventListener('click', function () {
+    toggle.addEventListener('click', function() {
         menu.classList.toggle('active');
+    });
+
+    // Mobile dropdowns
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+
+        link.addEventListener('click', function(e) {
+
+            if (window.innerWidth <= 768) {
+
+                const submenu = this.nextElementSibling;
+
+                if (submenu &&
+                    submenu.classList.contains('submenu')) {
+
+                    e.preventDefault();
+
+                    submenu.style.display =
+                        submenu.style.display === 'block'
+                        ? 'none'
+                        : 'block';
+                }
+            }
+        });
+
     });
 
 });
