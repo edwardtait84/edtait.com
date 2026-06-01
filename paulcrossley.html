@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paul Crossley - Concert Pianist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-color: #444;
+            color: white;
+        }
+
+        /* Header */
+        .site-title {
+            padding: 20px 30px;
+            font-size: 32px;
+            color: #000;
+            background: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background: #000;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 18px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            background-image: url('https://images.unsplash.com/photo-1514119412350-e174d90d280e');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Footer Area */
+        .footer {
+            background: #444;
+            color: white;
+            padding: 20px 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .footer-left {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right a {
+            color: #4da3ff;
+            text-decoration: none;
+        }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="site-title">
+            Paul Crossley
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="https://www.google.com">Home</a></li>
+                <li><a href="https://www.google.com">Bio</a></li>
+                <li><a href="https://www.google.com">Recordings</a></li>
+                <li><a href="https://www.google.com">Live Performances</a></li>
+                <li><a href="https://www.google.com">Photographs</a></li>
+                <li><a href="https://www.google.com">Videos</a></li>
+                <li><a href="https://www.google.com">60th Birthday Recital</a></li>
+                <li><a href="https://www.google.com">Writings</a></li>
+                <li><a href="https://www.google.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-image"></section>
+
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-left">
+                <div>
+                    © 2015 Paul Crossley - Concert Pianist |
+                    Paul Crossley - Concert Pianist
+                </div>
+
+                <div>
+                    02087694471 | London
+                </div>
+            </div>
+
+            <div class="footer-right">
+                Website designed by
+                <a href="https://www.bonline.com" target="_blank">
+                    bOnline
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
