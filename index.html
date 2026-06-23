@@ -410,3 +410,88 @@
   </script>
 </body>
 </html>
+
+
+
+
+<!---
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Slider Design - Easy Tutorials</title>
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="DSC08128-1530x840.jpg"></div>
+                    <div class="swiper-slide"><img src="DSC09476-1530x840.jpg"></div>
+                    <div class="swiper-slide"><img src="DSC08134-1530x840.jpg"></div>
+                    <div class="swiper-slide"><img src="DSC06301-1530x840.jpg"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    </body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 100%;
+            height: 100vh;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper{
+            width: 80%;
+            height: fit-content;
+        }
+
+        .swiper-slide img{
+            width: 100%;
+        }
+
+        .swiper .swiper-button-prev, .swiper .swiper-button-next{
+            color: #fff;
+        }
+        
+        .swiper .swiper-pagination-bullet-active{
+            background: #fff,
+        }
+    </style>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        loop: true,
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        });
+    </script>
+</html>
+
+--->
