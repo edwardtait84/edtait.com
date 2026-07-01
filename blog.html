@@ -1,11 +1,307 @@
-<html>
-  <head>
-    <title>Blog & Notes | The Official Website of Edward Tait</title>
-  </head>
-  <body>
-    <hr>
-    <p style="font-size: 28px; -webkit-user-select: none; -ms-user-select: none; user-select: none;"><b>Edward Tait’s Blog/Programme Notes</b></p>
-    <p class="text">To subscribe, contact me through <a style="color: black;" href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p><p style="-webkit-user-select: none; -ms-user-select: none; user-select: none;" class="text"></p><hr>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog & Notes | The Official Website of Edward Tait</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;    
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f7f4;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(248,247,244,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .hamburger {
+      width: 32px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hamburger span {
+      height: 2px;
+      background: #222;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    nav {
+      position: absolute;
+      top: 78px;
+      left: 0;
+      width: 100%;
+      background: #f8f7f4;
+      display: none;
+      flex-direction: column;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #e5e5e5;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #eceae5;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .hero img {
+      width: 280px;
+      height: 360px;
+      object-fit: cover;
+      margin: 2rem auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+	.quote-container {
+	  overflow: hidden;
+	  border-top: 1px solid #ddd;
+	  border-bottom: 1px solid #ddd;
+	  padding: 1rem 0;
+	  margin-bottom: 3rem;
+	  width: 100%;
+	}
+	
+	.quotes {
+	  display: flex;
+	  width: max-content;
+	  animation: scrollQuotes 45s linear infinite;
+	}
+	
+	.quotes span {
+	  white-space: nowrap;
+	  color: #444;
+	  font-size: 1rem;
+	  padding-right: 5rem;
+	}
+	
+	@keyframes scrollQuotes {
+	  from {
+	    transform: translateX(0);
+	  }
+	  to {
+	    transform: translateX(-50%);
+	  }
+	}
+
+    section {
+      max-width: 950px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+    }
+
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .bio p {
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-layout {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .bio-image {
+      flex: 0 0 320px;
+    }
+
+    .bio-image img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .photo-credit {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .bio-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cv-link {
+      display: inline-block;
+      margin-top: 1rem;
+      border: 1px solid #222;
+      padding: 0.8rem 1.5rem;
+      transition: 0.3s;
+    }
+
+    .cv-link:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    .soundcloud iframe {
+      width: 100%;
+      height: 166px;
+      border: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .event {
+      border-left: 2px solid #222;
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .event h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .event p {
+      color: #555;
+    }
+
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      color: #000;
+      border-bottom: 1px solid #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid #ddd;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero img {
+        width: 220px;
+        height: 300px;
+      }
+
+      section h2 {
+        font-size: 2.2rem;
+      }
+
+      .bio-layout {
+        flex-direction: column;
+      }
+
+      .bio-image {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 2rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <!---
+    <p>For commissions, collaborations, performance enquiries, or to purchase scores:</p>
+    <p><a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p>
+    <br><br>
+    --->
     <!-- NEW BLOG POST -->
     <p class="date"><b>29th May 2026</b></p>
     <p class="text">Having effectively become an “honorary pianist”, I’m quite familiar with how performers view opportunities. A concerto, for most young musicians, is a rare opportunity which they savour, and will direct a lot of their attention to getting right and performing well. These are, of course, not easy to come by, but in pushing for these opportunities, there are often branded as “great experience”. What is the real attraction behind performing a concerto? There are naturally a number of things… It can be just playing the great music itself, as a lot of concertos are great works of art. It could be the “prestige”, or to speak a painfully honest truth, the attention. It also looks good on a CV or professional pinboard, as there are certain skills you get from it. But to be honest, given how hard these opportunities are to get, I think there is an easy alternative to individually tick off each of these factors. Prestige doesn’t just come from size. Performing at Wigmore Hall or King’s Place would beat simply “playing with an orchestra”, in terms of raw prestige. As for great music, there is nothing really to say that concertos are, on average, greater than any other genre, whether it’s solo or chamber. The skills you “get” are a somewhat exaggeration. You don’t get any less from chamber music, in fact more if anything, as you are an equal contributor within the ensemble, rather than a concerto, where you are the “soloist”. What is it that draws people to concertos? I don’t have a definitive answer, just putting it out there.</p>
@@ -150,27 +446,17 @@
     <p class="date"><b>26th June 2023</b></p>
     <p class="text">On the IMPULSE trip, with my school, I recently met a composer named Tim Ambler. Despite him being a retired retailer and 'amateur' (using his own words) composer, he probably taught me more than many of my music teachers from Purcell. He admired my capacity to take on a side career, in order to make money, and in fact heavily encouraged me to do so, as he did, when he ran offices in Marylebone. He was also so humble, describing his own music as 'cowpat' music, or 'country' music, which I believe to be a massive oversimplification of how beautiful and well-crafted his music is!<br><br>This reminds me of my meeting and inspiring seminar with Errolyn Wallen, who taught me about the importance of personality, identity and life in music, and how it's a composer's “duty” to replicate everything in the music of their own. She was also genuinely the first person in my life who asked me the big question of “Why do I write music?”</p>
     <hr>
-    <p style="-webkit-user-select: none; -ms-user-select: none; user-select: none;">&copy; Edward Tait 2026. All rights reserved.<br>A Website by <a style="color: black" href="https://edtait.com/eptwebsites.html">EPT Websites</a></p>
-  </body>
-  <style>
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background-color: #f8f7f4;
-      color: #222;
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-top: 25px;
-    }
+  </section>
+  <footer>
+	  © 2026 Edward Tait. All rights reserved.<br>A Website by <a style="color: #222;" href="https://edtait.com/eptwebsites.html">EPT Websites</a>
+  </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
 
-    .date {
-      font-size: 22px;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .text {
-      font-size: 18px;
-    }
-  </style>
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
 </html>
