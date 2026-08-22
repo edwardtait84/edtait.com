@@ -285,8 +285,8 @@
       }
 
 		.works-list {
-		  columns: 3;
-		  column-gap: 40px;
+		  column-count: 3;
+		  column-gap: 50px;
 		}
 		
 		.works-list p {
@@ -294,17 +294,17 @@
 		  break-inside: avoid;
 		}
 		
-		/* Smaller screens */
-		@media (max-width: 900px) {
+		/* Smaller screens / tablets */
+		@media screen and (max-width: 768px) {
 		  .works-list {
-		    columns: 2;
+		    column-count: 2;
 		  }
 		}
 		
 		/* Phones */
-		@media (max-width: 600px) {
+		@media screen and (max-width: 500px) {
 		  .works-list {
-		    columns: 1;
+		    column-count: 1;
 		  }
 		}
     }
