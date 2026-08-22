@@ -285,26 +285,28 @@
       }
 
 		.works-list {
-		  column-count: 3;
-		  column-gap: 50px;
+		  column-count: 3 !important;
+		  column-gap: 50px !important;
+		  column-width: auto !important;
 		}
 		
 		.works-list p {
-		  margin: 0 0 8px 0;
+		  margin-top: 0;
+		  margin-bottom: 8px;
 		  break-inside: avoid;
 		}
 		
-		/* Smaller screens / tablets */
-		@media screen and (max-width: 768px) {
+		/* Tablet */
+		@media screen and (max-width: 800px) {
 		  .works-list {
-		    column-count: 2;
+		    column-count: 2 !important;
 		  }
 		}
 		
-		/* Phones */
+		/* Phone */
 		@media screen and (max-width: 500px) {
 		  .works-list {
-		    column-count: 1;
+		    column-count: 1 !important;
 		  }
 		}
     }
@@ -465,11 +467,13 @@
     </div>
 	--->
   </section>
-	<section>
+	<section class="catalogue">
 	  <h2>Edward Tait</h2>
+	
 	  <a href="https://www.edtait.com/blog.html">
 	    <p class="subtitle">View full catalogue of works...</p>
 	  </a>
+	
 	  <div class="works-list">
 	    <p>Engineer's Paradise (2025)</p>
 	    <p>Pulsating (2025)</p>
