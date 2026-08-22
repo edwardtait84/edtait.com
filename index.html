@@ -283,6 +283,30 @@
         max-width: 320px;
         margin: 0 auto 2rem auto;
       }
+
+		.works-list {
+		  columns: 3;
+		  column-gap: 40px;
+		}
+		
+		.works-list p {
+		  margin: 0 0 8px 0;
+		  break-inside: avoid;
+		}
+		
+		/* Smaller screens */
+		@media (max-width: 900px) {
+		  .works-list {
+		    columns: 2;
+		  }
+		}
+		
+		/* Phones */
+		@media (max-width: 600px) {
+		  .works-list {
+		    columns: 1;
+		  }
+		}
     }
   </style>
 </head>
@@ -441,34 +465,44 @@
     </div>
 	--->
   </section>
-
-
-  <section>
-    <h2>Edward Tait</h2>
-	<a href="https://www.edtait.com/blog.html"><p class="subtitle">View full catalogue of works...</p></a>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-	<p>Line</p>
-  </section>
-
-
-	
+	<section>
+	  <h2>Edward Tait</h2>
+	  <a href="https://www.edtait.com/blog.html">
+	    <p class="subtitle">View full catalogue of works...</p>
+	  </a>
+	  <div class="works-list">
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	    <p>Engineer's Paradise (2025)</p>
+	    <p>Pulsating (2025)</p>
+	    <p>Vectis (2026)</p>
+	  </div>
+	</section>
   <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>For commissions, collaborations, performance enquiries, or purchasing scores:</p>
