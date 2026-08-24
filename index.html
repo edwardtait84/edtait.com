@@ -1,554 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Official Website of Edward Tait</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f7f4;
-      color: #222;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(248,247,244,0.96);
-      backdrop-filter: blur(8px);
-      z-index: 999;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .hamburger {
-      width: 32px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .hamburger span {
-      height: 2px;
-      background: #222;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    nav {
-      position: absolute;
-      top: 78px;
-      left: 0;
-      width: 100%;
-      background: #f8f7f4;
-      display: none;
-      flex-direction: column;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav a {
-      padding: 1rem 1.5rem;
-      border-top: 1px solid #e5e5e5;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #eceae5;
-    }
-
-    nav.active {
-      display: flex;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 5rem 1.5rem;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 950px;
-    }
-
-    .hero img {
-      width: 280px;
-      height: 360px;
-      object-fit: cover;
-      margin: 2rem auto;
-      border-radius: 6px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p.subtitle {
-      font-size: 1.15rem;
-      letter-spacing: 1px;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-
-	.quote-container {
-	  overflow: hidden;
-	  border-top: 1px solid #ddd;
-	  border-bottom: 1px solid #ddd;
-	  padding: 1rem 0;
-	  margin-bottom: 3rem;
-	  width: 100%;
-	}
+	<head>
+	  <meta charset="UTF-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <title>The Official Website of Edward Tait</title>
+	  <link rel="preconnect" href="https://fonts.googleapis.com">
+	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+	  <style>
+	    * {
+	      margin: 0;
+	      padding: 0;
+	      box-sizing: border-box;
+	    }
 	
-	.quotes {
-	  display: flex;
-	  width: max-content;
-	  animation: scrollQuotes 45s linear infinite;
-	}
+	    body {
+	      font-family: 'Inter', sans-serif;
+	      background: #f8f7f4;
+	      color: #222;
+	      line-height: 1.7;
+	    }
 	
-	.quotes span {
-	  white-space: nowrap;
-	  color: #444;
-	  font-size: 1rem;
-	  padding-right: 5rem;
-	}
+	    a {
+	      text-decoration: none;
+	      color: inherit;
+	    }
 	
-	@keyframes scrollQuotes {
-	  from {
-	    transform: translateX(0);
-	  }
-	  to {
-	    transform: translateX(-50%);
-	  }
-	}
-
-    section {
-      max-width: 950px;
-      margin: auto;
-      padding: 5rem 1.5rem;
-    }
-
-    section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
-
-    .bio p {
-      margin-bottom: 1.5rem;
-    }
-
-    .bio-layout {
-      display: flex;
-      gap: 3rem;
-      align-items: flex-start;
-    }
-
-    .bio-image {
-      flex: 0 0 320px;
-    }
-
-    .bio-image img {
-      width: 100%;
-      border-radius: 6px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-    }
-
-    .photo-credit {
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .bio-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .cv-link {
-      display: inline-block;
-      margin-top: 1rem;
-      border: 1px solid #222;
-      padding: 0.8rem 1.5rem;
-      transition: 0.3s;
-    }
-
-    .cv-link:hover {
-      background: #222;
-      color: #fff;
-    }
-
-    .soundcloud iframe {
-      width: 100%;
-      height: 166px;
-      border: none;
-      margin-bottom: 1.5rem;
-    }
-
-    .event {
-      border-left: 2px solid #222;
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .event h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .event p {
-      color: #555;
-    }
-
-    .contact p {
-      margin-bottom: 1rem;
-    }
-
-    .contact a {
-      color: #000;
-      border-bottom: 1px solid #000;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      .hero img {
-        width: 220px;
-        height: 300px;
-      }
-
-      section h2 {
-        font-size: 2.2rem;
-      }
-
-      .bio-layout {
-        flex-direction: column;
-      }
-
-      .bio-image {
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto 2rem auto;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="nav-container">
-      <div class="logo">Edward Tait</div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-    <nav id="navMenu">
-      <a href="#biography">Biography</a>
-      <a href="#recordings">Recordings</a>
-      <a href="#events">Upcoming Events</a>
-      <a href="#contact">Contact</a>
-	  <a style="color: blue" href="https://edtait.com/blog.html">Composer’s Blog</a>
-    </nav>
-  </header>
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Edward Tait</h1>
-      <p class="subtitle">Composer, Pianist & Educator</p>
-    </div>
-	<br><br>
-    <div class="quote-container">
-      <div class="quotes">
-        “An absolutely brilliant composition” — Nicholas Daniel &nbsp;&nbsp;&nbsp;
-        “Unabashedly expressive ideas with a sure sense of narrative, pace and structure” — The Musical Opinion &nbsp;&nbsp;&nbsp;
-        “A well-written piece, idiomatically conceived, and both carefully and intelligently structured” — Huw Watkins &nbsp;&nbsp;&nbsp;
-        “One of our future musical entrepreneurs” — Alison Cox OBE &nbsp;&nbsp;&nbsp;
-        “Wonderful touches and a very satisfying shape” — London Sinfonietta &nbsp;&nbsp;&nbsp;
-        “An impressive piece, compositionally coherent and genuine idiomatic writing” — Dr Robert Saxton &nbsp;&nbsp;&nbsp;
-        “The very best of new music” — York Late Music Festival &nbsp;&nbsp;&nbsp;
-      </div>
-    </div>
-  </section>
-  <section class="bio" id="biography">
-    <div class="bio-layout">
-      <div class="bio-image">
-        <img src="6d8acf_06dff1cf7c3a4cd59b178ec7693e2b8c~mv2.jpg" alt="Composer portrait">
-        <p class="photo-credit">
-          © <a style="color:black;" href="https://www.kirkpatrick-photography.co.uk">Charlie Kirkpatrick</a>
-        </p>
-      </div>
-      <div class="bio-text">
-        <h2>Biography</h2>
-		<!---
-        <p><b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>Smith Square Hall</b> and <b>Westminster Abbey</b>. He has also received performances by renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>, and he won the <b>NCEM/BBC Young Composer Award</b> in 2026.</p>
-        <p>Edward is the artistic director of the <b>MetroLand Music Festival</b>, and he is currently composing a song cycle, based on original texts by <b>Mollie Mardel</b>.</p>
-		--->
-		<p><b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>Smith Square Hall</b> and <b>Westminster Abbey</b>. He has also worked with renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>. He is currently collaborating with writer <b>Mollie Mardel</b> and the <b>Arquia Duo</b> on the creation and recording of his song cycle <b><i>Vectis</i></b>.</p>
-		<p>Edward is artistic director of the <b>MetroLand Music Festival</b>. In November, his piece <b><i>my troubled sense doth move</i></b> will be broadcast live on <b>BBC Radio 3’s Early Music Show</b>, following his success in the <b>NCEM/BBC Young Composer Award</b>.</p>
-		<!---
-		<p><b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>Smith Square Hall</b> and <b>Westminster Abbey</b>. He has also worked with renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>. He is currently collaborating with writer <b>Mollie Mardel</b> and the <b>Arquia Duo</b> on the creation and recording of his song cycle <b><i>Vectis</i></b>, which will be released on album in 2027.</p>
-		<p>Edward is artistic director of the <b>MetroLand Music Festival</b>. In 2026, his piece <b><i>my troubled sense doth move</i></b> was broadcast live on <b>BBC Radio 3’s Early Music Show</b>, following his success in the <b>BBC/NCEM Young Composer Award</b>.</p>
-		--->
-		<!---
-		<p>Edward Tait is a British composer, studying at the Royal Academy of Music, with Gareth Moorcraft and Louise Drewett. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the Royal Festival Hall, Smith Square Hall and Westminster Abbey. He has also worked with renowned ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra and Lloyd’s Choir. He collaborated with writer Mollie Mardel and the Arquia Duo on the creation and recording of his song cycle Vectis, which was released on album in 2027.</p>
-		<p>Edward is artistic director of the MetroLand Music Festival. In 2026, his piece my troubled sense doth move was broadcast live on BBC Radio 3’s Early Music Show, following his success in the BBC/NCEM Young Composer Award.</p>
-		<p>Edward is currently completing a joint PhD at the Royal Academy of Music and King’s College London/the Manson Fellow/an alumnus and professor at the Royal Academy of Music, as well as being artistic director of the MetroLand Music Festival.</p>
-		--->
-		<!---
-		<p>Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. In 2024, he was invited to perform at the Purcell School's Pulse Festival, in a programme of works by Shostakovich and other works in response to his music. Upon graduation, he was awarded the Tim Stevenson Prize.</p>
-		<p>His compositions have been performed at Royal Festival Hall, St John’s Smith Square and Westminster Abbey, by ensembles including the London Sinfonietta and Carducci Quartet. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as both a pianist and composer.</p>
-		--->
-        <a class="cv-link" href="https://edtait.com/EdwardTaitCVAugust2026.pdf" target="_blank">Download CV</a>
-      </div>
-    </div>
-  </section>
-  <section class="soundcloud" id="recordings">
-    <h2>Recordings</h2>
-	<iframe width="80%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1962409887&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-	<p>Edward’s cello octet <i>Ecstasio</i>, performed in a workshop by the Royal Academy of Music.</p><br><br>
-	<iframe width="80%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761157518&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-	<p>Premiere of <i>Fleeting Manhattan</i> at St John’s Smith Square, conducted by Nicholas Daniel.</p>
-  </section>
-  <section id="events">
-    <h2>Upcoming Events</h2>
-	<!---
-    <div class="event">
-      <a href="https://christchurchworthing.org.uk/concerts-and-events-2022/"><h3>Frühlingslied — Performed by Ansel Chaloner-Hughes</h3></a>
-      <p>18 August 2026 • Christ Church, Worthing</p>
-    </div>
-    <div class="event">
-      <h3>After the Crossing: Lunchtime Organ Session</h3>
-      <p>19 August 2026 • All Saints' Church, Freshwater</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-    <div class="event">
-      <h3>After the Crossing: Evening Organ Recital</h3>
-      <p>20 August 2026 • St Mary the Virgin, Brading</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-	--->
-	<div class="event">
-      <h3>Thorley Mini Music Festival: Lunchtime Organ Recital</h3>
-      <p>23 August 2026 • St Swithin's Church, Thorley</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-    <div class="event">
-      <h3>After the Crossing: Evening Organ Session</h3>
-      <p>26 August 2026 • Christ Church, Totland</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-    <div class="event">
-      <h3>After the Crossing: Lunchtime Organ Recital</h3>
-      <p>27 August 2026 • St James Church, Yarmouth</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-	<div class="event">
-      <h3>After the Crossing: Afternoon Organ Recital</h3>
-      <p>27 August 2026 • St Michael's Church, Shalfleet</p>
-      <p>Programme of Purcell, Elgar & Tait</p>
-    </div>
-	<div class="event">
-      <h3>Solo Clarinet Sonata — Performed by Magnus Karlsson</h3>
-      <p>27 September 2026 • St Luke's Church, Charlton (Charlton Sunday Series)</p>
-    </div>
-    <div class="event">
-      <a href="https://pottersbarurc.org/upcoming-recitals/"><h3>Solo Recital</h3></a>
-      <p>2 October 2026 • United Reformed Church, Potter's Bar</p>
-      <p>Programme of Chopin, Grieg & Ravel</p>
-    </div>
-    <div class="event">
-      <a href="https://www.facebook.com/groups/1855911181568606"><h3>Fridays at One: Solo Recital</h3></a>
-      <p>23 October 2026 • St Alkmund's Church, Whitchurch</p>
-      <p>Programme of Chopin, Ravel & Scriabin</p>
-    </div>
-	<div class="event">
-      <a href="https://www.bcu.ac.uk/conservatoire/events-calendar/gonzaga-band-27-11-2026"><h3>my troubled sense doth move — Performed by the Gonzaga Band</h3></a>
-      <p>27 October 2026 • Royal Birmingham Conservatoire</p>
-    </div>
-	<div class="event">
-      <a href="https://amabile.uk/concerts/"><h3>Ashes Beneath the Ice — Performed by Amabile</h3></a>
-      <p>9 November 2026 • All Saints Church, High Wycombe</p>
-    </div>
-	<div class="event">
-      <h3>B2/3 Composers Concert: Cloches IV—V</h3>
-      <p>18 November 2026 • Angela Burgess Recital Hall, Royal Academy of Music</p>
-    </div>
-	<div class="event">
-      <a href="https://tinklings-at-the-lamb-and-flag-096a2a38.base44.app"><h3>Fanfare on the A String — Performed by the Academy of St Martin in the Fields</h3></a>
-      <p>13 December 2026 • Lamb and Flag, Oxford</p>
-    </div>
-	<div class="event">
-      <a href="https://www.letchworth-sinfonia.org.uk/concerts"><h3>Shostakovich Piano Concerto No. 2 — with Letchworth Sinfonia</h3></a>
-      <p>23 January 2027 • St Christopher School, Letchworth</p>
-    </div>
-	<!---
-	<div class="event">
-      <h3>Finzi Eclogue — with St Botolph's Music Society</h3>
-      <p>10 July 2027 • St Botolph's Church, Colchester</p>
-    </div>
-	--->
-  </section>
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>For commissions, collaborations, performance enquiries, or purchasing scores:</p>
-    <p><a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p>
-    <br><br>
-	<!---
-	<p>For full catalogue, visit publisher:</p>
-    <p><a href="https://edtait.com/notewelder.html"><b>NoteWelder Music</b></a></p>
-	<br><br>
-	--->
-	<p>Publisher: <a href="https://edtait.com/notewelder.html" target="_blank"><b>NoteWelder Music</b></a></p>
-    <p>YouTube: <a href="https://www.youtube.com/@edwardtait-06" target="_blank">@edwardtait-06</a></p>
-    <p>SoundCloud: <a href="https://soundcloud.com/edward-tait-composing" target="_blank">edward-tait-composing</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/ta.ity06/reels/" target="_blank">@ta.ity06</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Edward Tait</a></p>
-  </section>
-  <footer>
-	  © 2026 Edward Tait. All rights reserved.<br>A Website by <a style="color: #222;" href="https://edtait.com/eptwebsites.html">EPT Websites</a>
-  </footer>
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-  </script>
-</body>
+	    img {
+	      width: 100%;
+	      display: block;
+	    }
+	
+	    header {
+	      position: sticky;
+	      top: 0;
+	      background: rgba(248,247,244,0.96);
+	      backdrop-filter: blur(8px);
+	      z-index: 999;
+	      border-bottom: 1px solid #ddd;
+	    }
+	
+	    .nav-container {
+	      max-width: 1200px;
+	      margin: auto;
+	      padding: 1rem 1.5rem;
+	      display: flex;
+	      justify-content: space-between;
+	      align-items: center;
+	    }
+	
+	    .logo {
+	      font-family: 'Cormorant Garamond', serif;
+	      font-size: 2rem;
+	      font-weight: 600;
+	      letter-spacing: 1px;
+	    }
+	
+	    .hamburger {
+	      width: 32px;
+	      cursor: pointer;
+	      display: flex;
+	      flex-direction: column;
+	      gap: 6px;
+	    }
+	
+	    .hamburger span {
+	      height: 2px;
+	      background: #222;
+	      border-radius: 2px;
+	      transition: 0.3s;
+	    }
+	
+	    nav {
+	      position: absolute;
+	      top: 78px;
+	      left: 0;
+	      width: 100%;
+	      background: #f8f7f4;
+	      display: none;
+	      flex-direction: column;
+	      border-bottom: 1px solid #ddd;
+	    }
+	
+	    nav a {
+	      padding: 1rem 1.5rem;
+	      border-top: 1px solid #e5e5e5;
+	      transition: 0.3s;
+	    }
+	
+	    nav a:hover {
+	      background: #eceae5;
+	    }
+	
+	    nav.active {
+	      display: flex;
+	    }
+	
+	    .hero {
+	      min-height: 100vh;
+	      display: flex;
+	      flex-direction: column;
+	      justify-content: center;
+	      align-items: center;
+	      padding: 5rem 1.5rem;
+	      text-align: center;
+	    }
+	
+	    .hero-content {
+	      max-width: 950px;
+	    }
+	
+	    .hero img {
+	      width: 280px;
+	      height: 360px;
+	      object-fit: cover;
+	      margin: 2rem auto;
+	      border-radius: 6px;
+	      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+	    }
+	
+	    .hero h1 {
+	      font-family: 'Cormorant Garamond', serif;
+	      font-size: 4rem;
+	      font-weight: 500;
+	      margin-bottom: 0.5rem;
+	    }
+	
+	    .hero p.subtitle {
+	      font-size: 1.15rem;
+	      letter-spacing: 1px;
+	      color: #555;
+	      margin-bottom: 2rem;
+	    }
+	
+		.quote-container {
+		  overflow: hidden;
+		  border-top: 1px solid #ddd;
+		  border-bottom: 1px solid #ddd;
+		  padding: 1rem 0;
+		  margin-bottom: 3rem;
+		  width: 100%;
+		}
+		
+		.quotes {
+		  display: flex;
+		  width: max-content;
+		  animation: scrollQuotes 45s linear infinite;
+		}
+		
+		.quotes span {
+		  white-space: nowrap;
+		  color: #444;
+		  font-size: 1rem;
+		  padding-right: 5rem;
+		}
+		
+		@keyframes scrollQuotes {
+		  from {
+		    transform: translateX(0);
+		  }
+		  to {
+		    transform: translateX(-50%);
+		  }
+		}
+	
+	    section {
+	      max-width: 950px;
+	      margin: auto;
+	      padding: 5rem 1.5rem;
+	    }
+	
+	    section h2 {
+	      font-family: 'Cormorant Garamond', serif;
+	      font-size: 2.8rem;
+	      margin-bottom: 2rem;
+	      font-weight: 500;
+	    }
+	
+	    .bio p {
+	      margin-bottom: 1.5rem;
+	    }
+	
+	    .bio-layout {
+	      display: flex;
+	      gap: 3rem;
+	      align-items: flex-start;
+	    }
+	
+	    .bio-image {
+	      flex: 0 0 320px;
+	    }
+	
+	    .bio-image img {
+	      width: 100%;
+	      border-radius: 6px;
+	      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+	    }
+	
+	    .photo-credit {
+	      margin-top: 0.75rem;
+	      font-size: 0.9rem;
+	      color: #666;
+	    }
+	
+	    .bio-text {
+	      flex: 1;
+	      min-width: 0;
+	    }
+	
+	    .cv-link {
+	      display: inline-block;
+	      margin-top: 1rem;
+	      border: 1px solid #222;
+	      padding: 0.8rem 1.5rem;
+	      transition: 0.3s;
+	    }
+	
+	    .cv-link:hover {
+	      background: #222;
+	      color: #fff;
+	    }
+	
+	    .soundcloud iframe {
+	      width: 100%;
+	      height: 166px;
+	      border: none;
+	      margin-bottom: 1.5rem;
+	    }
+	
+	    .event {
+	      border-left: 2px solid #222;
+	      padding-left: 1.5rem;
+	      margin-bottom: 2rem;
+	    }
+	
+	    .event h3 {
+	      font-size: 1.2rem;
+	      margin-bottom: 0.3rem;
+	    }
+	
+	    .event p {
+	      color: #555;
+	    }
+	
+	    .contact p {
+	      margin-bottom: 1rem;
+	    }
+	
+	    .contact a {
+	      color: #000;
+	      border-bottom: 1px solid #000;
+	    }
+	
+	    footer {
+	      text-align: center;
+	      padding: 3rem 1rem;
+	      border-top: 1px solid #ddd;
+	      color: #666;
+	      font-size: 0.95rem;
+	    }
+	
+	    @media (max-width: 768px) {
+	      .hero h1 {
+	        font-size: 3rem;
+	      }
+	
+	      .hero img {
+	        width: 220px;
+	        height: 300px;
+	      }
+	
+	      section h2 {
+	        font-size: 2.2rem;
+	      }
+	
+	      .bio-layout {
+	        flex-direction: column;
+	      }
+	
+	      .bio-image {
+	        width: 100%;
+	        max-width: 320px;
+	        margin: 0 auto 2rem auto;
+	      }
+	    }
+	  </style>
+	</head>
+	<body>
+	  <header>
+	    <div class="nav-container">
+	      <div class="logo">Edward Tait</div>
+	      <div class="hamburger" id="hamburger">
+	        <span></span>
+	        <span></span>
+	        <span></span>
+	      </div>
+	    </div>
+	    <nav id="navMenu">
+	      <a href="#biography">Biography</a>
+	      <a href="#recordings">Recordings</a>
+	      <a href="#events">Upcoming Events</a>
+	      <a href="#contact">Contact</a>
+		  <a style="color: blue" href="https://edtait.com/blog.html">Composer’s Blog</a>
+	    </nav>
+	  </header>
+	  <section class="hero">
+	    <div class="hero-content">
+	      <h1>Edward Tait</h1>
+	      <p class="subtitle">Composer, Pianist & Educator</p>
+	    </div>
+		<br><br>
+	    <div class="quote-container">
+	      <div class="quotes">
+	        “An absolutely brilliant composition” — Nicholas Daniel &nbsp;&nbsp;&nbsp;
+	        “Unabashedly expressive ideas with a sure sense of narrative, pace and structure” — The Musical Opinion &nbsp;&nbsp;&nbsp;
+	        “A well-written piece, idiomatically conceived, and both carefully and intelligently structured” — Huw Watkins &nbsp;&nbsp;&nbsp;
+	        “One of our future musical entrepreneurs” — Alison Cox OBE &nbsp;&nbsp;&nbsp;
+	        “Wonderful touches and a very satisfying shape” — London Sinfonietta &nbsp;&nbsp;&nbsp;
+	        “An impressive piece, compositionally coherent and genuine idiomatic writing” — Dr Robert Saxton &nbsp;&nbsp;&nbsp;
+	        “The very best of new music” — York Late Music Festival &nbsp;&nbsp;&nbsp;
+	      </div>
+	    </div>
+	  </section>
+	  <section class="bio" id="biography">
+	    <div class="bio-layout">
+	      <div class="bio-image">
+	        <img src="6d8acf_06dff1cf7c3a4cd59b178ec7693e2b8c~mv2.jpg" alt="Composer portrait">
+	        <p class="photo-credit">
+	          © <a style="color:black;" href="https://www.kirkpatrick-photography.co.uk">Charlie Kirkpatrick</a>
+	        </p>
+	      </div>
+	      <div class="bio-text">
+	        <h2>Biography</h2>
+			<!---
+	        <p><b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>Smith Square Hall</b> and <b>Westminster Abbey</b>. He has also received performances by renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>, and he won the <b>NCEM/BBC Young Composer Award</b> in 2026.</p>
+	        <p>Edward is the artistic director of the <b>MetroLand Music Festival</b>, and he is currently composing a song cycle, based on original texts by <b>Mollie Mardel</b>.</p>
+			--->
+			<p><b>Edward Tait</b> is a British composer, studying at the <b>Royal Academy of Music</b>, with <b>Gareth Moorcraft</b> and <b>Louise Drewett</b>. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the <b>Royal Festival Hall</b>, <b>Smith Square Hall</b> and <b>Westminster Abbey</b>. He has also worked with renowned ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b>, <b>Orion Orchestra</b> and <b>Lloyd’s Choir</b>. He is currently collaborating with writer <b>Mollie Mardel</b> and the <b>Arquia Duo</b> on the creation and recording of his song cycle <b><i>Vectis</i></b>.</p>
+			<p>Edward is artistic director of the <b>MetroLand Music Festival</b>. In November, his piece <b><i>my troubled sense doth move</i></b> will be broadcast live on <b>BBC Radio 3’s Early Music Show</b>, following his success in the <b>NCEM/BBC Young Composer Award</b>.</p>
+			<!---
+			<p>...which will be released on album in 2027.</p>
+			<p>In 2026, his piece <b><i>my troubled sense doth move</i></b> was broadcast...</p>
+			<p>Edward is currently completing a joint PhD at the Royal Academy of Music and King’s College London/the Manson Fellow/an alumnus and professor at the Royal Academy of Music, as well as being artistic director of the MetroLand Music Festival.</p>
+			--->
+			<!---
+			<p>Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. In 2024, he was invited to perform at the Purcell School's Pulse Festival, in a programme of works by Shostakovich and other works in response to his music. Upon graduation, he was awarded the Tim Stevenson Prize.</p>
+			<p>His compositions have been performed at Royal Festival Hall, St John’s Smith Square and Westminster Abbey, by ensembles including the London Sinfonietta and Carducci Quartet. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as both a pianist and composer.</p>
+			--->
+	        <a class="cv-link" href="https://edtait.com/EdwardTaitCVAugust2026.pdf" target="_blank">Download CV</a>
+	      </div>
+	    </div>
+	  </section>
+	  <section class="soundcloud" id="recordings">
+	    <h2>Recordings</h2>
+		<iframe width="80%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1962409887&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
+		<p>Edward’s cello octet <i>Ecstasio</i>, performed in a workshop by the Royal Academy of Music.</p><br><br>
+		<iframe width="80%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761157518&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
+		<p>Premiere of <i>Fleeting Manhattan</i> at St John’s Smith Square, conducted by Nicholas Daniel.</p>
+	  </section>
+	  <section id="events">
+	    <h2>Upcoming Events</h2>
+	    <div class="event">
+	      <h3>After the Crossing: Evening Organ Session</h3>
+	      <p>26 August 2026 • Christ Church, Totland</p>
+	      <p>Programme of Purcell, Elgar & Tait</p>
+	    </div>
+	    <div class="event">
+	      <h3>After the Crossing: Lunchtime Organ Recital</h3>
+	      <p>27 August 2026 • St James Church, Yarmouth</p>
+	      <p>Programme of Purcell, Elgar & Tait</p>
+	    </div>
+		<div class="event">
+	      <h3>After the Crossing: Afternoon Organ Recital</h3>
+	      <p>27 August 2026 • St Michael's Church, Shalfleet</p>
+	      <p>Programme of Purcell, Elgar & Tait</p>
+	    </div>
+		<div class="event">
+	      <h3>Solo Clarinet Sonata — Performed by Magnus Karlsson</h3>
+	      <p>27 September 2026 • St Luke's Church, Charlton (Charlton Sunday Series)</p>
+	    </div>
+	    <div class="event">
+	      <a href="https://pottersbarurc.org/upcoming-recitals/"><h3>Solo Recital</h3></a>
+	      <p>2 October 2026 • United Reformed Church, Potter's Bar</p>
+	      <p>Programme of Chopin, Grieg & Ravel</p>
+	    </div>
+	    <div class="event">
+	      <a href="https://www.facebook.com/groups/1855911181568606"><h3>Fridays at One: Solo Recital</h3></a>
+	      <p>23 October 2026 • St Alkmund's Church, Whitchurch</p>
+	      <p>Programme of Chopin, Ravel & Scriabin</p>
+	    </div>
+		<div class="event">
+	      <a href="https://www.bcu.ac.uk/conservatoire/events-calendar/gonzaga-band-27-11-2026"><h3>my troubled sense doth move — Performed by the Gonzaga Band</h3></a>
+	      <p>27 October 2026 • Royal Birmingham Conservatoire</p>
+	    </div>
+		<div class="event">
+	      <a href="https://amabile.uk/concerts/"><h3>Ashes Beneath the Ice — Performed by Amabile</h3></a>
+	      <p>9 November 2026 • All Saints Church, High Wycombe</p>
+	    </div>
+		<div class="event">
+	      <h3>B2/3 Composers Concert: Cloches IV—V</h3>
+	      <p>18 November 2026 • Angela Burgess Recital Hall, Royal Academy of Music</p>
+	    </div>
+		<div class="event">
+	      <a href="https://tinklings-at-the-lamb-and-flag-096a2a38.base44.app"><h3>Fanfare on the A String — Performed by the Academy of St Martin in the Fields</h3></a>
+	      <p>13 December 2026 • Lamb and Flag, Oxford</p>
+	    </div>
+		<div class="event">
+	      <a href="https://www.letchworth-sinfonia.org.uk/concerts"><h3>Shostakovich Piano Concerto No. 2 — with Letchworth Sinfonia</h3></a>
+	      <p>23 January 2027 • St Christopher School, Letchworth</p>
+	    </div>
+	  </section>
+	  <section class="contact" id="contact">
+	    <h2>Contact</h2>
+	    <p>For commissions, collaborations, performance enquiries, or purchasing scores:</p>
+	    <p><a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p>
+	    <br><br>
+		<p>Publisher: <a href="https://edtait.com/notewelder.html" target="_blank"><b>NoteWelder Music</b></a></p>
+	    <p>YouTube: <a href="https://www.youtube.com/@edwardtait-06" target="_blank">@edwardtait-06</a></p>
+	    <p>SoundCloud: <a href="https://soundcloud.com/edward-tait-composing" target="_blank">edward-tait-composing</a></p>
+	    <p>Instagram: <a href="https://www.instagram.com/ta.ity06/reels/" target="_blank">@ta.ity06</a></p>
+	    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Edward Tait</a></p>
+	  </section>
+	  <footer>
+		  © 2026 Edward Tait. All rights reserved.<br>A Website by <a style="color: #222;" href="https://edtait.com/eptwebsites.html">EPT Websites</a>
+	  </footer>
+	  <script>
+	    const hamburger = document.getElementById('hamburger');
+	    const navMenu = document.getElementById('navMenu');
+	
+	    hamburger.addEventListener('click', () => {
+	      navMenu.classList.toggle('active');
+	    });
+	  </script>
+	</body>
 </html>
-
-<!---
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Slider Design - Easy Tutorials</title>
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="DSC08128-1530x840.jpg"></div>
-                    <div class="swiper-slide"><img src="DSC09476-1530x840.jpg"></div>
-                    <div class="swiper-slide"><img src="DSC08134-1530x840.jpg"></div>
-                    <div class="swiper-slide"><img src="DSC06301-1530x840.jpg"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    </body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container{
-            width: 100%;
-            height: 100vh;
-            background: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .swiper{
-            width: 80%;
-            height: fit-content;
-        }
-
-        .swiper-slide img{
-            width: 100%;
-        }
-
-        .swiper .swiper-button-prev, .swiper .swiper-button-next{
-            color: #fff;
-        }
-        
-        .swiper .swiper-pagination-bullet-active{
-            background: #fff,
-        }
-    </style>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-        loop: true,
-
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        });
-    </script>
-</html>
-
---->
