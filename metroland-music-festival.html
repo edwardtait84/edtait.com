@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MetroLand Music Festival</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root{--blue:#1a4e80;--light:#f8fbfe;--bg:#eef4f9}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}
+      body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(#f7fbff,#eaf2f8);color:#243}
+      nav{position:sticky;top:0;display:flex;justify-content:center;gap:1rem;padding:14px;background:rgba(26,78,128,.88);backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(0,0,0,.12)}
+      nav a{color:#fff;text-decoration:none;padding:.55rem .9rem;border-radius:999px;transition:.25s}
+      nav a:hover{background:rgba(255,255,255,.18)}
+      header{padding:90px 20px;text-align:center;background:linear-gradient(135deg,#d8e8f6,#f8fbfe)}
+      h1,h2{font-family:"Cormorant Garamond",serif;color:var(--blue)}
+      h1{font-size:4rem;margin:0}header p{margin:.6rem 0 0}
+      section{max-width:1000px;margin:50px auto;padding:0 22px}
+      .card{background:white;border-radius:18px;padding:22px;box-shadow:0 10px 28px rgba(0,0,0,.08);margin:18px 0;transition:.25s}
+      .card:hover{transform:translateY(-4px)}
+      .btn{display:inline-block;background:var(--blue);color:#fff;padding:.8rem 1.2rem;border-radius:999px;text-decoration:none}
+      .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+      .team .card img{width:100%;border-radius:12px}
+      footer{text-align:center;padding:35px;background:#d8e8f6;margin-top:60px}
+    </style>
+  </head>
+  <body>
+      <nav><a href="#about-festival">About</a><a href="#season27">2027</a><a href="#season26">2026</a><a href="#team">Team</a><a href="#sponsor">Sponsor</a><a href="#social">Follow</a></nav>
+      <header><h1>MetroLand Music Festival</h1><p>Chamber Music Across the Metroland Region</p></header>
+      <section id="about-festival"><h2>About the Festival</h2><div class="card"><p>The MetroLand Music Festival is a new not-for-profit chamber music festival, raising money for <b>Barnardo’s</b>, a charity that means a great deal to us and the communities we serve. We are based around the historic Metroland region, and feature concerts in Amersham, Chalfont St Giles and Harrow Weald. We showcase up-and-coming young musicians, including students and graduates of the most prestigious conservatoires and universities.</p><p>We like our concerts to appeal to a diverse audience, and they are therefore often themed around timeless topics which are at the heart of our world. We are especially dedicated to performing new music by emerging young composers, and we are in the process of setting up an annual Young Composers Award, to nurture the performance of new music.</p></div></section>
+      <section id="season27"><h2>2027 Season</h2><div class="card"><p>We are currently in the process of planning our 2027 season. Stay tuned on this page for updates!</p></div></section>
+      <section id="season26"><h2>2026 Season</h2>
+        <!---
+        <div class="card"><h3>Concert</h3><p>Copy each concert from your original page into its own card.</p><a class="btn" href="#">Buy Tickets</a></div>
+        --->
+        <div class="card"><h3>Yazdi Madon: Solo Lunchtime Recital</h3><p>Saturday 28th February (1pm) ▪ St Pancras Clock Tower (NW1 2AR)</p><p>Yazdi Madon, a pianist studying at the Royal College of Music, performs works by Beethoven, Prokofiev, Scriabin and Falla.</p><p>Beethoven Piano Sonata No. 6</p><p>Scriabin Mazurkas Op. 25 No. 1, 3 & 4</p><p>Prokofiev Piano Sonata No. 2</p><p>Manuel de Falla <i>Fantasia bætica</i></p></div>
+        <div class="card"><h3>Edward Harris-Brown: Solo Evening Recital</h3><p>Saturday 14th March (7pm) ▪ All Saints Church Harrow Weald (HA3 6DQ)</p><p>Solo recital by pianist and composer Edward Harris-Brown, featuring works by Beethoven, Brahms & Edward Tait.</p><p>Beethoven Piano Sonata No. 28</p><p>Edward Tait <i>Fruhlingslied</i></p><p>Brahms Piano Sonata No. 2</p></div>
+        <div class="card"><h3>Harold Lee & James Mayhew: Lunchtime Concert</h3><p>Saturday 21st March (1pm) ▪ Chalfont St Giles Parish Church (HP8 4QF)</p><p>Harold Lee and James Mayhew, from the Royal Academy of Music, present a lunchtime recital of works for oboe and piano.</p><p>Telemann Oboe Sonata TWV 41:a3</p><p>Poulenc Oboe Sonata</p><p>Alkan Grande Etude Op. 76 No. 3</p><p>Kalliwoda <i>Morceau de salon</i></p></div>
+        <div class="card"><h3>Beacon Duo: Evening Concert</h3><p>Saturday 4th April (6:30pm) ▪ Amersham Free Church (HP6 6AJ)</p><p>Luca Weed and Edward Tait, former Beacon School students, play romantic and late-romantic classics by Brahms and Elgar, as well as a world premiere.</p><p>Brahms Scherzo in C minor</p><p>Mozart Violin Sonata No. 24 in F major (1st movement)</p><p>Edward Tait <i>Ballade</i> (WP)</p><p>Elgar Violin Sonata</p></div>
+      </section>
+      <section id="team"><h2>Our Team</h2><div class="team"><div class="card"><img src="PurcellPianoRhysStokes3.jpg"><h3>Artistic Director</h3><p><b>Edward Tait</b> is a British composer, studying at the Royal Academy of Music, with Gareth Moorcraft and Louise Drewett. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the Royal Festival Hall, St John’s Smith Square and Westminster Abbey. He has also received performances by renowned ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra and Lloyd’s Choir, and he won the NCEM/BBC Young Composer Award in 2026.</p><p>Edward is the artistic director of the MetroLand Music Festival, and he is currently composing a song cycle, based on original texts by Mollie Mardel.</p></div><div class="card"><img src="image0.jpeg"><h3>Associate Director</h3><p><b>James Mayhew</b> is a pianist in the second year of his undergraduate degree at the Royal Academy of Music, where he studies with Ian Fountain. He studied under Hilary Coates and Joseph Tong for four years at Wells Cathedral School, reaching the finals of its concerto competition with the 1st movement of Tchaikovsky’s Piano Concerto No. 1, and more recently won 2nd place at the Oxford Piano Competition for Aspiring Professionals. As a composer he has performed his own works numerous times, most notably his Fugue-Fantasy.</p><p>James enjoys exploring lesser-known works including those by Alkan and Feinberg, and loves collaborating with other musicians whenever possible.</p></div></div></section>
+      <section id="sponsor"><h2>Become a Sponsor</h2><div class="card"><p>We are a not-for-profit venture, and a large portion of our sustainability depends on our kind sponsors and patrons. By supporting this project, you’re not only helping bring great chamber music to the region, you’re also contributing to a cause that transforms the lives of vulnerable and young people. As a thank you, all donors will be listed on our website and in our concert programmes. Donate £50 or more, and you’ll receive a free ticket to the entire upcoming concert season! Every pound makes a difference. Please consider donating through our <a href="https://www.justgiving.com/crowdfunding/metroland-music-festival">JustGiving page</a> or by contacting us through our social media accounts (links below). Thank you in advance!</p><p>We'd like to give many thanks to our current sponsors, Alan Baskeyfield, Tiffany Qiu and Elliot Teo, as well as many others who wish to remain anonymous.</p></div></section>
+      <section id="social"><h2>Follow Us</h2><div class="card"><p><a href="https://www.youtube.com/@metrolandmusicfestival" target="_blank">YouTube</a><a href="https://www.instagram.com/metroland.festival" target="_blank">Instagram</a><a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Facebook</a><a href="mailto:edwardtait06@outlook.com" target="_blank">Mailing List</a></p></div></section>
+      <footer>&copy; 2026 MetroLand Music Festival<br>Website by <a href"https://edtait.com/eptwebsites.html">EPT Websites</a></footer>
+  </body>
+</html>
+<!---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MetroLand Music Festival</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e6f0fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #1a4e80;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #104069;
+    }
+
+    header {
+      background-color: #c2dbf0;
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    @media (min-width: 600px) {
+      .header-inner {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #1a4e80;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #b0cbe8;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .concert {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f4f9ff;
+      border-radius: 8px;
+    }
+
+    .concert h3 {
+      margin-top: 0;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #1a4e80;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .buy-button:hover {
+      background-color: #104069;
+    }
+
+    .founder {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .founder img {
+      max-width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #1a4e80;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #104069;
+    }
+
+    footer {
+      background-color: #c2dbf0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    /* --- Our Team Section Improvements --- */
+    #team {
+      text-align: center;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .team-member {
+      background: linear-gradient(180deg, #f4f9ff 0%, #e6f0fa 100%);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    }
+    
+    .team-member img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .team-member h3 {
+      color: #1a4e80;
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    
+    .team-member p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #333;
+    }
+ 
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about-festival">About</a>
+    <a href="#season27">2027 Season</a>
+    <a href="#season26">Past Seasons</a>
+    <a href="#team">Our Team</a>
+    <a href="#sponsor">Become A Sponsor</a>
+    <a href="#social">Follow Us</a>
+  </nav>
+  <header>
+    <div class="header-inner">
+      <p style="font-size: 2.5em; margin: 0; color: #1a4e80;">Metro<b>Land</b> Music Festival</p>
+    </div>
+  </header>
+  <section id="about-festival">
+    <h2>About the Festival</h2>
+    <p>The <strong>MetroLand Music Festival</strong> is a new not-for-profit chamber music festival, raising money for <b>Barnardo’s</b>, a charity that means a great deal to us and the communities we serve. We are based around the historic Metroland region, and feature concerts in Amersham, Chalfont St Giles and Harrow Weald. We showcase up-and-coming young musicians, including students and graduates of the most prestigious conservatoires and universities.</p>
+    <p>We like our concerts to appeal to a diverse audience, and they are therefore often themed around timeless topics which are at the heart of our world. We are especially dedicated to performing new music by emerging young composers, and we are in the process of setting up an annual Young Composers Award, to nurture the performance of new music.</p>
+  </section>
+  <section id="season27">
+    <h2>2027 Season</h2>
+    <p>We are currently in the process of planning our 2027 season. Stay tuned on this page for updates!</p>
+  </section>
+  <section id="season26">
+    <h2>2026 Season</h2>
+    <div class="concert">
+      <h3>Yazdi Madon: Solo Lunchtime Recital</h3>
+      <p>Saturday 28th February (1pm) ▪ St Pancras Clock Tower (NW1 2AR)</p>
+      <p>Yazdi Madon, a pianist studying at the Royal College of Music, performs works by Beethoven, Prokofiev, Scriabin and Falla.</p>
+      <p>Beethoven Piano Sonata No. 6</p>
+      <p>Scriabin Mazurkas Op. 25 No. 1, 3 & 4</p>
+      <p>Prokofiev Piano Sonata No. 2</p>
+      <p>Manuel de Falla <i>Fantasia bætica</i></p>
+      <a class="buy-button" href="https://www.eventbrite.co.uk/e/1979748616405?aff=oddtdtcreator">Buy Tickets</a>
+    </div>
+    <div class="concert">
+      <h3>Edward Harris-Brown: Solo Evening Recital</h3>
+      <p>Saturday 14th March (7pm) ▪ All Saints Church Harrow Weald (HA3 6DQ)</p>
+      <p>Solo recital by pianist and composer Edward Harris-Brown, featuring works by Beethoven, Brahms & Edward Tait.</p>
+      <p>Beethoven Piano Sonata No. 28</p>
+      <p>Edward Tait <i>Fruhlingslied</i></p>
+      <p>Brahms Piano Sonata No. 2</p>
+      <a class="buy-button" href="https://www.eventbrite.co.uk/e/1979795848678?aff=oddtdtcreator">Buy Tickets</a>
+    </div>
+    <div class="concert">
+      <h3>Harold Lee & James Mayhew: Lunchtime Concert</h3>
+      <p>Saturday 21st March (1pm) ▪ Chalfont St Giles Parish Church (HP8 4QF)</p>
+      <p>Harold Lee and James Mayhew, from the Royal Academy of Music, present a lunchtime recital of works for oboe and piano.</p>
+      <p>Telemann Oboe Sonata TWV 41:a3</p>
+      <p>Poulenc Oboe Sonata</p>
+      <p>Alkan Grande Etude Op. 76 No. 3</p>
+      <p>Kalliwoda <i>Morceau de salon</i></p>
+      <a class="buy-button" href="https://www.eventbrite.co.uk/e/1979796713264?aff=oddtdtcreator">Buy Tickets</a>
+    </div>
+    <div class="concert">
+      <h3>Beacon Duo: Evening Concert</h3>
+      <p>Saturday 4th April (6:30pm) ▪ Amersham Free Church (HP6 6AJ)</p>
+      <p>Luca Weed and Edward Tait, former Beacon School students, play romantic and late-romantic classics by Brahms and Elgar, as well as a world premiere.</p>
+      <p>Brahms Scherzo in C minor</p>
+      <p>Mozart Violin Sonata No. 24 in F major (1st movement)</p>
+      <p>Edward Tait <i>Ballade</i> (WP)</p>
+      <p>Elgar Violin Sonata</p>
+      <a class="buy-button" href="https://www.eventbrite.co.uk/e/1979791632066?aff=oddtdtcreator">Buy Tickets</a>
+    </div>
+  </section>
+  <section id="composer">
+    <h2>MetroLand Young Composer 2027</h2>
+    <p>We are excited to present our annual composing competition, open to anybody between the ages of 16 and 25. This year, we are looking for a new work for <strong>clarinet</strong>, with or without piano accompaniment, no more than 5 minutes in length. Submissions are judged blind, and the winner is decided by local composer <strong>Andrew Melvin</strong>. Please send your submission to the email at the bottom of the website. Entry is free, and the winner will receive a performance in our Christmas concert in December 2027.</p>
+  </section>
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="PurcellPianoRhysStokes3.jpg" alt="Edward Tait">
+        <h3>Artistic Director</h3>
+        <p><strong>Edward Tait</strong> is a British composer, studying at the Royal Academy of Music, with Gareth Moorcraft and Louise Drewett. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the Royal Festival Hall, St John’s Smith Square and Westminster Abbey. He has also received performances by renowned ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra and Lloyd’s Choir, and he won the NCEM/BBC Young Composer Award in 2026.</p>
+        <p>Edward is the artistic director of the MetroLand Music Festival, and he is currently composing a song cycle, based on original texts by Mollie Mardel.</p>
+      </div>
+      <div class="team-member">
+        <img src="image0.jpeg" alt="James Mayhew">
+        <h3>Associate Director</h3>
+        <p><strong>James Mayhew</strong> is a pianist in the first year of his undergraduate degree at the Royal Academy of Music, where he studies with Ian Fountain. He studied under Hilary Coates and Joseph Tong for four years at Wells Cathedral School, reaching the finals of its concerto competition with the 1st movement of Tchaikovsky’s Piano Concerto No. 1, and more recently won 2nd place at the Oxford Piano Competition for Aspiring Professionals. As a composer he has performed his own works numerous times, most notably his Fugue-Fantasy.</p>
+        <p>James enjoys exploring lesser-known works including those by Alkan and Feinberg, and loves collaborating with other musicians whenever possible.</p>
+      </div>
+      <div class="team-member">
+        <img src="Andrew portlait copy.jpeg" alt="Andrew Melvin">
+        <h3>Composer-in-Residence</h3>
+        <p><strong>Andrew Melvin</strong> studied piano at the Royal Academy of Music with Rosemarie Wright and composition at Cambridge University and the Guildhall School of Music with Robin Holloway and Malcolm Singer. He subsequently gained a PhD at Brunel University in composition under the supervision of Peter Wiegold.</p>
+        <p>He has worked for Amersham Music Service (now part of Buckinghamshire Music Trust) from 2001 and is currently active as a teacher, pianist, composer and arranger. Andrew currently performs as part of Inscape Duo with harmonica player Shima Kobayashi and jazz group ‘Timeless’, creating new compositions alongside fresh arrangements of established repertoire.</p>
+        <p>Recent compositions include a joint commission with John Webb for the Little Missenden Festival (2024) and ‘Sakura Variations’, performed by Inscape Duo in collaboration with The Castle Choir (2023) and The Firth Singers (2024). Forthcoming performances include ‘Ad Astra’, to be performed by Dr Challoner’s School brass ensemble in November.</p>
+      </div>
+    </div>
+  </section>
+  <section id="sponsor">
+    <h2>Become A Sponsor</h2>
+    <p>We are a not-for-profit venture, and a large portion of our sustainability depends on our kind sponsors and patrons. By supporting this project, you’re not only helping bring great chamber music to the region, you’re also contributing to a cause that transforms the lives of vulnerable and young people. As a thank you, all donors will be listed on our website and in our concert programmes. Donate £50 or more, and you’ll receive a free ticket to the entire upcoming concert season! Every pound makes a difference. Please consider donating through our <a href="https://www.justgiving.com/crowdfunding/metroland-music-festival">JustGiving page</a> or by contacting us through our social media accounts (links below). Thank you in advance!</p>
+    <p>We'd like to give many thanks to our current sponsors, Alan Baskeyfield, Tiffany Qiu and Elliot Teo, as well as many others who wish to remain anonymous.</p>
+  </section>
+  <section class="social-links" id="social">
+    <h2>Follow Us</h2>
+    <a href="https://www.youtube.com/@metrolandmusicfestival" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/metroland.festival" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Facebook</a>
+    <a href="mailto:edwardtait06@outlook.com" target="_blank">Mailing List</a>
+  </section>
+  <footer>
+    &copy; 2026 MetroLand Music Festival. All rights reserved.<br>A Website by <a href="https://eptwebsites.com">EPT Websites</a>
+  </footer>
+</body>
+</html>
+--->
