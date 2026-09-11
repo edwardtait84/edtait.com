@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edward Tait | NoteWelder Music</title>
+    <style>
+        :root {
+            --bg: #f5f6f8;
+            --surface: #ffffff;
+            --surface-soft: #f8f9fb;
+            --text: #25282d;
+            --muted: #68707a;
+            --border: #e4e7eb;
+            --header: #1d2025;
+            --accent: #3f4650;
+            --shadow: 0 10px 30px rgba(20, 25, 30, 0.06);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b1e23 0%, #292d33 100%);
+            color: #fff;
+            padding: 28px 20px 30px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        header a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 2.7rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+        }
+
+        header p {
+            margin: 4px 0 0;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.98rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: 28px auto;
+            padding: clamp(22px, 4vw, 38px);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: clamp(1.55rem, 3vw, 2rem);
+            line-height: 1.2;
+            margin: 0 0 20px;
+            color: var(--text);
+            letter-spacing: -0.025em;
+        }
+
+        .bio-paragraph {
+            margin: 0 0 20px;
+            line-height: 1.75;
+            color: #3d434a;
+        }
+
+        .artist-profile {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .artist-photo {
+            max-width: 250px;
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(20, 25, 30, 0.12);
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figcaption {
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .upcoming-events,
+        .current-projects {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-item,
+        .project-item {
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            margin: 10px 0;
+            padding: 13px 16px;
+            border-radius: 9px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .event-item:hover,
+        .project-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 16px rgba(20, 25, 30, 0.06);
+            border-color: #d5d9de;
+        }
+
+        .event-item a,
+        .project-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .event-item a:hover,
+        .project-item a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .quotation-section {
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            padding: 22px;
+            margin: 20px 0;
+            border-radius: var(--radius);
+        }
+
+        .quotation-section h2 {
+            font-size: 1.8rem;
+            margin: 0 0 10px;
+        }
+
+        .quotation {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        section[id] {
+            scroll-margin-top: 24px;
+            padding-top: 8px;
+        }
+
+        .content > section + section,
+        .content > h2 + section {
+            margin-top: 34px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 20px;
+            background: #1d2025;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.92rem;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        footer a:hover {
+            border-bottom-color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .artist-profile {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 32px;
+            }
+
+            .artist-photo {
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .content {
+                margin: 16px 12px;
+                padding: 20px 16px;
+                border-radius: 10px;
+            }
+
+            .event-item,
+            .project-item {
+                padding: 12px 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .event-item,
+            .project-item {
+                transition: none;
+            }
+        }
+</style>
+</head>
+<body>
+    <header>
+	<a style="color: white; text-decoration: none;" href="https://edtait.com/notewelder.html">
+        <h1>NoteWelder</h1>
+        <p>Publishing New Music & Arrangements</p>
+	</a>
+    </header>
+    <div class="content">
+		<section>
+		    <h2 class="section-title">Artist Profile: Edward Tait</h2>
+		    <div class="artist-profile">
+		        <img src="EdwardTait130524.jpg" alt="Edward Tait portrait" class="artist-photo">
+		        <div>
+					<p class="bio-paragraph">Edward Tait is a British composer, studying at the Royal Academy of Music, with Gareth Moorcraft and Louise Drewett. His music has been performed across the United Kingdom, Ireland and the United States, at venues including the Royal Festival Hall, Smith Square Hall and Westminster Abbey. He has also worked with renowned ensembles like the London Sinfonietta, Carducci Quartet, Orion Orchestra and Lloyd’s Choir. He is currently collaborating with writer Mollie Mardel and the Arquia Duo on the creation and recording of his song cycle Vectis.</p>
+					<p class="bio-paragraph">Edward is artistic director of the MetroLand Music Festival. In November, his piece my troubled sense doth move will be broadcast live on BBC Radio 3’s Early Music Show, following his success in the NCEM/BBC Young Composer Award.</p>
+		            <p class="bio-paragraph"><center>Last updated: 12th August 2026</center></p>
+		            <p class="bio-paragraph"><center>Visit website: <a href="index.html">www.edtait.com</a></center></p>
+					<p class="bio-paragraph"><center>Photo © Rhys Stokes</p>
+		        </div>
+		    </div>
+		</section>
+	    <section>
+	    	<h2 class="section-title">Catalogue of Works</h2>
+				<p class="bio-paragraph">Selected scores and recordings publically available...</p>
+	            <ul class="upcoming-events">
+					<li class="event-item"><b>Novelette</b> (2017)<br>for cello & piano<br></li>
+	                <li class="event-item"><b>Piano Quintet</b> (2018)<br></li>
+	                <li class="event-item"><b>Ghostly Dance</b> (2018)<br>for clarinet quintet<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=JGUmcSmqITk" target="_blank"><b>Variations on a Theme from Mary Poppins</b></a> (2018)<br>for solo cello<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=FBi326tH5JA" target="_blank"><b>Trireme</b></a> (2018)<br>for orchestra<br></li>
+	                <li class="event-item"><b>Fantasia for Four Hands</b> (2019)<br></li>
+			        <li class="event-item"><b>Sinfonietta</b> (2019)<br>for brass quintet</li>
+					<li class="event-item"><b>British Fantasia</b> (2019)<br>for wind quintet<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.facebook.com/watch/?v=311623236522002" target="_blank"><b>The Night Hunter</b></a> (2019)<br>for chamber ensemble<br></li>
+	                <li class="event-item"><b>Starry Night</b> (2019)<br>for violin, viola & piano<br></li>
+	                <li class="event-item"><b>Seven Note Fanfare</b> (2020)<br>for 2 trumpets & violin<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=RKrFhDwFWyQ" target="_blank"><b>Prelude for Violin and Piano</b></a> (2020)<br></li>
+	                <li class="event-item"><b>Rondo for String Quartet</b> (2020)<br></li>
+					<li class="event-item"><b>The Tyger</b> (2020)<br>for string orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=6zevsL77fb0" target="_blank"><b>Piano Sonata No. 1</b></a> (2020)<br></li>
+	                <li class="event-item"><b>Jazz Elegy</b> (2020)<br>for solo piano<br></li>
+			        <li class="event-item"><b>Moment of Minecraft Ambience</b> (2021)<br>for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/alpenhornhymne" target="_blank"><b>Alpenhornhymne</b></a> (2021)<br>for brass trio<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=3YBxnHxQ5Rk" target="_blank"><b>Prelude in C minor</b></a> (2021)<br>for solo piano<br></li>
+	                <li class="event-item"><b>Glenealo</b> (2021)<br>for string orchestra<br></li>
+	                <li class="event-item"><b>Passacaglia for Wind Quintet</b> (2021)<br></li>
+					<li class="event-item"><b>Fanfare Piece for Septet</b> (2021)<br>for chamber ensemble<br></li>
+			        <li class="event-item"><b>Gaziantep Dance</b> (2021)<br>for 2 bendir & piano</li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=zfl1PpLv_44" target="_blank"><b>Mo Li Hua</b></a> (2021)<br>for orchestra<br></li>
+					<li class="event-item"><b>Le Ballon Rouge</b> (2021)<br>soundtrack for chamber ensemble</li>
+					<li class="event-item"><b>Three Short Pieces for Wind Trio</b> (2021)<br>for clarinet, bassoon & trumpet</li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=9FxGXUmQXV0" target="_blank"><b>Fugue for String Trio</b></a> (2021)<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=OfPKM2Apwb8" target="_blank"><b>Two Sketches Written from the Dartmouth Steam Railway</b></a> (2021)<br>for solo piano<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=bwlwZmEIRCI" target="_blank"><b>Caledonian Voyage</b></a> (2021)<br>improvised soundtrack for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=_QVAUXK_7Bs" target="_blank"><b>Quartet for the End of the Day</b></a> (2021)<br>for clarinet quartet<br></li>
+			    	<li class="event-item"><b>Prelude, after Bach and Siloti</b> (2022)<br>for electronics<br></li>
+					<li class="event-item"><b>Engine</b> (2022)<br>for mixed percussion<br></li>
+	                <li class="event-item"><b>Elegy for Violin and Guitar</b> (2022)<br></li>
+	                <li class="event-item"><b>Macbeth</b> (2022)<br>for orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=ty_wyZrDIMc" target="_blank"><b>Two Shakespeare Songs</b></a> (2022)<br>for SATB choir<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=B3bdSxj98DE" target="_blank"><b>Le Voyage dans la Lune</b></a> (2022)<br>soundtrack for chamber orchestra<br></li>
+	                <li class="event-item"><b>Lincoln's Speech</b> (2022)<br>for snare drum & piano<br></li>
+	                <li class="event-item"><b>Take, O Take</b> (2022)<br>for baritone & guitar<br></li>
+	                <li class="event-item"><b>Response</b> (2022)<br>for solo piano<br></li>
+			        <li class="event-item"><b>Prelude and Fugato</b> (2022)<br>for oboe & bassoon<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/one-spirit-voice" target="_blank"><b>One Spirit Voice</b></a> (2022)<br>for electronics<br></li>
+			        <li class="event-item"><b>Disney Medley, I Guess</b> (2022)<br>for chamber ensemble<br></li>
+					<li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/passage-of-time" target="_blank"><b>Passage of Time</b></a> (2023)<br>for string quartet<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://youtu.be/JPNqLJNVOh4?si=bGL54_SKwATjoP5V&t=1860" target="_blank"><b>Interlude for Piano Trio</b></a> (2023)<br></li>
+	                <li class="event-item"><b>Waltzing Matilda</b> (2023)<br>arrangement for chamber ensemble<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://youtu.be/UlFDnl4d7yM?si=ALaK-oRzie0tCkxY&t=3491" target="_blank"><b>Solo Fantasia No. 1 for Piano</b></a> (2023)<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=CTng7LLaYsU" target="_blank"><b>Herbstlied</b></a> (2023)<br>for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="#the-planets">Holst <b>The Planets</b></a> (2023)<br>arrangement for solo piano<br></li>
+					<li class="event-item"><b>Hunstanton Prelude</b> (2023)<br>for chamber ensemble<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=k7OmdEDs96g" target="_blank"><b>String Trio No. 1</b></a> (2023)<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://youtu.be/TLRb39GknV4?si=43A2Qv7qZt43HSex&t=5" target="_blank"><b>Allegretto for Clarinet and Piano</b></a> (2023)<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/crenark-hill" target="_blank"><b>Crenark Hill</b></a> (2023)<br>for orchestra<br></li>
+	                <li class="event-item"><b>Viennese Autumn Waltz</b> (2023)<br>for string quartet<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://youtu.be/TLRb39GknV4?si=Lpm71qceAu-N6CnB&t=860" target="_blank"><b>Fantasia-Elegy</b></a> (2023)<br>for clarinet & piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=0K-JlldwBYE" target="_blank"><b>Fleeting Manhattan</b></a> (2023)<br>for orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=lr_-jc3V7rk" target="_blank"><b>Eclogue</b></a> (2023)<br>for wind quintet<br></li>
+	                <li class="event-item"><b>Empire of the Sun</b> (2024)<br>arrangement for violin & piano<br></li>
+	                <li class="event-item"><b>In Memoriam Lulu</b> (2024)<br>for solo piano<br></li>
+			        <li class="event-item"><b>Mirabile Mysterium</b> (2024)<br>for SSATB choir<br></li>
+					<li class="event-item"><b>EDTA</b> (2024)<br>for cello, piano & snare drum<br></li>
+	                <li class="event-item"><b>Three Scottish Dances</b> (2024)<br>for oboe quartet<br></li>
+	                <li class="event-item"><b>Barton Coast</b> (2024)<br>for saxophone quartet<br></li>
+	                <li class="event-item"><a style="color: black;" href="#ash-grove"><b>Ash Grove</b></a> (2024)<br>for chamber orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/rhapsody-for-sextet" target="_blank"><b>Rhapsody for Sextet</b></a> (2024)<br>for chamber ensemble<br></li>
+	                <li class="event-item"><b>Lillibulero</b> (2024)<br>for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=JRBGphDcpcs" target="_blank"><b>Capriccio</b></a> (2024)<br>for bassoon duo<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=-CYUFv51kj0" target="_blank"><b>Ballade</b></a> (2024)<br>for clarinet trio<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=_daj-B-jBlI" target="_blank"><b>Glitter Is Not Gold</b></a> (2024)<br>for solo cello<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=dOtyjOOLk0w" target="_blank"><b>Amersham Summer</b></a> (2024)<br>improvised soundtrack for cello & piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="#in-the-bleak-midwinter"><b>In the Bleak Midwinter</b></a> (2024)<br>for SATB choir<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=D4d6SCSTcew" target="_blank"><b>Pervasion</b></a> (2024)<br>for solo clarinet<br></li>
+	                <li class="event-item"><b>Ten Cycles</b> (2024)<br>for solo flute<br></li>
+	                <li class="event-item"><b>Chamber Concerto</b> (2024)<br>for chamber orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/ecstasio" target="_blank"><b>Ecstasio</b></a> (2024)<br>for cello octet<br></li>
+	                <li class="event-item"><b>Star of the East</b> (2024)<br>for SSAATTBB choir<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://youtu.be/604a_eGNN0o?si=lLIlMaVEGI_-Mabd&t=697" target="_blank"><b>HexRAMeron Variation and Fugue</b></a> (2024)<br>for six-hand piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/minuet-on-a-theme-by-ravel" target="_blank"><b>Minuet on a Theme by Ravel</b></a> (2024)<br>for solo viola<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=7HaacwHZhHQ" target="_blank"><b>Triptych</b></a> (2025)<br>for solo violin<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/ignited" target="_blank"><b>Ignited</b></a> (2025)<br>for solo bassoon<br></li>
+	                <li class="event-item"><b>Minuet or Trio?</b> (2025)<br>for 2 violins, cello & harpsichord<br></li>
+					<li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/bartok-improvisations" target="_blank">Bartok <b>Improvisations on Hungarian Peasant Songs</b></a> (2025)<br>arrangement for chamber orchestra<br></li>
+					<li class="event-item"><b>Three Purcell Intermezzi</b> (2025)<br>for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=ieyH7FE39jI" target="_blank"><b>Reverie</b></a> (2025)<br>for solo harp<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=FiwUp-rFxWM" target="_blank"><b>Fruhlingslied</b></a> (2025)<br>for solo piano<br></li>
+	                <li class="event-item"><b>The Story of Music</b> (2025)<br>for mixed quartet<br></li>
+	                <li class="event-item"><b>Bullseye!</b> (2025)<br>for solo piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=cX3F5tsGaJo" target="_blank"><b>Ballade</b></a> (2025)<br>for violin & piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="#sonata"><b>Sonata</b></a> (2025)<br>for solo clarinet</li>
+	                <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/shifting" target="_blank"><b>Shifting</b></a> (2025)<br>for string trio<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=4aCwa_l04Sc" target="_blank"><b>Family Mix-Up</b></a> (2025)<br>for oboe & piano<br></li>
+	                <li class="event-item"><b>Peter Pan</b> (2025)<br>for orchestra<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=xMen_iz-xn4" target="_blank"><b>Elegy</b></a> (2025)<br>for six-hand piano<br></li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=18mnBEz0izM&list=RD18mnBEz0izM&start_radio=1" target="_blank"><b>Four Miniatures for Alto Flute</b></a> (2025)<br></li>
+			        <li class="event-item"><a style="color: black;" href="#pulsating"><b>Pulsating</b></a> (2025)<br>for flute and guitar</li>
+	                <li class="event-item"><a style="color: black;" href="#engineers-paradise"><b>Engineer's Paradise</b></a> (2025)<br>for four-hand piano</li>
+	                <li class="event-item"><b>Orage</b> (2025)<br>for solo piano<br></li>
+			    	<li class="event-item">Movement from <b>Composers Parallels</b> (2025)<br>for violin, viola & piano</li>
+	                <li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=-AT5C8vfNtI" target="_blank"><b>Symphony No. 1</b></a> (2025)</li>
+					<li class="event-item"><b>Don Oíche Úd i mBeithil</b> (2025)<br>arrangement for soprano, violin & cello<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=ff-6OG777HY" target="_blank"><b>Commuting Phases</b></a> (2025)<br>improvised soundtrack for solo piano<br></li>
+			        <li class="event-item"><a style="color: black;" href="https://soundcloud.com/edward-tait-composing/prokofiev-visions-fugitives" target="_blank">Prokofiev <b>Visions Fugitives</b></a> (2026)<br>arrangement for chamber orchestra<br></li>
+					<li class="event-item"><b>Five Baroque Fugues</b> (2026)<br>for solo piano<br></li>
+	                <li class="event-item">Satie <b>Le Piccadilly</b> (2026)<br>arrangement for bassoon & string quartet<br></li>
+	                <li class="event-item">Variation on <b>Sumer is i-cumen in</b> (2026)<br>for solo bassoon</li>
+			        <li class="event-item"><b>Atkinsongs</b> (2026)<br>for 3 basses & piano</li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=ngQroRTafGU" target="_blank"><b>my troubled sense doth move</b></a> (2026)<br>for soprano, cornett & harpsichord</li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=TwYWtss1cyk" target="_blank"><b>Fanfares for Dawn & Dusk</b></a> (2026)<br>for oboe & electronics</li>
+					<li class="event-item"><b>Dovetail</b> (2026)<br>graphic score for flute, clarinet & cello<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=L_aB4VMa5Dk" target="_blank"><b>Ashes Beneath the Ice</b></a> (2026)<br>for cello & piano</li>
+	                <li class="event-item">Rachmaninov <b>Bogoroditse Devo</b> (2026)<br>arrangement for cello quartet<br></li>
+					<li class="event-item"><b>Whisper</b> (2026)<br>for solo flute<br></li>
+					<li class="event-item"><a style="color: black;" href="https://youtu.be/vsstpSaMIzw?si=2FtbnzlwcIYYtUcU" target="_blank"><b>Cloches</b></a> (2026)<br>for solo piano</li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=Fx9Fyu3DK4s" target="_blank"><b>Fanfare on the A String</b></a> (2026)<br>for string trio<br></li>
+					<li class="event-item"><b>Snapshot</b> (2026)<br>for solo viola</li>
+					<li class="event-item"><a style="color: black;" href="https://youtu.be/0FQlgDY68uU?si=SiXeX4-1anEbDmTx" target="_blank"><b>Sarcasm</b></a> (2026)<br>for viola & piano<br></li>
+					<li class="event-item"><b>Pastorale</b> (2026)<br>for bassoon/cello & piano<br></li>
+					<li class="event-item"><a style="color: black;" href="https://www.youtube.com/watch?v=yxOuHTzXHjc" target="_blank"><b>Vectis Tableau I</b></a> (2026)<br>for solo organ<br></li>
+				</ul>
+	    </section>
+		<h2 class="section-title">Selected Published Works:</h2><br><br>
+	    <section>
+		    <section id="the-planets">
+	            <h2 class="section-title">The Planets</h2>
+	            <ul class="upcoming-events">
+					<p>Instrumentation: solo piano<br>Duration: circ. 52 minutes<br>Premiere: Purcell School of Music, 2023</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/the-planets-22540460.html" target="_blank">here</a> to purchase the score</p>
+					<p>Click <a href="https://youtu.be/vUkqPyzqPEI?si=2Oiz12snj9x7zUVv" target="_blank">here</a> to listen to a recording</p>
+	            </ul>
+	        </section>
+		</section>
+	    <section>
+			<section id="ash-grove">
+		        <h2 class="section-title">Ash Grove</h2>
+		        <ul class="upcoming-events">
+					<p>Instrumentation: chamber orchestra<br>Duration: circ. 8 minutes<br>Premiere: Purcell School of Music, 2024</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/ash-grove-23608322.html" target="_blank">here</a> to purchase the score</p>
+					<p>To purchase the parts, please contact the composer directly (email below)</p>
+					<p>Click <a href="https://youtu.be/lAULcWs0OxA?si=rCTmzMffy2lnRaN0" target="_blank">here</a> to listen to a recording</p>
+		        </ul>
+		    </section>
+		</section>
+	    <section>
+		    <section id="in-the-bleak-midwinter">
+	            <h2 class="section-title">In the Bleak Midwinter</h2>
+	            <ul class="upcoming-events">
+					<p>Instrumentation: SATB choir<br>Duration: circ. 3 minutes<br>Premiere: Katharine Cree Church, 2024</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/in-the-bleak-midwinter-23608323.html" target="_blank">here</a> to purchase the score</p>
+					<p>Click <a href="https://youtu.be/OhWM8WVr1sU?si=sylqIXiZq1XADid2" target="_blank">here</a> to listen to a recording</p>
+	            </ul>
+	        </section>
+		</section>
+	    <section>
+			<section id="sonata">
+	        	<h2 class="section-title">Sonata</h2>
+	        	<ul class="upcoming-events">
+					<p>Instrumentation: solo clarinet<br>Duration: circ. 8 minutes<br>Premiere: *TO BE ANNOUNCED*</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/sonata-for-solo-clarinet-23608327.html" target="_blank">here</a> to purchase the score</p>
+	        	</ul>
+	    	</section>
+		</section>
+	    <section>
+		    <section id="pulsating">
+	            <h2 class="section-title">Pulsating</h2>
+	            <ul class="upcoming-events">
+					<p>Instrumentation: flute and guitar<br>Duration: circ. 7 minutes<br>Premiere: Royal Academy of Music, 2025</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/pulsating-23608317.html" target="_blank">here</a> to purchase the score</p>
+					<p>Click <a href="https://youtu.be/6TDNoqR-Yug?si=Ze68zcnor8AolczE" target="_blank">here</a> to listen to a recording</p>
+	            </ul>
+	        </section>
+		</section>
+	    <section>
+			<section id="engineers-paradise">
+	        	<h2 class="section-title">Engineer's Paradise</h2>
+	        	<ul class="upcoming-events">
+					<p>Instrumentation: four-hand piano<br>Duration: circ. 5 minutes<br>Premiere: Royal Academy of Music, 2025</p>
+					<p>Click <a href="https://www.sheetmusicplus.com/en/product/engineer-s-paradise-23608320.html" target="_blank">here</a> to purchase the score</p>
+					<p>Click <a href="https://youtu.be/PWdJo-6nQTY?si=xkLZX7NtilNFPdPj" target="_blank">here</a> to listen to a recording</p>
+	        	</ul>
+	    	</section>
+		</section>
+	</div>
+    <div class="content">
+        <section>
+	    <center><p>To purchase these works in print form, or to purchase or download other works, not listed here, please contact the composer directly, through his email:</p></center>
+	    <center><p><a style="color: black;" href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p></center>
+	</section>
+    </div>
+
+    <footer>
+        <p>© 2026 NoteWelder Music. All rights reserved.</p>
+        <p>A Website by <a style="color: white;" href="https://edtait.com/eptwebsites.html">EPT Websites</a></p>
+    </footer>
+
+</body>
+</html>
