@@ -308,35 +308,9 @@
 	        margin: 0 auto 2rem auto;
 	      }
 
-	        .event-item,
-	        .project-item {
-	            background: var(--surface-soft);
-	            border: 1px solid var(--border);
-	            margin: 10px 0;
-	            padding: 13px 16px;
-	            border-radius: 9px;
-	            transition: transform 0.18s ease, box-shadow 0.18s ease,
-	                border-color 0.18s ease;
-	        }
-	
-	        .event-item:hover,
-	        .project-item:hover {
-	            transform: translateY(-1px);
-	            box-shadow: 0 5px 16px rgba(20, 25, 30, 0.06);
-	            border-color: #d5d9de;
-	        }
-	
-	        .event-item a,
-	        .project-item a {
-	            color: inherit;
-	            text-decoration: none;
-	        }
-	
-	        .event-item a:hover,
-	        .project-item a:hover {
-	            text-decoration: underline;
-	            text-underline-offset: 3px;
-	        }
+
+
+
 
         /* Reusable fold-down description boxes */
         .fold-toggle {
@@ -391,88 +365,45 @@
             }
         }
 
-
-        /* Catalogue title search */
-        .catalogue-search {
-            margin: 0 0 20px;
-        }
-
-        .catalogue-search label {
-            display: block;
-            margin-bottom: 7px;
-            color: var(--muted);
-            font-size: 0.86rem;
-            font-weight: 600;
-        }
-
-        .catalogue-search input {
-            width: 100%;
-            padding: 11px 14px;
+        .event-item,
+        .project-item {
+            background: var(--surface-soft);
             border: 1px solid var(--border);
+            margin: 10px 0;
+            padding: 13px 16px;
             border-radius: 9px;
-            background: var(--surface);
-            color: var(--text);
-            font: inherit;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease;
+            transition: transform 0.18s ease, box-shadow 0.18s ease,
+                border-color 0.18s ease;
         }
 
-        .catalogue-search input:focus {
-            border-color: #b9bec5;
-            box-shadow: 0 0 0 3px rgba(63, 70, 80, 0.08);
+        .event-item:hover,
+        .project-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 16px rgba(20, 25, 30, 0.06);
+            border-color: #d5d9de;
         }
 
-        .catalogue-search input::placeholder {
-            color: #8a9199;
+        .event-item a,
+        .project-item a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .catalogue-search-status {
-            margin: 7px 0 0;
-            color: var(--muted);
-            font-size: 0.84rem;
+        .event-item a:hover,
+        .project-item a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .catalogue-search input {
-                transition: none;
-            }
-        }
 
-        @media (min-width: 768px) {
-            .artist-profile {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 32px;
-            }
 
-            .artist-photo {
-                flex-shrink: 0;
-            }
-        }
 
-        @media (max-width: 767px) {
-            .content {
-                margin: 16px 12px;
-                padding: 20px 16px;
-                border-radius: 10px;
-            }
 
-            .event-item,
-            .project-item {
-                padding: 12px 14px;
-            }
-        }
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
 
-            .event-item,
-            .project-item {
-                transition: none;
-			}
+
+
+		
 	    }
 	  </style>
 	</head>
