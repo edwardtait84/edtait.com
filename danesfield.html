@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Danesfield Quartet</title>
+  <style>
+/* Reconstruction based on the supplied screenshots */
+:root {
+  --navy: #10105b;
+  --gold: #d6b400;
+  --white: #f6f4ed;
+  --muted-gold: #b89e00;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.site {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 70% 48%, rgba(210,180,0,.20) 0 10%, transparent 28%),
+    linear-gradient(transparent, rgba(0,0,0,.05));
+}
+
+/* Decorative approximation of the original brass instrument artwork. */
+.site::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: 6%;
+  top: 31%;
+  width: 46vw;
+  height: 26vw;
+  opacity: .32;
+  background:
+    radial-gradient(ellipse at 72% 48%, transparent 0 8%, #9e8500 9% 12%, transparent 13%),
+    radial-gradient(ellipse at 63% 52%, #9e8500 0 8%, transparent 9%),
+    linear-gradient(11deg, transparent 38%, #9e8500 39% 44%, transparent 45%),
+    linear-gradient(-4deg, transparent 52%, #9e8500 53% 57%, transparent 58%);
+  filter: blur(2px);
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+
+.masthead {
+  position: relative;
+  z-index: 2;
+  min-height: 210px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 45px;
+  text-align: center;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: .02em;
+}
+
+.masthead p {
+  margin: 2px 0 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.dq-mark {
+  position: absolute;
+  left: 45px;
+  top: 5px;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  line-height: 1;
+  letter-spacing: -.35em;
+  opacity: .9;
+}
+
+.layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 700px);
+  gap: 55px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 35px 80px;
+}
+
+.sidebar {
+  padding-top: 22px;
+}
+
+.sidebar button {
+  display: list-item;
+  list-style-type: disc;
+  margin: 0 0 17px 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--white);
+  font: bold 1.12rem Georgia, "Times New Roman", serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar button::marker {
+  color: var(--white);
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  color: #fff000;
+}
+
+main {
+  max-width: 690px;
+  min-height: 600px;
+}
+
+h2 {
+  margin: 0 0 24px;
+  color: #fff000;
+  font-size: 2rem;
+}
+
+p, li {
+  font-size: 1.08rem;
+  line-height: 1.18;
+  font-weight: bold;
+}
+
+.review {
+  margin: 0 0 28px;
+}
+
+.review p {
+  margin: 0 0 12px;
+}
+
+.review .attribution {
+  margin-top: 3px;
+}
+
+.address {
+  white-space: pre-line;
+}
+
+a {
+  color: var(--white);
+}
+
+@media (max-width: 850px) {
+  .masthead {
+    min-height: 155px;
+    padding: 30px 20px 0 80px;
+  }
+
+  .dq-mark {
+    left: 15px;
+    font-size: 5rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 25px 50px;
+  }
+
+  .sidebar {
+    padding-top: 0;
+  }
+
+  .sidebar button {
+    display: inline-block;
+    margin: 0 18px 10px 0;
+    list-style: none;
+  }
+
+  .sidebar button::before {
+    content: "• ";
+  }
+
+  main {
+    max-width: none;
+  }
+
+  .site::after {
+    width: 80vw;
+    height: 45vw;
+    right: -20%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="masthead">
+      <div class="dq-mark" aria-label="DQ">DQ</div>
+      <div>
+        <h1>DANESFIELD QUARTET</h1>
+        <p>'An International Quartet in Your Local Setting'</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav class="sidebar" aria-label="Main navigation">
+        <button data-page="home">Home</button>
+        <button data-page="provide">What we can provide</button>
+        <button data-page="hear">Hear Us</button>
+        <button data-page="background">Musical Background</button>
+        <button data-page="reviews">Further Reviews</button>
+        <button data-page="weddings">Weddings and Social Events</button>
+        <button data-page="prices">Prices</button>
+        <button data-page="contact">Contact Us</button>
+      </nav>
+
+      <main id="content"></main>
+    </div>
+  </div>
+
+  <script>
+const pages = {
+  home: {
+    title: "Danesfield Quartet",
+    body: `
+      <p>Welcome to the Danesfield Quartet.</p>
+      <p>'An International Quartet in Your Local Setting'</p>
+      <p>Use the menu to discover what we can provide, hear us, read reviews and find our current contact information.</p>
+    `
+  },
+
+  provide: {
+    title: "What we can provide",
+    body: `
+      <p>The Danesfield Quartet provides live string-quartet music for a wide range of occasions and settings.</p>
+      <p>Our repertoire and presentation can be adapted to suit weddings, corporate functions, receptions, dinners and social events.</p>
+    `
+  },
+
+  hear: {
+    title: "Hear Us",
+    body: `
+      <p>Music samples can be placed here. Replace this section with your original audio players or links.</p>
+      <p><em>Suggested implementation:</em> HTML5 audio controls with locally hosted MP3 files.</p>
+    `
+  },
+
+  background: {
+    title: "Musical Background",
+    body: `
+      <p>This section is ready for the quartet's musical biography, repertoire and performance history.</p>
+      <p>The visual treatment follows the supplied site's original navy, gold and serif typography.</p>
+    `
+  },
+
+  reviews: {
+    title: "Further Reviews",
+    body: `
+      <div class="review">
+        <p>"Witnessing the Real Thing !" Helen Duffy is a musician with an astonishing technique and the personality to go with it. She has the dash and stage sense of a true performer</p>
+        <p class="attribution">Wigmore Hall Recital - The Times</p>
+      </div>
+
+      <div class="review">
+        <p>'I would like to thank you and the members of the D.Q. for providing such beautiful music during our S Class launch at Syon house. The evening was a great success and I hope we will be able to ask you to play for us at future events.'</p>
+        <p class="attribution">Car Launch - Mercedes-Benz Syon House<br>(Brian Hoey - Sales Manager)</p>
+      </div>
+
+      <div class="review">
+        <p>'I should like to say a very big thank you to you and your colleagues for your wonderful music at my Civic Reception last Friday. There were numerous comments such as "our type of music" and "music we could relate to - and it was certainly my style as well. Without a doubt, it added universally to the overall enjoyment of the whole event.'</p>
+        <p class="attribution">Pauline Hellior-Symons<br>Chairman - Wokingham District Council</p>
+      </div>
+
+      <div class="review">
+        <p>'We thought you were excellent ! All of the committee members have asked me to book you again, so I look forward to hearing you next year.'</p>
+        <p class="attribution">Martin Bailey<br>Chairman - Thames Traditional Boat Rally<br>Henley-on-Thames</p>
+      </div>
+    `
+  },
+
+  weddings: {
+    title: "Weddings and Social Events",
+    body: `
+      <div class="review">
+        <p>'I simply wanted to write and thank you for providing the musical entertainment at our conference. It was superb and our clients on Saturday night were enthralled'</p>
+        <p class="attribution">Phil Ward - Corporate Affairs Executive - Northern Foods<br>Danesfield House</p>
+      </div>
+
+      <div class="review">
+        <p>'Thankyou for your well received entertainment at our special events evening. The evening was a huge success, and you added just the right atmosphere to the occasion. We hope to repeat this event in the future'</p>
+        <p class="attribution">Karen Sleeman<br>Merchandise Manager - John Lewis</p>
+      </div>
+
+      <div class="review">
+        <p>'The music for our wedding was absolutely perfect - Thank you so much'</p>
+        <p class="attribution">Mr. &amp; Mrs. George Graham (Football Manager)<br>Danesfield House</p>
+      </div>
+
+      <div class="review">
+        <p>'The music for the wedding was perfect - you really did make the day - so many people commented and we wanted you to know this'</p>
+        <p class="attribution">Mrs B. Wood<br>Mother of Bride - Wedding<br>Chewton Glen</p>
+      </div>
+
+      <div class="review">
+        <p>'A big thank you to the Danesfield Quartet for playing so beautifully at our wedding at Taplow House. We had a wonderful day and loved every minute - the music, the ceremony, the weather - everything was perfect. We still haven't stopped beaming !'</p>
+        <p class="attribution">Abi and Dave<br>Wedding - Taplow House</p>
+      </div>
+
+      <div class="review">
+        <p>'Thank you for all your hard work and skillful playing - our day was fantastic and more so because of your lovely music in a pretty setting. No wonder you come so highly recommended !'</p>
+        <p class="attribution">Serena and Joff<br>Wedding - Marlow</p>
+      </div>
+
+      <div class="review">
+        <p>'Thank you for the amazing performance on our wedding day at Stoke Park ! We were absolutely thrilled and you created a wonderful atmosphere, setting the tone for the day'</p>
+        <p class="attribution">Juliette and Simon<br>Wedding - Stoke Park</p>
+      </div>
+
+      <div class="review">
+        <p>'Many thanks to you all for making our wedding day so special - all our guests loved the music. Special thanks to Helen for being incredibly friendly and kind. This really enhanced the day'</p>
+        <p class="attribution">Nicola and Richard<br>Wedding - Hartwell House</p>
+      </div>
+
+      <div class="review">
+        <p>'Thank you so much for helping make the service at St. Peter's what I had hoped for. Although we only met recently, I felt your enthusiasm to be as great as any good and long lasting friend'</p>
+        <p class="attribution">Chris Hill - Mother of Bride<br>Wedding - Marlow / Cookham</p>
+      </div>
+
+      <div class="review">
+        <p>'Thank you so much for playing so well at our wedding. It was wonderful to watch the video and sit back and listen to your music with none of the nerves ! Our special memory will be of your playing over the telephone - We loved it - Thank you !'</p>
+        <p class="attribution">Hilary and Peter<br>Wedding - Danesfield House</p>
+      </div>
+    `
+  },
+
+  prices: {
+    title: "Prices",
+    body: `
+      <p>Our fee is generally between £500 - £750 inclusive, according to length of playing time required. However we like to discuss each engagement individually with our clients, so this can be negotiable.</p>
+    `
+  },
+
+  contact: {
+    title: "Contact us",
+    body: `
+      <p>For further information please contact us</p>
+      <p>By phone on 07771 - 615247<br>
+      By E-mail on <a href="mailto:Helenfulin@yahoo.com">Helenfulin@yahoo.com</a></p>
+
+      <p>By post at</p>
+      <p class="address">81 Oaktree Road
+Marlow
+Bucks
+SL7 3EU
+Tel: 01628 - 476258</p>
+
+      <p>Or</p>
+
+      <p class="address">5 Dolphin Place
+Barton-on-Sea
+Hants.
+BH25 7DR
+Tel: 01425 - 639322</p>
+    `
+  }
+};
+
+const content = document.getElementById("content");
+const buttons = [...document.querySelectorAll(".sidebar button")];
+
+function render(page) {
+  const data = pages[page] || pages.home;
+  content.innerHTML = `<h2>${data.title}</h2>${data.body}`;
+  buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.page === page));
+  history.replaceState(null, "", `#${page}`);
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+buttons.forEach(btn => btn.addEventListener("click", () => render(btn.dataset.page)));
+
+window.addEventListener("popstate", () => {
+  render(location.hash.slice(1) || "home");
+});
+
+render(location.hash.slice(1) || "home");
+
+  </script>
+</body>
+</html>
