@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="On-demand music score transcription service. Submit your score, instrumentation and requirements for a polished digital transcription.">
+  <title>Scorely — On-demand music transcription</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --ink:#171715; --muted:#706f68; --paper:#f5f3ed; --card:#ebe8df;
+  --line:#d8d4c9; --accent:#d6ff63; --white:#fffdf8;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.5}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.site-header{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:5;background:rgba(245,243,237,.88);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.04em;font-size:21px}
+.brand-mark{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:var(--ink);color:var(--accent);font-size:16px}
+nav{display:flex;gap:34px;font-size:13px;color:#4f4e49}
+nav a:hover,.text-link:hover,footer a:hover{opacity:.6}
+.header-cta{font-size:13px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.header-cta span,.button span{margin-left:12px}
+.hero{min-height:720px;padding:82px 5vw 70px;display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;max-width:1500px;margin:auto}
+.eyebrow,.section-label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:28px}
+.eyebrow span{width:7px;height:7px;background:#91b928;border-radius:50%}
+h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.045em;line-height:.94;margin:0}
+h1{font-size:clamp(65px,8.4vw,125px)}
+h1 em,h2 em{font-style:italic}
+.hero-lede{max-width:520px;font-size:17px;color:var(--muted);margin:30px 0}
+.hero-actions{display:flex;align-items:center;gap:27px;margin:30px 0 55px}
+.button{display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;padding:17px 21px;border-radius:999px;font:600 13px "DM Sans",sans-serif;transition:transform .2s,box-shadow .2s}
+.button:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.1)}
+.button-dark{background:var(--ink);color:var(--white)}
+.text-link{font-size:13px;font-weight:600;border-bottom:1px solid #aaa;padding-bottom:4px}
+.text-link span{margin-left:8px}
+.trust-row{display:flex;gap:36px;border-top:1px solid var(--line);padding-top:20px}
+.trust-row div{display:flex;gap:10px;align-items:flex-start}
+.trust-row strong{font-size:10px;color:#999;font-weight:600}
+.trust-row span{font-size:10px;text-transform:uppercase;letter-spacing:.06em;line-height:1.35}
+.hero-art{min-height:490px;background:#ddd9cf;border-radius:40px;position:relative;display:grid;place-items:center;overflow:hidden;transform:rotate(1deg)}
+.hero-art:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:var(--accent);right:-130px;top:-130px}
+.staff-card{width:min(75%,450px);aspect-ratio:1.1/1;background:#fffdf7;padding:28px 30px;box-shadow:0 25px 50px rgba(40,38,30,.16);transform:rotate(-4deg);position:relative}
+.staff-top{font:600 9px "DM Sans";letter-spacing:.13em;display:flex;justify-content:space-between;margin-bottom:42px}
+.staff-lines{height:110px;position:relative;border-top:1px solid #bbb7ad;border-bottom:1px solid #bbb7ad;margin-bottom:45px}
+.staff-lines:before{content:"";position:absolute;inset:22px 0;border-top:1px solid #bbb7ad;border-bottom:1px solid #bbb7ad;box-shadow:0 22px 0 #bbb7ad}
+.clef{position:absolute;font-size:65px;top:-18px;z-index:2;font-family:Georgia,serif}
+.notes{position:absolute;left:60px;right:5px;top:24px;display:flex;justify-content:space-between;align-items:flex-start;font-family:Georgia,serif;font-size:48px}
+.notes span:nth-child(2),.notes span:nth-child(4),.notes span:nth-child(7){transform:translateY(22px)}
+.notes .high{transform:translateY(-17px)}
+.second{margin-top:5px}.second .notes{top:30px}
+.scribble{position:absolute;right:28px;bottom:20px;font-family:"Playfair Display";font-style:italic;font-size:17px;line-height:1.05;transform:rotate(-5deg)}
+.floating-pill{position:absolute;background:var(--white);border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:11px 15px;font-size:10px;font-weight:700;box-shadow:0 12px 25px rgba(0,0,0,.08)}
+.pill-one{left:6%;bottom:13%;}.pill-two{right:7%;bottom:25%}
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:17px 0;white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.16em}
+.marquee div{animation:marquee 32s linear infinite}.marquee i{font-style:normal;margin:0 24px;color:#9aaa5c}
+@keyframes marquee{to{transform:translateX(-35%)}}
+.how{max-width:1500px;margin:auto;padding:125px 5vw}
+.section-heading{display:flex;justify-content:space-between;gap:40px;margin:30px 0 75px}
+h2{font-size:clamp(48px,6vw,82px)}
+.section-heading p{max-width:330px;color:var(--muted);align-self:flex-end;font-size:14px}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.process-grid article{background:var(--paper);padding:38px 34px;min-height:225px}
+.process-grid article>span{font-size:10px;color:#aaa}
+.process-grid h3{font:600 20px "DM Sans";letter-spacing:-.03em;margin:50px 0 9px}
+.process-grid p{font-size:13px;color:var(--muted);max-width:290px}
+.request-section{background:var(--ink);color:var(--white);padding:110px 5vw;display:grid;grid-template-columns:.8fr 1.2fr;gap:9vw}
+.request-intro .section-label{color:#aaa}
+.request-intro h2{font-size:clamp(60px,7vw,105px);margin:30px 0}
+.request-intro p{color:#aaa;max-width:380px;font-size:14px}
+.mini-note{margin-top:55px;font-size:11px;color:#aaa;display:flex;gap:10px}.mini-note span{color:var(--accent)}
+.request-form{background:#22221f;border:1px solid #383833;border-radius:28px;padding:34px}
+.form-row{display:grid;gap:15px}.form-row.two{grid-template-columns:1fr 1fr}
+label{display:block;margin-bottom:22px}label>span{display:block;font-size:11px;font-weight:600;color:#d8d6ce;margin-bottom:8px}label b{color:#b5db4e}
+input[type=text],input[type=email],textarea,.picker-input{width:100%;border:1px solid #42423d;background:#2a2a26;color:#fffdf8;border-radius:12px;padding:14px 15px;font:14px "DM Sans";outline:none}
+textarea{resize:vertical;min-height:130px}input:focus,textarea:focus,.picker-input:focus-within{border-color:#7d7d72}
+input::placeholder,textarea::placeholder{color:#74746d}
+small{display:block;color:#77766f;font-size:10px;margin-top:7px}
+.instrument-picker{position:relative}
+.picker-input{display:flex;align-items:center;padding:0 14px}.picker-input input{border:0!important;background:transparent!important;padding:14px 0!important;box-shadow:none!important}.picker-input span{color:#aaa}
+.instrument-menu{display:none;position:absolute;z-index:10;top:52px;left:0;right:0;max-height:240px;overflow:auto;background:#30302b;border:1px solid #484841;border-radius:12px;padding:5px;box-shadow:0 15px 35px rgba(0,0,0,.35)}
+.instrument-menu.open{display:block}.instrument-option{padding:9px 11px;border-radius:8px;font-size:12px;cursor:pointer}.instrument-option:hover{background:#3d3d37}
+.selected-instruments{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.instrument-tag{font-size:10px;background:var(--accent);color:#171715;border-radius:999px;padding:6px 9px;font-weight:700}.instrument-tag button{border:0;background:none;cursor:pointer;font-weight:700;margin-left:4px}
+.file-drop{border:1px dashed #56564f;border-radius:14px;padding:27px;text-align:center;cursor:pointer;transition:.2s}.file-drop:hover,.file-drop.dragging{border-color:var(--accent);background:#292923}
+.file-drop input{display:none}.upload-icon{width:38px;height:38px;border-radius:50%;background:#35352f;display:grid;place-items:center;margin:0 auto 10px;color:var(--accent);font-size:17px}.file-drop strong{font-size:12px}.file-drop u{color:var(--accent)}#file-name{margin-top:12px;color:var(--accent);font-size:11px;font-weight:600}
+.form-bottom{display:flex;align-items:center;justify-content:space-between;gap:25px;margin-top:8px}.consent{margin:0;display:flex;gap:9px;align-items:flex-start;max-width:320px}.consent input{accent-color:var(--accent);margin-top:2px}.consent span{font-size:10px;color:#999}.submit{white-space:nowrap;background:var(--accent);color:#171715}.form-footnote{font-size:9px;color:#686861;margin:18px 0 0}
+footer{padding:28px 5vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #333;color:#aaa;background:var(--ink);font-size:11px}
+footer .brand{color:var(--white)}footer a{color:var(--white);font-weight:600}
+
+@media(max-width:850px){
+  nav{display:none}.site-header{height:70px}.header-cta{font-size:11px}
+  .hero{grid-template-columns:1fr;padding-top:65px}.hero-art{min-height:420px}.staff-card{width:70%}
+  .section-heading{display:block}.section-heading p{margin-top:25px}
+  .process-grid{grid-template-columns:1fr}.process-grid article{min-height:180px}.process-grid h3{margin-top:35px}
+  .request-section{grid-template-columns:1fr;padding-top:80px;gap:45px}.request-intro h2{margin-bottom:25px}
+}
+@media(max-width:560px){
+  .hero{padding-inline:6vw}.hero-actions{flex-wrap:wrap;margin-bottom:40px}.trust-row{gap:15px;justify-content:space-between}.trust-row span{font-size:8px}
+  .hero-art{min-height:350px;border-radius:25px}.staff-card{width:82%;padding:20px}.floating-pill{font-size:8px}
+  .how{padding:85px 6vw}.request-section{padding-inline:6vw}.request-form{padding:22px}.form-row.two{grid-template-columns:1fr}.form-bottom{align-items:stretch;flex-direction:column}.submit{width:100%}
+  footer{flex-wrap:wrap;gap:15px}
+}
+
+</style>
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Scorely home">
+      <span class="brand-mark">♪</span>
+      <span>scorely</span>
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#request">Request a transcription</a>
+    </nav>
+    <a class="header-cta" href="#request">Start a request <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Digital music transcription, on demand</div>
+        <h1>Your music,<br><em>properly scored.</em></h1>
+        <p class="hero-lede">Send us a recording, handwritten score or reference material. We turn it into clean, readable digital notation tailored to your instrumentation.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#request">Send a score <span>↗</span></a>
+          <a class="text-link" href="#how">See how it works <span>↓</span></a>
+        </div>
+        <div class="trust-row">
+          <div><strong>01</strong><span>Submit<br>your material</span></div>
+          <div><strong>02</strong><span>We transcribe<br>your score</span></div>
+          <div><strong>03</strong><span>Receive polished<br>digital notation</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="staff-card">
+          <div class="staff-top"><span>SONATA No. 2</span><span>Op. 35</span></div>
+          <div class="staff-lines">
+            <span class="clef">𝄞</span>
+            <div class="notes">
+              <span>♪</span><span>♩</span><span>♫</span><span>♩</span><span>♪</span>
+              <span class="high">♬</span><span>♩</span><span>♪</span>
+            </div>
+          </div>
+          <div class="staff-lines second">
+            <span class="clef">𝄢</span>
+            <div class="notes">
+              <span>♩</span><span>♪</span><span>♫</span><span>♩</span><span>♪</span>
+              <span>♬</span><span>♩</span><span>♪</span>
+            </div>
+          </div>
+          <div class="scribble">transcribed<br>with care.</div>
+        </div>
+        <div class="floating-pill pill-one">PDF · MIDI · MusicXML</div>
+        <div class="floating-pill pill-two">♪  120 BPM</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Services">
+      <div>LEAD SHEETS <i>✦</i> ORCHESTRAL PARTS <i>✦</i> HANDWRITTEN SCORES <i>✦</i> AUDIO TRANSCRIPTION <i>✦</i> CHORD CHARTS <i>✦</i> MIDI CLEAN-UP <i>✦</i></div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="section-label">/ The process</div>
+      <div class="section-heading">
+        <h2>From rough idea<br>to <em>readable score.</em></h2>
+        <p>No complicated software. No deciphering notation yourself. Just send the material and tell us what you need.</p>
+      </div>
+      <div class="process-grid">
+        <article><span>01</span><h3>Tell us what you need</h3><p>Choose your instruments, describe the project and attach your source material.</p></article>
+        <article><span>02</span><h3>We do the notation</h3><p>Your material is carefully transcribed, formatted and checked for musical readability.</p></article>
+        <article><span>03</span><h3>Get your score</h3><p>We’ll contact you with the next steps, requirements and delivery details.</p></article>
+      </div>
+    </section>
+
+    <section class="request-section" id="request">
+      <div class="request-intro">
+        <div class="section-label">/ New request</div>
+        <h2>Let's put it<br><em>on paper.</em></h2>
+        <p>Complete the form and attach your source material. You can include a PDF, image, audio file or other reference document.</p>
+        <div class="mini-note"><span>✦</span> Your submission is sent securely via Formspree.</div>
+      </div>
+
+      <form class="request-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New Scorely transcription request">
+        <input type="hidden" name="_replyto" id="replyto-hidden">
+
+        <div class="form-row two">
+          <label>
+            <span>Your name <b>*</b></span>
+            <input name="name" type="text" placeholder="e.g. Edward Tait" required>
+          </label>
+          <label>
+            <span>Email address <b>*</b></span>
+            <input name="email" id="email" type="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+
+        <label>
+          <span>What are you having transcribed? <b>*</b></span>
+          <input name="project" type="text" placeholder="e.g. Piano reduction from an orchestral recording" required>
+        </label>
+
+        <label>
+          <span>Instruments / parts <b>*</b></span>
+          <div class="instrument-picker">
+            <div class="picker-input">
+              <input id="instrument-search" type="text" autocomplete="off" placeholder="Search and add instruments…">
+              <span>⌄</span>
+            </div>
+            <div id="selected-instruments" class="selected-instruments"></div>
+            <div id="instrument-menu" class="instrument-menu"></div>
+          </div>
+          <input type="hidden" name="instruments" id="instruments-hidden">
+          <small>Add as many instruments as you need.</small>
+        </label>
+
+        <label>
+          <span>Source score / audio <b>*</b></span>
+          <div class="file-drop" id="file-drop">
+            <input id="score-file" name="attachment" type="file" accept=".pdf,.png,.jpg,.jpeg,.mp3,.wav,.m4a,.mid,.midi,.musicxml,.xml,.zip" required>
+            <div class="upload-icon">↑</div>
+            <strong>Drop your file here or <u>browse</u></strong>
+            <small>PDF, JPG, PNG, MP3, WAV, MIDI, MusicXML or ZIP · max size depends on your Formspree plan</small>
+            <div id="file-name"></div>
+          </div>
+        </label>
+
+        <label>
+          <span>Notes / requirements</span>
+          <textarea name="requirements" rows="5" placeholder="Tempo, key, clefs, preferred layout, deadline, specific sections, anything else we should know…"></textarea>
+        </label>
+
+        <div class="form-bottom">
+          <label class="consent"><input type="checkbox" required><span>I confirm that I have permission to submit this material for transcription.</span></label>
+          <button class="button button-dark submit" type="submit">Send transcription request <span>↗</span></button>
+        </div>
+        <p class="form-footnote">By submitting, your details and attachment are sent to the Formspree endpoint configured for this form.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">♪</span><span>scorely</span></div>
+    <span>On-demand music transcription</span>
+    <a href="#request">Start a request ↗</a>
+  </footer>
+
+  <script>
+const instruments = [
+"Accordion","Alto","Alto Flute","Alto Recorder","Alto Saxophone","Alto Trombone","Bagpipes","Banjo","Baritone","Baritone Horn","Baritone Saxophone",
+"Bass","Bass Clarinet","Bass Drum","Bass Flute","Bass Guitar","Bass Saxophone","Bass Trombone","Bassoon","Bodhrán","Bouzouki","Bugle","Cello",
+"Clarinet","Contrabass Clarinet","Contrabassoon","Cornet","Crumhorn","Cymbals","Didgeridoo","Double Bass","Drum Kit","English Horn","Euphonium",
+"Fiddle","Flugelhorn","French Horn","Glockenspiel","Gong","Guitar","Hammond Organ","Harp","Harpsichord","Hurdy-Gurdy","Kalimba","Keyboard",
+"Lute","Mandolin","Marimba","Melodica","Oboe","Oboe d'amore","Organ","Percussion","Piano","Piccolo","Recorder","Sackbut","Saxophone",
+"Shakuhachi","Sitar","Snare Drum","Soprano","Soprano Saxophone","Sousaphone","Steel Drum","Synthesizer","Tenor","Tenor Saxophone","Tenor Trombone",
+"Timpani","Trombone","Trumpet","Tuba","Ukulele","Viola","Violin","Vocal – Soprano","Vocal – Mezzo-soprano","Vocal – Alto","Vocal – Tenor",
+"Vocal – Baritone","Vocal – Bass","Vocal – SATB","Vocal – Choir","Vibraphone","Wurlitzer","Xylophone",
+"Acoustic Guitar","Electric Guitar","12-string Guitar","Classical Guitar","Bass Guitar – 4 string","Bass Guitar – 5 string","Bass Guitar – 6 string",
+"Piccolo Trumpet","Bass Trumpet","Baroque Trumpet","Natural Trumpet","Wagner Tuba","Bass Flute","Contrabass Flute","Flute","Baroque Flute",
+"Recorder – Soprano","Recorder – Alto","Recorder – Tenor","Recorder – Bass","Bass Oboe","Baroque Oboe","Heckelphone","Eb Clarinet","A Clarinet",
+"Bb Clarinet","Bass Clarinet – Bb","Contra-alto Clarinet","Soprano Saxophone – Bb","Alto Saxophone – Eb","Tenor Saxophone – Bb","Baritone Saxophone – Eb",
+"Contrabass Saxophone","F Horn","Eb Horn","Marching Horn","Tenor Horn","Baritone Horn","Bass Tuba","Eb Tuba","BBb Tuba","French Horn",
+"Piccolo – percussion","Temple Blocks","Woodblock","Triangle","Tambourine","Castanets","Claves","Cowbell","Guiro","Maracas","Cabasa","Bongos",
+"Conga","Djembe","Darabuka","Tabla","Tom-toms","Rototoms","Tam-tam","Tubular Bells","Celesta","Piano – Grand","Piano – Upright",
+"Electric Piano","Clavinet","Synthesizer – Lead","Synthesizer – Pad","Synthesizer – Bass","Sampler","Accordion – Piano","Accordion – Button",
+"Organ – Pipe","Organ – Electric","Choir – SATB","Choir – SSA","Choir – SSAA","Choir – TTBB","Choir – Unison","Voice – Spoken","Custom / Other"
+];
+
+const search = document.querySelector("#instrument-search");
+const menu = document.querySelector("#instrument-menu");
+const selectedBox = document.querySelector("#selected-instruments");
+const hidden = document.querySelector("#instruments-hidden");
+const chosen = new Set();
+
+function renderOptions(filter=""){
+  menu.innerHTML = "";
+  const q = filter.toLowerCase().trim();
+  const matches = instruments.filter(x => x.toLowerCase().includes(q) && !chosen.has(x)).slice(0, 80);
+  if(!matches.length){
+    menu.innerHTML = '<div class="instrument-option" style="color:#888">No matches — try another search.</div>';
+    return;
+  }
+  matches.forEach(name=>{
+    const item=document.createElement("div");
+    item.className="instrument-option";
+    item.textContent=name;
+    item.addEventListener("mousedown", e=>{
+      e.preventDefault();
+      chosen.add(name);
+      search.value="";
+      renderTags();
+      renderOptions();
+      search.focus();
+    });
+    menu.appendChild(item);
+  });
+}
+function renderTags(){
+  selectedBox.innerHTML="";
+  [...chosen].forEach(name=>{
+    const tag=document.createElement("span");
+    tag.className="instrument-tag";
+    tag.innerHTML=`${name} <button type="button" aria-label="Remove ${name}">×</button>`;
+    tag.querySelector("button").onclick=()=>{chosen.delete(name);renderTags();renderOptions(search.value)};
+    selectedBox.appendChild(tag);
+  });
+  hidden.value=[...chosen].join(", ");
+}
+search.addEventListener("focus",()=>{menu.classList.add("open");renderOptions(search.value)});
+search.addEventListener("input",()=>{menu.classList.add("open");renderOptions(search.value)});
+document.addEventListener("click",e=>{
+  if(!e.target.closest(".instrument-picker")) menu.classList.remove("open");
+});
+
+const fileInput=document.querySelector("#score-file");
+const drop=document.querySelector("#file-drop");
+const fileName=document.querySelector("#file-name");
+drop.addEventListener("click",()=>fileInput.click());
+fileInput.addEventListener("change",()=>showFile(fileInput.files[0]));
+["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("dragging")}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("dragging")}));
+drop.addEventListener("drop",e=>{
+  if(e.dataTransfer.files.length){fileInput.files=e.dataTransfer.files;showFile(e.dataTransfer.files[0])}
+});
+function showFile(file){
+  if(file) fileName.textContent=`✓ ${file.name}`;
+}
+
+document.querySelector("#email").addEventListener("input", e=>{
+  document.querySelector("#replyto-hidden").value=e.target.value;
+});
+
+document.querySelector(".request-form").addEventListener("submit",e=>{
+  if(chosen.size===0){
+    e.preventDefault();
+    alert("Please add at least one instrument or part.");
+    search.focus();
+  }
+});
+
+</script>
+</body>
+</html>
