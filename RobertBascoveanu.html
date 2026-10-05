@@ -149,7 +149,6 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
   .gallery-item:nth-child(3n) { grid-column:span 1; }
   .gallery-grid { grid-auto-rows:280px; }
 }
-
 </style>
 </head>
 <body>
@@ -158,15 +157,14 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     <nav class="nav" aria-label="Primary navigation">
       <a href="#home">Home</a>
+      <a href="#biography">Biography</a>
       <a href="#concerts">Concerts</a>
       <a href="#repertoire">Repertoire</a>
-      <a href="#biography">Biography</a>
       <a href="#videos">Videos</a>
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
-
   <main>
     <section class="hero" id="home">
       <img src="RobertPhoto1.jpeg" alt="Robert Bascoveanu on stage beside a grand piano">
@@ -181,7 +179,6 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
       </div>
       <div class="scroll-note">Scroll to explore <span>↓</span></div>
     </section>
-
     <!---
     <section class="intro section">
       <div class="section-label">01 / Introduction</div>
@@ -196,12 +193,29 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
       </div>
     </section>
     --->
-
+    <section class="biography section" id="biography">
+      <div class="section-label">Biography</div>
+      <div class="bio-grid">
+        <div class="bio-image"><img src="RobertPhoto4.jpeg" alt="Portrait of Robert Bascoveanu in concert dress"></div>
+        <div class="bio-copy">
+          <h2>Robert<br><em>Bascoveanu</em></h2>
+          <p class="lead">Robert Bascoveanu is a highly acclaimed, award-winning Romanian concert pianist based at the Royal Academy of Music in London, UK, widely recognised for his exceptional sound, remarkable virtuosity and profound musical sensitivity.</p>
+          <p>Born in 2007 in Craiova, Romania, Robert demonstrated exceptional musical abilities and absolute pitch from an early age. Raised in a family of musicians, he grew up surrounded by music. He began his piano studies with Liviu Pîrvu in his hometown and subsequently continued his artistic formation with the distinguished Romanian pianists Boldizsár Csíky Jr. and Maestro Mihai Ungureanu.</p>
+          <p>At the age of sixteen, Robert made his orchestral debut with the Oltenia Philharmonic Symphony Orchestra in Craiova, performing Pyotr Ilyich Tchaikovsky’s Piano Concerto No. 1 under the baton of Maestro Gheorghe Costin. Since then, he has appeared extensively as both a recitalist and concerto soloist, collaborating with leading Romanian orchestras and internationally acclaimed conductors.</p>
+          <p>In 2025, Robert was awarded a full scholarship to the Royal Academy of Music in London, where he studies under the tutelage of Florian Mitrea. He was selected from more than 300 pianists from around the world to join the Academy, continuing his artistic development under the guidance of distinguished musicians and pedagogues.</p>
+          <p>Robert has received more than fifty prizes, distinctions and awards at national and international competitions in Romania, Hungary, Spain, France, Italy, Germany, Poland, the United Kingdom and the United States of America.</p>
+          <p>His achievements include <strong>First Prize at the prestigious Carl Filtsch International Piano Competition in 2026</strong>, where he competed against pianists up to the age of 33. In the final round, he performed Sergei Rachmaninoff’s Piano Concerto No. 2 in C minor, Op. 18.</p>
+          <p>In 2024, Robert was awarded <strong>First Prize at the Marosvasarhely International Piano Competition</strong>, competing against pianists up to the age of 33. In the final round, he performed Ludwig van Beethoven’s Piano Concerto No. 5 in E-flat major, Op. 73, “Emperor”.</p>
+          <p>At the prestigious <strong>Dinu Lipatti International Piano Competition</strong>, Robert was awarded the <strong>Prize for the Highest-Ranking Romanian Pianist</strong>.</p>
+          <p>His repertoire encompasses the major piano literature from the Baroque and Classical periods through the Romantic, Impressionist and twentieth-century traditions, with a particular affinity for the great Romantic concerto repertoire.</p>
+          <p>Based at the Royal Academy of Music in London, Robert continues to develop an international performing career as a soloist, recitalist and chamber musician, appearing in an increasingly diverse range of concert engagements across Europe and beyond.</p>
+        </div>
+      </div>
+    </section>
     <section class="feature-image">
       <img src="RobertPhoto2.jpeg" alt="Robert Bascoveanu performing with orchestra">
       <div class="feature-caption">On stage with orchestra</div>
     </section>
-
     <section class="concerts section" id="concerts">
       <div class="section-label">Concerts</div>
       <div class="section-heading-row">
@@ -266,7 +280,7 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
         </article>
         <article class="concert">
           <div class="date"><strong>03</strong><span>NOV<br>2025</span></div>
-          <div class="concert-main"><h3>Transylvania State Philharmonic Symphony Orchestra</h3><p>Cluj-Napoca, Romania</p></div>
+          <div class="concert-main"><h3>New Hope Orchestra</h3><p>Cluj-Napoca, Romania</p></div>
           <div class="concert-program">Ludwig van Beethoven — Piano Concerto No. 1 in C major, Op. 15</div>
         </article>
         <article class="concert">
@@ -281,19 +295,37 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
         </article>
       </div>
     </section>
-
     <!---
     <section class="quote-band">
       <p>“Technical brilliance with a distinctive musical voice and an exceptional depth of expression.”</p>
     </section>
     --->
-
     <section class="repertoire section" id="repertoire">
       <div class="section-label">Repertoire</div>
       <div class="section-heading-row">
         <h2>Selected<br><em>repertoire</em></h2>
         <p>From the Baroque and Classical traditions through the Romantic, Impressionist and twentieth-century repertoire.</p>
       </div>
+      <div class="rep-grid">
+        <div class="rep-column">
+          <h3>Concerti</h3>
+          <ul>
+            <li>J. S. Bach — Keyboard Concerto No. 5 in F minor, BWV 1056</li>
+            <li>Joseph Haydn — Piano works</li>
+            <li>W. A. Mozart — Piano Concerto No. 20 in D minor, K. 466</li>
+            <li>W. A. Mozart — Piano works</li>
+            <li>Ludwig van Beethoven — Piano Concerto No. 1 in C major, Op. 15</li>
+            <li>Ludwig van Beethoven — Piano Concerto No. 5 in E-flat major, Op. 73 “Emperor”</li>
+            <li>J. S. Bach — Keyboard Concerto No. 5 in F minor, BWV 1056</li>
+            <li>W. A. Mozart — Piano Concerto No. 20 in D minor, K. 466</li>
+            <li>L. V. Beethoven — Piano Concerto No. 5 in E-flat major, Op. 73</li>
+            <li>F. Chopin — Piano Concerto No. 1 in E minor, Op. 11</li>
+            <li>P. I. Tchaikovsky — Piano Concerto No. 1 in B-flat minor, Op. 23</li>
+            <li>S. Rachmaninoff — Piano Concerto No. 2 in C minor, Op. 18</li>
+          </ul>
+        </div>
+      </div>
+      <!---
       <div class="rep-grid">
         <div class="rep-column">
           <h3>Baroque & Classical</h3>
@@ -328,35 +360,14 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
           </ul>
         </div>
       </div>
+      --->
       <!---
       <p class="rep-note">This is a selected repertoire list based on the programmes supplied for the website. A full repertoire list can be added as a dedicated downloadable PDF.</p>
       --->
     </section>
-
-    <section class="biography section" id="biography">
-      <div class="section-label">Biography</div>
-      <div class="bio-grid">
-        <div class="bio-image"><img src="RobertPhoto4.jpeg" alt="Portrait of Robert Bascoveanu in concert dress"></div>
-        <div class="bio-copy">
-          <h2>Robert<br><em>Bascoveanu</em></h2>
-          <p class="lead">Robert Bascoveanu is a highly acclaimed, award-winning Romanian concert pianist based at the Royal Academy of Music in London, UK, widely recognised for his exceptional sound, remarkable virtuosity and profound musical sensitivity.</p>
-          <p>Born in 2007 in Craiova, Romania, Robert demonstrated exceptional musical abilities and absolute pitch from an early age. Raised in a family of musicians, he grew up surrounded by music. He began his piano studies with Liviu Pîrvu in his hometown and subsequently continued his artistic formation with the distinguished Romanian pianists Boldizsár Csíky Jr. and Maestro Mihai Ungureanu.</p>
-          <p>At the age of sixteen, Robert made his orchestral debut with the Oltenia Philharmonic Symphony Orchestra in Craiova, performing Pyotr Ilyich Tchaikovsky’s Piano Concerto No. 1 under the baton of Maestro Gheorghe Costin. Since then, he has appeared extensively as both a recitalist and concerto soloist, collaborating with leading Romanian orchestras and internationally acclaimed conductors.</p>
-          <p>In 2025, Robert was awarded a full scholarship to the Royal Academy of Music in London, where he studies under the tutelage of Florian Mitrea. He was selected from more than 300 pianists from around the world to join the Academy, continuing his artistic development under the guidance of distinguished musicians and pedagogues.</p>
-          <p>Robert has received more than fifty prizes, distinctions and awards at national and international competitions in Romania, Hungary, Spain, France, Italy, Germany, Poland, the United Kingdom and the United States of America.</p>
-          <p>His achievements include <strong>First Prize at the prestigious Carl Filtsch International Piano Competition in 2026</strong>, where he competed against pianists up to the age of 33. In the final round, he performed Sergei Rachmaninoff’s Piano Concerto No. 2 in C minor, Op. 18.</p>
-          <p>In 2024, Robert was awarded <strong>First Prize at the Marosvasarhely International Piano Competition</strong>, competing against pianists up to the age of 33. In the final round, he performed Ludwig van Beethoven’s Piano Concerto No. 5 in E-flat major, Op. 73, “Emperor”.</p>
-          <p>At the prestigious <strong>Dinu Lipatti International Piano Competition</strong>, Robert was awarded the <strong>Prize for the Highest-Ranking Romanian Pianist</strong>.</p>
-          <p>His repertoire encompasses the major piano literature from the Baroque and Classical periods through the Romantic, Impressionist and twentieth-century traditions, with a particular affinity for the great Romantic concerto repertoire.</p>
-          <p>Based at the Royal Academy of Music in London, Robert continues to develop an international performing career as a soloist, recitalist and chamber musician, appearing in an increasingly diverse range of concert engagements across Europe and beyond.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="portrait-break">
       <img src="RobertPhoto5.jpeg" alt="Robert Bascoveanu seated beside a Bösendorfer grand piano">
     </section>
-
     <section class="videos section" id="videos">
       <div class="section-label">Videos</div>
       <div class="section-heading-row">
@@ -374,7 +385,6 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
         <figure class="video-card"><div class="video-frame"><iframe src="https://www.youtube.com/embed/igkCfK30Jvs" title="Robert Bascoveanu — performance video 6" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption>Performance · Robert Bascoveanu</figcaption></figure>
       </div>
     </section>
-
     <section class="gallery section" id="gallery">
       <div class="section-label">Gallery</div>
       <div class="section-heading-row">
@@ -389,14 +399,13 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
         <button class="gallery-item" data-src="RobertPhoto3.jpeg" data-alt="Portrait of Robert Bascoveanu"><img src="RobertPhoto3.jpeg" alt="Portrait of Robert Bascoveanu" loading="lazy"></button>
         <button class="gallery-item wide" data-src="RobertPhoto4.jpeg" data-alt="Robert Bascoveanu in concert dress"><img src="RobertPhoto4.jpeg" alt="Robert Bascoveanu in concert dress" loading="lazy"></button>
         <button class="gallery-item" data-src="RobertPhoto5.jpeg" data-alt="Robert Bascoveanu beside a Bösendorfer grand piano"><img src="RobertPhoto5.jpeg" alt="Robert Bascoveanu beside a Bösendorfer grand piano" loading="lazy"></button>
-        <button class="gallery-item tall" data-src="RobertPhoto6.jpeg" data-alt="Robert Bascoveanu performing with orchestra"><img src="RobertPhoto6.jpeg" alt="Robert Bascoveanu performing with orchestra" loading="lazy"></button>
+        <button class="gallery-item tall" data-src="RobertPhoto6.jpg" data-alt="Robert Bascoveanu performing with orchestra"><img src="RobertPhoto6.jpeg" alt="Robert Bascoveanu performing with orchestra" loading="lazy"></button>
         <button class="gallery-item" data-src="RobertPhoto7.jpeg" data-alt="Robert Bascoveanu after a concert"><img src="RobertPhoto7.jpeg" alt="Robert Bascoveanu after a concert" loading="lazy"></button>
         <button class="gallery-item wide" data-src="RobertPhoto8.jpeg" data-alt="Robert Bascoveanu at the piano in black and white"><img src="RobertPhoto8.jpeg" alt="Robert Bascoveanu at the piano in black and white" loading="lazy"></button>
         <button class="gallery-item" data-src="RobertPhoto9.jpeg" data-alt="Robert Bascoveanu at the piano"><img src="RobertPhoto9.jpeg" alt="Robert Bascoveanu at the piano" loading="lazy"></button>
         <button class="gallery-item" data-src="RobertPhoto10.jpeg" data-alt="Robert Bascoveanu with orchestra"><img src="RobertPhoto10.jpeg" alt="Robert Bascoveanu with orchestra" loading="lazy"></button>
       </div>
     </section>
-
     <section class="contact section" id="contact">
       <div class="section-label">Contact</div>
       <div class="contact-grid">
@@ -419,34 +428,28 @@ h2 { font:500 clamp(64px,8vw,120px)/.76 var(--serif); letter-spacing:-.045em; }
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div><span>Robert Bascoveanu</span><small>Pianist · London</small></div>
     <a href="#top">Back to top ↑</a>
   </footer>
-
   <div class="lightbox" aria-hidden="true">
     <button class="lightbox-close" aria-label="Close image">×</button>
     <img src="" alt="">
   </div>
-
   <script ></script>
 <script>
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
-
 menuToggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuToggle.setAttribute('aria-expanded', open);
 });
-
 document.querySelectorAll('.nav a').forEach(link => {
   link.addEventListener('click', () => {
     nav.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
   });
 });
-
 const lightbox = document.querySelector('.lightbox');
 const lightboxImg = lightbox.querySelector('img');
 const closeLightbox = () => {
@@ -454,7 +457,6 @@ const closeLightbox = () => {
   lightbox.setAttribute('aria-hidden', 'true');
   lightboxImg.src = '';
 };
-
 document.querySelectorAll('.gallery-item').forEach(item => {
   item.addEventListener('click', () => {
     lightboxImg.src = item.dataset.src;
@@ -463,11 +465,9 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     lightbox.setAttribute('aria-hidden', 'false');
   });
 });
-
 document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
 </script>
 </body>
 </html>
