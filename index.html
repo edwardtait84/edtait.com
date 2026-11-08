@@ -13,24 +13,20 @@
 	      padding: 0;
 	      box-sizing: border-box;
 	    }
-	
 	    body {
 	      font-family: 'Inter', sans-serif;
 	      background: #f8f7f4;
 	      color: #222;
 	      line-height: 1.7;
 	    }
-	
 	    a {
 	      text-decoration: none;
 	      color: inherit;
 	    }
-	
 	    img {
 	      width: 100%;
 	      display: block;
 	    }
-	
 	    header {
 	      position: sticky;
 	      top: 0;
@@ -39,7 +35,6 @@
 	      z-index: 999;
 	      border-bottom: 1px solid #ddd;
 	    }
-	
 	    .nav-container {
 	      max-width: 1200px;
 	      margin: auto;
@@ -48,14 +43,12 @@
 	      justify-content: space-between;
 	      align-items: center;
 	    }
-	
 	    .logo {
 	      font-family: 'Cormorant Garamond', serif;
 	      font-size: 2rem;
 	      font-weight: 600;
 	      letter-spacing: 1px;
 	    }
-	
 	    .hamburger {
 	      width: 32px;
 	      cursor: pointer;
@@ -63,14 +56,12 @@
 	      flex-direction: column;
 	      gap: 6px;
 	    }
-	
 	    .hamburger span {
 	      height: 2px;
 	      background: #222;
 	      border-radius: 2px;
 	      transition: 0.3s;
 	    }
-	
 	    nav {
 	      position: absolute;
 	      top: 78px;
@@ -81,21 +72,17 @@
 	      flex-direction: column;
 	      border-bottom: 1px solid #ddd;
 	    }
-	
 	    nav a {
 	      padding: 1rem 1.5rem;
 	      border-top: 1px solid #e5e5e5;
 	      transition: 0.3s;
 	    }
-	
 	    nav a:hover {
 	      background: #eceae5;
 	    }
-	
 	    nav.active {
 	      display: flex;
 	    }
-	
 	    .hero {
 	      min-height: 100vh;
 	      display: flex;
@@ -105,11 +92,9 @@
 	      padding: 5rem 1.5rem;
 	      text-align: center;
 	    }
-	
 	    .hero-content {
 	      max-width: 950px;
 	    }
-	
 	    .hero img {
 	      width: 280px;
 	      height: 360px;
@@ -118,21 +103,18 @@
 	      border-radius: 6px;
 	      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
 	    }
-	
 	    .hero h1 {
 	      font-family: 'Cormorant Garamond', serif;
 	      font-size: 4rem;
 	      font-weight: 500;
 	      margin-bottom: 0.5rem;
 	    }
-	
 	    .hero p.subtitle {
 	      font-size: 1.15rem;
 	      letter-spacing: 1px;
 	      color: #555;
 	      margin-bottom: 2rem;
 	    }
-	
 		.quote-container {
 		  overflow: hidden;
 		  border-top: 1px solid #ddd;
@@ -141,20 +123,17 @@
 		  margin-bottom: 3rem;
 		  width: 100%;
 		}
-		
 		.quotes {
 		  display: flex;
 		  width: max-content;
 		  animation: scrollQuotes 45s linear infinite;
 		}
-		
 		.quotes span {
 		  white-space: nowrap;
 		  color: #444;
 		  font-size: 1rem;
 		  padding-right: 5rem;
 		}
-		
 		@keyframes scrollQuotes {
 		  from {
 		    transform: translateX(0);
@@ -163,51 +142,42 @@
 		    transform: translateX(-50%);
 		  }
 		}
-	
 	    section {
 	      max-width: 950px;
 	      margin: auto;
 	      padding: 5rem 1.5rem;
 	    }
-	
 	    section h2 {
 	      font-family: 'Cormorant Garamond', serif;
 	      font-size: 2.8rem;
 	      margin-bottom: 2rem;
 	      font-weight: 500;
 	    }
-	
 	    .bio p {
 	      margin-bottom: 1.5rem;
-	    }
-	
+		}
 	    .bio-layout {
 	      display: flex;
 	      gap: 3rem;
 	      align-items: flex-start;
 	    }
-	
 	    .bio-image {
 	      flex: 0 0 320px;
 	    }
-	
 	    .bio-image img {
 	      width: 100%;
 	      border-radius: 6px;
 	      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
 	    }
-	
 	    .photo-credit {
 	      margin-top: 0.75rem;
 	      font-size: 0.9rem;
 	      color: #666;
 	    }
-	
 	    .bio-text {
 	      flex: 1;
 	      min-width: 0;
 	    }
-	
 	    .cv-link {
 	      display: inline-block;
 	      margin-top: 1rem;
@@ -215,35 +185,29 @@
 	      padding: 0.8rem 1.5rem;
 	      transition: 0.3s;
 	    }
-	
 	    .cv-link:hover {
 	      background: #222;
 	      color: #fff;
 	    }
-	
 	    .soundcloud iframe {
 	      width: 100%;
 	      height: 166px;
 	      border: none;
 	      margin-bottom: 1.5rem;
 	    }
-	
 		.event-item {
 		  list-style: none;
 		  margin: -0.75rem 0 0.25rem 0;
 		}
-
         /* YouTube video section */
         .video-grid {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 2.5rem 1.5rem;
         }
-
         .video-card {
           min-width: 0;
         }
-
         .video-frame {
           position: relative;
           width: 100%;
@@ -253,7 +217,6 @@
           border-radius: 6px;
           box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
-
         .video-frame iframe {
           position: absolute;
           inset: 0;
@@ -261,7 +224,6 @@
           height: 100%;
           border: 0;
         }
-
         .video-card h3 {
           margin-top: 0.9rem;
           margin-bottom: 0.35rem;
@@ -270,19 +232,16 @@
           font-weight: 500;
           line-height: 1.25;
         }
-
         .video-card p {
           color: #555;
           font-size: 0.95rem;
         }
-
         @media (max-width: 600px) {
           .video-grid {
             grid-template-columns: 1fr;
             gap: 2rem;
           }
         }
-
       .fold-toggle {
         position: relative;
         display: inline-flex;
@@ -299,7 +258,6 @@
         cursor: pointer;
         transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
       }
-
       .fold-toggle::after {
         content: '';
         width: 7px;
@@ -309,23 +267,19 @@
         transform: rotate(45deg) translateY(-2px);
         transition: transform 0.25s ease;
       }
-
       .fold-toggle:hover {
         background: rgba(200, 225, 245, 0.45);
         border-color: #c9c7c0;
         box-shadow: 0 4px 14px rgba(0,0,0,0.06);
         transform: translateY(-1px);
       }
-
       .fold-toggle[aria-expanded="true"] {
         background: rgba(200, 225, 245, 0.3);
         border-color: #c9c7c0;
       }
-
       .fold-toggle[aria-expanded="true"]::after {
         transform: rotate(225deg) translateY(-2px);
       }
-
       .fold-content {
         display: grid;
         grid-template-rows: 0fr;
@@ -333,7 +287,6 @@
         margin-top: 0;
         transition: grid-template-rows 0.3s ease, opacity 0.2s ease, margin-top 0.3s ease;
       }
-
       .fold-content > p {
         min-height: 0;
         overflow: hidden;
@@ -343,7 +296,6 @@
         font-size: 0.95rem;
         transition: padding 0.3s ease, border-color 0.3s ease;
       }
-
       .fold-content.open {
         grid-template-rows: 1fr;
         opacity: 1;
@@ -354,64 +306,52 @@
         padding: 0.8rem 1rem;
         border-left-color: #222;
       }
-
 	    .event {
 	      border-left: 2px solid #222;
 	      padding-left: 1.5rem;
 	      margin-bottom: 2rem;
 	      transition: background-color 0.15s ease, box-shadow 0.15s ease;
 	    }
-	
 	    .event h3 {
 	      font-size: 1.2rem;
 	      margin-bottom: 0.3rem;
 	    }
-	
 	    .event p {
 	      color: #555;
 	    }
-	
 	    .contact p {
 	      margin-bottom: 1rem;
-	    }
-
+		}
 	    .contact a {
 	      color: #000;
 	      border-bottom: 1px solid #000;
 	      transition: background-color 0.15s ease, box-shadow 0.15s ease;
 	    }
-	
 	    footer {
 	      text-align: center;
 	      padding: 3rem 1rem;
 	      border-top: 1px solid #ddd;
 	      color: #666;
 	      font-size: 0.95rem;
-	    }
-	
+		}
 	    .footer-link {
       		border-radius: 3px;
       		transition: background-color 0.15s ease, box-shadow 0.15s ease;
     	    }
-    
 	      @media (max-width: 768px) {
 	        .hero h1 {
 	        font-size: 3rem;
 	      }
-	
 	      .hero img {
 	        width: 220px;
 	        height: 300px;
 	      }
-	
 	      section h2 {
 	        font-size: 2.2rem;
 	      }
-	
 	      .bio-layout {
 	        flex-direction: column;
 	      }
-	
 	      .bio-image {
 	        width: 100%;
 	        max-width: 320px;
@@ -461,18 +401,12 @@
 	    <div class="bio-layout">
 	      <div class="bio-image">
 	        <img src="EdwardTait160426.jpg" alt="Composer portrait">
-	        <p class="photo-credit">
-	          © <a style="color:black;" href="https://www.kirkpatrick-photography.co.uk">Charlie Kirkpatrick</a>
+	        <p class="photo-credit">© <a style="color:black;" href="https://www.kirkpatrick-photography.co.uk">Charlie Kirkpatrick</a>
 	        </p>
 	      </div>
 	      <div class="bio-text">
-	        <h2>Biography</h2>
-			<p><b>Edward Tait</b> is a London-based composer, whose music has been performed across the United Kingdom, Ireland and the United States, by ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b> and <b>Orion Orchestra</b>. He is currently collaborating with the <b>Arquia Duo</b> on recording his song cycle <i>Vectis</i>, based on poems by Mollie Mardel. In November, he will receive his debut broadcast on <b>BBC Radio 3</b>, following success in the NCEM Young Composer Award.</p>
-			<p>Edward studies at the <b>Royal Academy of Music</b> with Louise Drewett and Gareth Moorcraft, and he is artistic director of the <b>MetroLand Music Festival</b>.</p>
-			<!---
-			Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. Upon graduation, he was awarded the Tim Stevenson Prize for his contribution to music at the school. In 2024, he was invited to perform at the Purcell School’s Pulse Festival, in a programme of works by Shostakovich and other newly-commissioned works in response to his music. In January 2027, he will give his debut concerto performance playing Shostakovich Piano Concerto No. 2 with the Letchworth Sinfonia.
-			His compositions have been performed by ensembles including the London Sinfonietta, Carducci Quartet and Orion Orchestra. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as a pianist, composer and organist.
-			--->
+	        <h2>Biography</h2><p><b>Edward Tait</b> is a London-based composer, whose music has been performed across the United Kingdom, Ireland and the United States, by ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b> and <b>Orion Orchestra</b>. He is currently collaborating with the <b>Arquia Duo</b> on recording his song cycle <i>Vectis</i>, based on poems by Mollie Mardel. In November, he will receive his debut broadcast on <b>BBC Radio 3</b>, following success in the NCEM Young Composer Award.</p><p>Edward studies at the <b>Royal Academy of Music</b> with Louise Drewett and Gareth Moorcraft, and he is artistic director of the <b>MetroLand Music Festival</b>.</p>
+			<!--- PIANO: Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. Upon graduation, he was awarded the Tim Stevenson Prize for his contribution to music at the school. In 2024, he was invited to perform at the Purcell School’s Pulse Festival, in a programme of works by Shostakovich and other newly-commissioned works in response to his music. In January 2027, he will give his debut concerto performance playing Shostakovich Piano Concerto No. 2 with the Letchworth Sinfonia. /// His compositions have been performed by ensembles including the London Sinfonietta, Carducci Quartet and Orion Orchestra. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as a pianist, composer and organist. ---><!--- SKETCHES: Edward is an alumnus and professor at the Royal Academy of Music. --->
 	        <a class="cv-link" href="EdwardTaitCVOctober2026.pdf" target="_blank">Download CV</a>
 	      </div>
 	    </div>
@@ -481,63 +415,19 @@
 	    <h2>Videos</h2>
 	    <div class="video-grid">
 		  <article class="video-card">
-	        <div class="video-frame">
-				<iframe
-					width="560"
-					height="315"
-					src="https://www.youtube.com/embed/PyqvvxBSKr4?si=zdhgd9hBzIH8Wix-&amp;start=1361"
-					title="YouTube video player"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerpolicy="strict-origin-when-cross-origin"
-					allowfullscreen>
-				</iframe>
-	        </div>
+	        <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/PyqvvxBSKr4?si=zdhgd9hBzIH8Wix-&amp;start=1361" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 	        <h3>my troubled sense doth move (2026)</h3>
 	      </article>
 	      <article class="video-card">
-	        <div class="video-frame">
-				<iframe
-				  width="560"
-				  height="315"
-				  src="https://www.youtube.com/embed/L_aB4VMa5Dk?si=Ju6JIuEkXN_0EjUC"
-				  title="YouTube video player"
-				  frameborder="0"
-				  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				  referrerpolicy="strict-origin-when-cross-origin"
-				  allowfullscreen>
-				</iframe>
-	        </div>
+	        <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/L_aB4VMa5Dk?si=Ju6JIuEkXN_0EjUC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 	        <h3>Ashes Beneath the Ice (2026)</h3>
 	      </article>
 	      <article class="video-card">
-	        <div class="video-frame">
-				<iframe
-				  width="560"
-				  height="315"
-				  src="https://www.youtube.com/embed/6TDNoqR-Yug?si=z6gykk8kuwvpohbd"
-				  title="YouTube video player"
-				  frameborder="0"
-				  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				  referrerpolicy="strict-origin-when-cross-origin"
-				  allowfullscreen>
-				</iframe>
-	        </div>
+	        <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/6TDNoqR-Yug?si=z6gykk8kuwvpohbd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 	        <h3>Pulsating (2025)</h3>
 	      </article>
 		  <article class="video-card">
-	        <div class="video-frame">
-				<iframe
-				  width="560"
-				  height="315"
-				  src="https://www.youtube.com/embed/ieyH7FE39jI?si=_V22ZRr2ywkO0yO5"
-				  title="YouTube video player"
-				  frameborder="0"
-				  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				  referrerpolicy="strict-origin-when-cross-origin"
-				  allowfullscreen>
-				</iframe>
-	        </div>
+	        <div class="video-frame"><iframe width="560" height="315" src="https://www.youtube.com/embed/ieyH7FE39jI?si=_V22ZRr2ywkO0yO5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 	        <h3>Reverie (2025)</h3>
 	      </article>
 	    </div>
@@ -548,22 +438,16 @@
           <button class="fold-toggle" type="button" aria-expanded="false" aria-controls="rep-info" onclick="toggleFold(this)">View repertoire list</button>
           <div class="fold-content" id="rep-info">
 			<p><b>Solo repertoire:</b>
-			<br>J.S. Bach – Invention No. 1 in C major BWV 772
-			<br>J.S. Bach – Invention No. 8 in F major BWV 779
-			<br>J.S. Bach – Prelude and Fugue in G major from Well-Tempered Clavier Book 2
+			<br>J.S. Bach – Invention No. 1 in C major BWV 772<br>J.S. Bach – Invention No. 8 in F major BWV 779<br>J.S. Bach – Prelude and Fugue in G major from Well-Tempered Clavier Book 2
 			<br>Barber – Piano Sonata
-			<br>Beethoven – Bagatelle Op. 119 No. 1
-			<br>Beethoven – Piano Sonata No. 1
-			<br>Brahms – Intermezzo Op. 116 No. 6
-			<br>Brahms – Scherzo from F–A–E Sonata
-			<br>Chopin – Ballade No. 1
-			<br>Chopin – Prelude Op. 28 No. 20
+			<br>Beethoven – Bagatelle Op. 119 No. 1<br>Beethoven – Piano Sonata No. 1
+			<br>Brahms – Intermezzo Op. 116 No. 6<br>Brahms – Scherzo from F–A–E Sonata
+			<br>Chopin – Ballade No. 1<br>Chopin – Prelude Op. 28 No. 20
 			<br>Debussy – <i>Children's Corner</i>
 			<br>Grieg – Humoresque Op. 6 No. 2
 			<br>Liszt – ‘Orage’ from <i>Années de pèlerinage</i>
 			<br>Oscar Peterson – Jazz Exercise No. 2
-			<br>Ravel – Menuet from <i>Le Tombeau de Couperin</i>
-			<br>Ravel – Sonatine
+			<br>Ravel – Menuet from <i>Le Tombeau de Couperin</i><br>Ravel – Sonatine
 			<br>D. Scarlatti – Sonata K. 443
 			<br>R. Schumann – ‘Herberge’ from <i>Waldszenen</i>
 			<br>Satie – <i>Vexations</i>
@@ -585,8 +469,7 @@
 			<br>Shostakovich – Piano Concerto No. 2
 			<br><br><b>Organ repertoire:</b>
 			<br>Elgar – Vesper Voluntaries No. 1 and No. 2
-			<br>Purcell – Ground in C minor ZD 221
-			<br>Purcell – <i>Lillibulero</i>
+			<br>Purcell – Ground in C minor ZD 221<br>Purcell – <i>Lillibulero</i>
 			<br>Edward Tait – <i>Vectis Tableau I</i></p>
 			<!---
 			<br>J.S. Bach – Organ Concerto in A minor BWV 593; Partita No. 2; Prelude and Fugue in Eb minor from Well-Tempered Clavier Book 1; Prelude and Fugue in E major from Well-Tempered Clavier Book 1
@@ -793,15 +676,8 @@
 		<!--- To love and to cherish! Wedding and honeymoon photos *Red Heart Emoji* /// @ana_leonkovatch --->
 	  </section>
 	  <section class="contact" id="contact">
-	    <h2>Contact</h2>
-	    <p>For commissions, collaborations or performance enquiries:</p>
-	    <p><a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p>
-	    <br><br>
-		<p>Publisher: <a href="https://edtait.com/notewelder.html" target="_blank"><b>NoteWelder Music</b></a></p>
-	    <p>YouTube: <a href="https://www.youtube.com/@edwardtait-06" target="_blank">@edwardtait-06</a></p>
-	    <p>SoundCloud: <a href="https://soundcloud.com/edward-tait-composing" target="_blank">edward-tait-composing</a></p>
-	    <p>Instagram: <a href="https://www.instagram.com/ta.ity06/reels/" target="_blank">@ta.ity06</a></p>
-	    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Edward Tait</a></p>
+	    <h2>Contact</h2><p>For commissions, collaborations or performance enquiries:</p><p><a href="mailto:edwardtait06@outlook.com">edwardtait06@outlook.com</a></p><br><br>
+		<p>Publisher: <a href="https://edtait.com/notewelder.html" target="_blank"><b>NoteWelder Music</b></a></p><p>YouTube: <a href="https://www.youtube.com/@edwardtait-06" target="_blank">@edwardtait-06</a></p><p>SoundCloud: <a href="https://soundcloud.com/edward-tait-composing" target="_blank">edward-tait-composing</a></p><p>Instagram: <a href="https://www.instagram.com/ta.ity06/reels/" target="_blank">@ta.ity06</a></p><p>Facebook: <a href="https://www.facebook.com/profile.php?id=100094528156549" target="_blank">Edward Tait</a></p>
 	  </section>
 	  <section class="contact" id="blog">
 		  <h2>Composer’s Blog</h2><hr><br>
@@ -848,21 +724,16 @@
 		  <p class="date"><b><br>29th August 2023</b></p><p class="text">I don’t want to make a habit of focusing on individual pieces, but this one, my first String Trio, just finished, I’d like to dedicate to my recently former English teacher Mr Adam Simmonds, and to my composition teacher Jacques Cohen. It’s three movements, each contrasting in form and mood, but similar in style, theme and message. It was heavily inspired by, despite not even sharing instrumentation, Shostakovich Piano Trio No. 1, which I was listening to and learning around the time of writing this Trio. There is quite a clear personal development throughout the piece. Collectively, it is a nostalgic love letter to the music of the 20th century, yet still more personal than anything I've written before. It tracks the search for individuality, with the 1st movement in very much a strong Shostakovich idiom, which largely drags its way through the 2nd movement, but feels different, and by the 3rd movement, just emerges to quirkily unique to be viewed that way anymore. It finally feels like only I could have written this, and that’s a great feeling to have after a piece of this magnitude. It is, after all, about a good solid half an hour in duration. In a sense, a culmination of my work at the Purcell School, and a note of appreciation to the school, and everything that it's provided to me, which will be coming to an end in just under a year, after what feels like a huge chunk of my lifetime.</p><br><hr>
 		  <p class="date"><b><br>26th June 2023</b></p><p class="text">On the IMPULSE trip, with my school, I recently met a composer named Tim Ambler. Despite him being a retired retailer and 'amateur' (using his own words) composer, he probably taught me more than many of my music teachers from Purcell. He admired my capacity to take on a side career, in order to make money, and in fact heavily encouraged me to do so, as he did, when he ran offices in Marylebone. He was also so humble, describing his own music as 'cowpat' music, or 'country' music, which I believe to be a massive oversimplification of how beautiful and well-crafted his music is!<br><br>This reminds me of my meeting and inspiring seminar with Errolyn Wallen, who taught me about the importance of personality, identity and life in music, and how it's a composer's “duty” to replicate everything in the music of their own. She was also genuinely the first person in my life who asked me the big question of “Why do I write music?”</p>
 	  </section>
-	  <footer>
-		  © 2026 Edward Tait. All rights reserved.<br>A Website by <a class="footer-link" style="color: #222;" href="https://edtait.com/">Edward Tait</a>
-	  </footer>
+	  <footer>© 2026 Edward Tait. All rights reserved.<br>A Website by <a class="footer-link" style="color: #222;" href="https://edtait.com/">Edward Tait</a></footer>
 	  <script>
 	    const hamburger = document.getElementById('hamburger');
 	    const navMenu = document.getElementById('navMenu');
-	
 	    hamburger.addEventListener('click', () => {
 	      navMenu.classList.toggle('active');
 	    });
-
       function toggleFold(button) {
         const content = document.getElementById(button.getAttribute('aria-controls'));
         const expanded = button.getAttribute('aria-expanded') === 'true';
-
         button.setAttribute('aria-expanded', String(!expanded));
         content.classList.toggle('open', !expanded);
       }
