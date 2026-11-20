@@ -222,80 +222,242 @@
 				height: 100%;
 				border: 0;
 			}
-			.video-card h3 { margin-top: 0.9rem; margin-bottom: 0.35rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; line-height: 1.25; }
-			.video-card p { color: #555; font-size: 0.95rem; }
-			@media (max-width: 600px) { .video-grid { grid-template-columns: 1fr; gap: 2rem; } }
-			.fold-toggle { position: relative; display: inline-flex; align-items: center; gap: 0.75rem; border: 1px solid #d8d6d0; border-radius: 4px; background: rgba(255,255,255,0.45); color: #333; padding: 0.7rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; letter-spacing: 0.2px; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
-			.fold-toggle::after { content: ''; width: 7px; height: 7px; border-right: 1px solid #333; border-bottom: 1px solid #333; transform: rotate(45deg) translateY(-2px); transition: transform 0.25s ease; }
-			.fold-toggle:hover { background: rgba(200, 225, 245, 0.45); border-color: #c9c7c0; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transform: translateY(-1px); }
-			.fold-toggle[aria-expanded="true"] { background: rgba(200, 225, 245, 0.3); border-color: #c9c7c0; }
-			.fold-toggle[aria-expanded="true"]::after { transform: rotate(225deg) translateY(-2px); }
-			.fold-content { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: 0; transition: grid-template-rows 0.3s ease, opacity 0.2s ease, margin-top 0.3s ease; }
-			.fold-content > p { min-height: 0; overflow: hidden; padding: 0 1rem; border-left: 1px solid transparent; color: #555; font-size: 0.95rem; transition: padding 0.3s ease, border-color 0.3s ease; }
-			.fold-content.open { grid-template-rows: 1fr; opacity: 1; margin-top: 0.7rem; }
-			.fold-content.open > p { padding: 0.8rem 1rem; border-left-color: #222; }
-			
-            .blog-accordion { border-top: 1px solid #d8d6d0; }
-            .blog-entry { border-bottom: 1px solid #d8d6d0; }
+			.video-card h3 {
+				margin-top: 0.9rem;
+				margin-bottom: 0.35rem;
+				font-family: 'Cormorant Garamond', serif;
+				font-size: 1.5rem;
+				font-weight: 500;
+				line-height: 1.25;
+			}
+			.video-card p {
+				color: #555;
+				font-size: 0.95rem;
+			}
+			@media (max-width: 600px) {
+				.video-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+			}
+			.fold-toggle {
+				position: relative;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				border: 1px solid #d8d6d0;
+				border-radius: 4px;
+				background: rgba(255,255,255,0.45);
+				color: #333;
+				padding: 0.7rem 1rem;
+				font-family: 'Inter', sans-serif;
+				font-size: 0.9rem;
+				letter-spacing: 0.2px;
+				cursor: pointer;
+				transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+			}
+			.fold-toggle::after {
+				content: '';
+				width: 7px;
+				height: 7px;
+				border-right: 1px solid #333;
+				border-bottom: 1px solid #333;
+				transform: rotate(45deg) translateY(-2px);
+				transition: transform 0.25s ease;
+			}
+			.fold-toggle:hover {
+				background: rgba(200, 225, 245, 0.45);
+				border-color: #c9c7c0;
+				box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+				transform: translateY(-1px);
+			}
+			.fold-toggle[aria-expanded="true"] {
+				background: rgba(200, 225, 245, 0.3);
+				border-color: #c9c7c0;
+			}
+			.fold-toggle[aria-expanded="true"]::after {
+				transform: rotate(225deg) translateY(-2px);
+			}
+			.fold-content {
+				display: grid;
+				grid-template-rows: 0fr;
+				opacity: 0;
+				margin-top: 0;
+				transition: grid-template-rows 0.3s ease, opacity 0.2s ease, margin-top 0.3s ease;
+			}
+			.fold-content > p {
+				min-height: 0;
+				overflow: hidden;
+				padding: 0 1rem;
+				border-left: 1px solid transparent;
+				color: #555;
+				font-size: 0.95rem;
+				transition: padding 0.3s ease, border-color 0.3s ease;
+			}
+			.fold-content.open {
+				grid-template-rows: 1fr;
+				opacity: 1;
+				margin-top: 0.7rem;
+			}
+			.fold-content.open > p {
+				padding: 0.8rem 1rem;
+				border-left-color: #222;
+			}
+            .blog-accordion {
+				border-top: 1px solid #d8d6d0;
+			}
+            .blog-entry {
+				border-bottom: 1px solid #d8d6d0;
+			}
             .blog-entry-summary {
-                display: flex; align-items: center; justify-content: space-between;
-                gap: 1.25rem; padding: 1.2rem 0.25rem; cursor: pointer;
-                list-style: none; transition: color 0.2s ease, padding 0.2s ease;
+                display: flex;
+				align-items: center;
+				justify-content: space-between;
+                gap: 1.25rem;
+				padding: 1.2rem 0.25rem;
+				cursor: pointer;
+                list-style: none;
+				transition: color 0.2s ease, padding 0.2s ease;
             }
-            .blog-entry-summary::-webkit-details-marker { display: none; }
-            .blog-entry-summary::marker { content: ""; }
+            .blog-entry-summary::-webkit-details-marker {
+				display: none;
+			}
+            .blog-entry-summary::marker {
+				content: "";
+			}
             .blog-entry-summary::after {
-                content: ""; flex: 0 0 9px; width: 9px; height: 9px;
-                margin-right: 0.35rem; border-right: 1px solid #555;
-                border-bottom: 1px solid #555; transform: rotate(45deg) translateY(-2px);
+                content: "";
+				flex: 0 0 9px;
+				width: 9px;
+				height: 9px;
+                margin-right: 0.35rem;
+				border-right: 1px solid #555;
+                border-bottom: 1px solid #555;
+				transform: rotate(45deg) translateY(-2px);
                 transition: transform 0.25s ease;
             }
-            .blog-entry-summary:hover { color: #777; }
-            .blog-entry[open] .blog-entry-summary { color: #222; }
-            .blog-entry[open] .blog-entry-summary::after { transform: rotate(225deg) translateY(-2px); }
+            .blog-entry-summary:hover {
+				color: #777;
+			}
+            .blog-entry[open] .blog-entry-summary {
+				color: #222;
+			}
+            .blog-entry[open] .blog-entry-summary::after {
+				transform: rotate(225deg) translateY(-2px);
+			}
             .blog-entry-date {
-                font-family: 'Inter', sans-serif; font-size: 1.45rem;
-                font-weight: 500; line-height: 1.3;
+                font-family: 'Inter', sans-serif;
+				font-size: 1.45rem;
+                font-weight: 500;
+				line-height: 1.3;
             }
-            .blog-entry-date b { font-weight: 500; }
+            .blog-entry-date b {
+				font-weight: 500;
+			}
             .blog-entry-hint {
-                margin-left: auto; color: #888; font-size: 0.72rem;
-                letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+                margin-left: auto;
+				color: #888;
+				font-size: 0.72rem;
+                letter-spacing: 0.08em;
+				text-transform: uppercase;
+				white-space: nowrap;
                 transition: opacity 0.2s ease;
             }
-            .blog-entry[open] .blog-entry-hint { opacity: 0; }
+            .blog-entry[open] .blog-entry-hint {
+				opacity: 0;
+			}
             .blog-entry-content {
                 padding: 0 2.4rem 1.5rem 0.25rem;
                 animation: blogReveal 0.28s ease both;
             }
-            .blog-entry-content p { color: #555; font-size: 0.96rem; line-height: 1.85; }
+            .blog-entry-content p {
+				color: #555;
+				font-size: 0.96rem;
+				line-height: 1.85;
+			}
             @keyframes blogReveal {
-                from { opacity: 0; transform: translateY(-5px); }
-                to { opacity: 1; transform: translateY(0); }
+                from {
+					opacity: 0;
+					transform: translateY(-5px);
+				}
+                to {
+					opacity: 1;
+					transform: translateY(0);
+				}
             }
             @media (max-width: 600px) {
-                .blog-entry-summary { padding: 1rem 0.15rem; }
-                .blog-entry-date { font-size: 1.3rem; }
-                .blog-entry-hint { font-size: 0.65rem; }
-                .blog-entry-content { padding: 0 0.25rem 1.25rem; }
+                .blog-entry-summary {
+					padding: 1rem 0.15rem;
+				}
+                .blog-entry-date {
+					font-size: 1.3rem;
+				}
+                .blog-entry-hint {
+					font-size: 0.65rem;
+				}
+                .blog-entry-content {
+					padding: 0 0.25rem 1.25rem;
+				}
             }
             @media (prefers-reduced-motion: reduce) {
-                .blog-entry-summary, .blog-entry-summary::after, .blog-entry-hint { transition: none; }
-                .blog-entry-content { animation: none; }
+                .blog-entry-summary, .blog-entry-summary::after, .blog-entry-hint {
+					transition: none;
+				}
+                .blog-entry-content {
+					animation: none;
+				}
             }
-
-            .event { border-left: 2px solid #222; padding-left: 1.5rem; margin-bottom: 2rem; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
-			.event h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-			.event p { color: #555; }
-			.contact p { margin-bottom: 1rem; }
-			.contact a { color: #000; border-bottom: 1px solid #000; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
-			footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid #ddd; color: #666; font-size: 0.95rem; }
-			.footer-link { border-radius: 3px; transition: background-color 0.15s ease, box-shadow 0.15s ease; }
-			@media (max-width: 768px) { .hero h1 { font-size: 3rem; }
-			.hero img { width: 220px; height: 300px; }
-			section h2 { font-size: 2.2rem; }
-			.bio-layout { flex-direction: column; }
-			.bio-image { width: 100%; max-width: 320px; margin: 0 auto 2rem auto; }
+            .event {
+				border-left: 2px solid #222;
+				padding-left: 1.5rem;
+				margin-bottom: 2rem;
+				transition: background-color 0.15s ease, box-shadow 0.15s ease;
+			}
+			.event h3 {
+				font-size: 1.2rem;
+				margin-bottom: 0.3rem;
+			}
+			.event p {
+				color: #555;
+			}
+			.contact p {
+				margin-bottom: 1rem;
+			}
+			.contact a {
+				color: #000;
+				border-bottom: 1px solid #000;
+				transition: background-color 0.15s ease, box-shadow 0.15s ease;
+			}
+			footer {
+				text-align: center;
+				padding: 3rem 1rem;
+				border-top: 1px solid #ddd;
+				color: #666;
+				font-size: 0.95rem;
+			}
+			.footer-link {
+				border-radius: 3px;
+				transition: background-color 0.15s ease, box-shadow 0.15s ease;
+			}
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 3rem;
+				}
+			.hero img {
+				width: 220px;
+				height: 300px;
+			}
+			section h2 {
+				font-size: 2.2rem;
+			}
+			.bio-layout {
+				flex-direction: column;
+			}
+			.bio-image {
+				width: 100%;
+				max-width: 320px;
+				margin: 0 auto 2rem auto;
+			}
 		</style>
 	</head>
 	<body>
@@ -335,11 +497,11 @@
 					<p><b>Edward Tait</b> is a London-based composer, whose music has been performed across the United Kingdom, Ireland and the United States, by ensembles like the <b>London Sinfonietta</b>, <b>Carducci Quartet</b> and <b>Orion Orchestra</b>. In November, he received his debut broadcast on <b>BBC Radio 3</b>, following success in the NCEM Young Composer Award. He is currently collaborating with the <b>Arquia Duo</b> on recording his song cycle <i>Vectis</i>, based on poems by Mollie Mardel.</p>
 					<p>Edward studies at the <b>Royal Academy of Music</b> with Louise Drewett and Gareth Moorcraft, and he is artistic director of the <b>MetroLand Music Festival</b>.</p>
 					<!---
-					Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. Upon graduation, he was awarded the Tim Stevenson Prize for his contribution to music at the school. In 2024, he was invited to perform at the Purcell School’s Pulse Festival, in a programme of works by Shostakovich and other newly-commissioned works in response to his music. In January 2027, he will give his debut concerto performance playing Shostakovich Piano Concerto No. 2 with the Letchworth Sinfonia.
-					His compositions have been performed by ensembles including the London Sinfonietta, Carducci Quartet and Orion Orchestra. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as a pianist, composer and organist.
+					<p>Edward Tait is a British composer, pianist and organist, studying at the Royal Academy of Music, with Gareth Moorcraft, Louise Drewett and Nicholas Walker. He was named Beacon Young Musician of the Year in 2017 and later trained at the Purcell School of Music as a scholar of the UK Music and Dance Scheme, with Jacques Cohen and Lidia Amorelli. Upon graduation, he was awarded the Tim Stevenson Prize for his contribution to music at the school. In 2024, he was invited to perform at the Purcell School’s Pulse Festival, in a programme of works by Shostakovich and other newly-commissioned works in response to his music. In January 2027, he will give his debut concerto performance playing Shostakovich Piano Concerto No. 2 with the Letchworth Sinfonia.</p>
+					<p>His compositions have been performed by ensembles including the London Sinfonietta, Carducci Quartet and Orion Orchestra. He won the BBC/NCEM Young Composer Award in 2026. He is founder and artistic director of the MetroLand Music Festival, where he has contributed significantly as a pianist, composer and organist.</p>
 					--->
 					<!---
-					Edward is an alumnus and professor at the Royal Academy of Music, and he is artistic director of the MetroLand Music Festival, which he founded in 2026.
+					<p>Edward is an alumnus and professor at the Royal Academy of Music, and he is artistic director of the MetroLand Music Festival, which he founded in 2026.</p>
 					--->
 					<a class="cv-link" href="EdwardTaitCV.pdf" target="_blank">Download CV</a>
 				</div>
@@ -614,7 +776,6 @@
 					<br>Rachmaninov – Trio élégiaque No. 1 (Luca/Ivan)
 					<br>R. Schumann – Dichterliebe (Will)
 					<br>Scriabin/Kalafati – Symphony No. 2
-					<br>Shostakovich – Piano Trio No. 2 (Luca/Ivan)
 					<br>Walton/Tait – Crown Imperial Coronation March (Oscar)
 					--->
 					<br>
@@ -641,8 +802,21 @@
 				</div>
 			</div>
 			<br>
-			<!--- Learn in this order, before adding to repertoire list: Shostakovich Piano Concerto No. 2; Ravel Jeux d'eau; Grieg Holberg Suite; Chopin Barcarolle; Finzi Eclogue; Liszt Vallee d'Obermann from Années de pèlerinage; James Mayhew Ice and Snow and Fish in Finland --->
-			<!--- IoW organ programme, in progress: Elgar Vesper Voluntaries No. 3, No. 4, Intermezzo and No. 5; George Thalben-Ball Elegy; Mozart Ave verum corpus; Ana Leon Kovatch NEW WORK (3 mins max); Aimme Chen OR Aiden Burke (3 mins max) --->
+			<!--- RECITAL TO-DO-LIST:
+			<br>Decide on programme --- LEATHERHEAD --- remember OXFORD have asked for a classical and romantic-heavy programme
+			<br>Send off confirmed programme, bio and photo --- LEATHERHEAD --- REMEMBER that the Bristol want some info much earlier on, by early March, and GREENWICH and ROMSEY want it fairly early as well
+			<br>Find out when I can arrive at venue from --- LEATHERHEAD
+			<br>Book travel itself --- LEATHERHEAD
+			<br>Get LoA from RAM if necessary --- LEATHERHEAD
+			<br>Inform teachers that I’m missing their lessons --- HIGHGATE
+			<br>Bring phone stand/portable charger --- HIGHGATE
+			<br>If filming, turn off all phone notifications (screen-record this process, to make note of which ones I turn off), and turn back on straight afterwards --- HIGHGATE
+			<br>If they are filming/recording, whether I use it publicly or not, ask for the film they take --- CAMBRIDGE
+			<br>Ask venue organiser about returning to do another recital in the future, and make sure this actually happens --- for POTTER'S BAR, on January 10th 2027, email Stephen Jones about doing another recital --- ask WHITCHURCH about doing Shostakovich Trio next year
+			<br>Get back fee/travel expenses, if they’ve offered it --- WHITCHURCH should apparently be processed by 13th November
+			--->
+			<!--- LEARNING ORDER: Shostakovich Piano Concerto No. 2; Shostakovich Piano Trio No. 2; Ravel Jeux d'eau; Grieg Holberg Suite; Chopin Barcarolle; Finzi Eclogue; Liszt Vallee d'Obermann from Années de pèlerinage; James Mayhew Ice and Snow and Fish in Finland --->
+			<!--- Things to post about: MetroLand reposts, sets of recitals, concertos, composition performances, V-Day, anniversary and Christmas with Ana, birthday stories, significant projects (which are worth sharing) --->
 			<div class="event">
 				<a href="https://stmichaelshighgate.org/lunchtime-recitals/" target="_blank"><h3>Solo Recital</h3></a>
 				<p>25 November 2026 • St Michael's Church, Highgate</p><p>Programme of Chopin, Grieg & Tait</p>
@@ -652,6 +826,7 @@
 				<h3>Cascader: A Study into Pianism and Motivic Development</h3></a>
 				<p>1 December 2026 • Research Publication</p>
 				<p>Link will be accessible here following publication date until the 1st January</p>
+				<!--- Instagram story: Happy December! /// After around 16 months of on-and-off work, this research project has finally come to fruition, featuring music by 52 RAM composers! /// Do check out the results via this link /// Huge thanks to all 52 composers who took part (all credited in the paper), and special thanks to @Peter and @Stefano for their additional contributions! /// (screen-recording of paper, with mockup extract in background) --->
 			</div>
 			<div class="event">
 				<a href="https://romseymusicproject.org/forthcoming-concerts/" target="_blank"><h3>Romsey Music Project: Solo Recital</h3></a>
@@ -661,12 +836,15 @@
 			<div class="event">
 				<a href="https://tinklings-at-the-lamb-and-flag-096a2a38.base44.app" target="_blank"><h3>Fanfare on the A String — Performance by the Academy of St Martin in the Fields</h3></a>
 				<p>13 December 2026 • Lamb and Flag, Oxford</p>
+				<!--- Instagram story: Thanks to @tinklingsmusic and @asmf_orchestra for their fantastic performance of my piece 'Fanfare on the A String' *praying emoji* --->
 			</div>
 			<div class="event">
 				<h3>Propulse — Workshop by the Royal Academy of Music Symphony Orchestra</h3>
 				<p>14 January 2027 • Duke's Hall, Royal Academy of Music</p>
+				<!--- Instagram story: 'Propulse', performed by the Royal Academy of Music Symphony Orchestra, accompanied by a scrolling score reduction! /// Check out in full on YouTube, through this link *downwards arrow* --->
 			</div>
 			<div class="event">
+				<!--- Instagram story: Giving my concerto debut with Shostakovich 2nd Concerto, this Saturday afternoon with @letchworthsinfonia /// Would love to see you there, if you can make it *praying emoji* --->
 				<a href="https://www.letchworth-sinfonia.org.uk/concerts" target="_blank"><h3>Shostakovich Piano Concerto No. 2 — with Letchworth Sinfonia</h3></a>
 				<p>23 January 2027 • St Christopher School, Letchworth</p>
 			</div>
@@ -678,22 +856,28 @@
 				<a href="https://amabile.uk/concerts/" target="_blank"><h3>Ashes Beneath the Ice — Performance by Amabile</h3></a>
 				<p>21 February 2027 • Corpus Christi RC Church, Tring</p>
 			</div>
+			<!--- Instagram story: Workshop of new song @Singer and @Pianist, titled 'Stramash', which I composed in collaboration with poet @LeoLupascu, as part of the 2027 Leeds Songbook project /// Very excited for its performance tomorrow afternoon at the @LeedsSongFestival --->
+			<!--- Instagram story: Preparing a particularly special programme featuring three of my absolute favourites in the repertoire: Ravel’s Jeux d’eau, Chopin’s Ballade No. 1 and Barcarolle! /// Four upcoming recitals in June, in Highgate, Bristol, Aldgate & Beaconsfield (more info on website) --->
+			<!--- Instagram story: Beautiful passage from Finzi's Eclogue for piano and string orchestra, which I'll be performing tomorrow evening with @StBotolphsMusicSociety in Colchester! --->
+			<!--- IoW organ programme, in progress: Elgar Vesper Voluntaries No. 3, No. 4, Intermezzo and No. 5; George Thalben-Ball Elegy; Mozart Ave verum corpus; Ana Leon Kovatch NEW WORK (3 mins max); Aimme Chen OR Aiden Burke (3 mins max) --->
 			<!---
 			<div class="event">
 				<h3>A Century at Speed: Duo Recital with Sam Lord</h3>
 				<p>1 May 2028 (or nearest Thursday, Friday or Saturday)? • Southlands Methodist Church, York</p>
 				<p>Programme of Schumann, Bernstein & new commissions</p>
-				Schumann Fantasiestucke OR Brahms Clarinet Sonata No. 2 (Sam can make final decision); Bernstein Sonata for Clarinet and Piano; Stephen Frith NEW WORK for clarinet and piano (he has agreed to this); John Stringer NEW WORK for solo clarinet OR solo piano OR clarinet and piano (he has said he might like to do this, so perhaps remind him); Billy Ainsworth OR Jacob Jordan NEW WORK for solo clarinet OR solo piano OR clarinet and piano (approach one of the two); Edward Tait NEW WORK for solo clarinet (around 6 minutes, blending a celebratory fanfare with a mechanical depiction of a steam engine, through various timbral effects on the clarinet, like “hissing steam”, so create a beautiful dramatic tension between the tones of the clarinet, and the sounds of the engine, and give it a really exciting and heartwarming “fanfare-like” climax, end with loads of fast accented clarinet trills); Mollie Mardel NEW POEM (100 lines long, due to the centenary, asking her if she can recite it herself, as a small interlude to the concert)
-				Recital preparation to-do-list:
-				- I’ve emailed https://southlandsmethodist.org.uk/worship/music-and-meditation twice already
-				- “The iconic Flying Scotsman’s world-leading non-stop run from London to Edinburgh, the first locomotive to do so, was a true milestone, not only in Britain’s technological history, but also, subsequently, its cultural history.”
-				- Make the purpose of the event “to show that our railway heritage is still appreciated by my generation”, and that “it can be celebrated through art.”
-				- Keep semi-thematic (Flying Scotsman, railways, York, industrial revolution, travel, or British culture and heritage)
-				- Use the “combined new hall and church” of the Southlands Methodist Church
-				- Aim sales at university students, residential area, railway enthusiasts, music enthusiasts, and anyone with creative spirit
-				- Get a journalist to come and do a review
+				<br>Schumann Fantasiestucke OR Brahms Clarinet Sonata No. 2 (Sam can make final decision); Bernstein Sonata for Clarinet and Piano; Stephen Frith NEW WORK for clarinet and piano (he has agreed to this); John Stringer NEW WORK for solo clarinet OR solo piano OR clarinet and piano (he has said he might like to do this, so perhaps remind him); Billy Ainsworth OR Jacob Jordan NEW WORK for solo clarinet OR solo piano OR clarinet and piano (approach one of the two); Edward Tait NEW WORK for solo clarinet (around 6 minutes, blending a celebratory fanfare with a mechanical depiction of a steam engine, through various timbral effects on the clarinet, like “hissing steam”, so create a beautiful dramatic tension between the tones of the clarinet, and the sounds of the engine, and give it a really exciting and heartwarming “fanfare-like” climax, end with loads of fast accented clarinet trills); Mollie Mardel NEW POEM (100 lines long, due to the centenary, asking her if she can recite it herself, as a small interlude to the concert)
+				<br>RECITAL PREPARATION TO-DO-LIST:
+				<br>I’ve emailed https://southlandsmethodist.org.uk/worship/music-and-meditation twice already
+				<br>“The iconic Flying Scotsman’s world-leading non-stop run from London to Edinburgh, the first locomotive to do so, was a true milestone, not only in Britain’s technological history, but also, subsequently, its cultural history.”
+				<br>Make the purpose of the event “to show that our railway heritage is still appreciated by my generation”, and that “it can be celebrated through art.”
+				<br>Keep semi-thematic (Flying Scotsman, railways, York, industrial revolution, travel, or British culture and heritage)
+				<br>Use the “combined new hall and church” of the Southlands Methodist Church
+				<br>Aim sales at university students, residential area, railway enthusiasts, music enthusiasts, and anyone with creative spirit
+				<br>Get a journalist to come and do a review
 			</div>
 			--->
+			<!--- Instagram story: Graduation from @royalacademyofmusic! *graduation hat* /// I've had an amazing nine years here! Thanks to everyone I’ve met along the way, and wishing you all a fantastic summer! --->
+			<!--- Instagram story: To love and to cherish! Wedding and honeymoon photos *red heart* /// @ana_leonkovatch --->
 		</section>
 		<section class="contact" id="contact">
 			<h2>Contact</h2>
